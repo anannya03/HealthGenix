@@ -1,0 +1,32 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" tools:context=".ui.dashboard.tabfrag1">
+    <!-- TODO: Update blank fragment layout -->
+    <Button
+        android:id="@+id/water"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:layout_centerHorizontal="true"
+        android:drawableLeft="@mipmap/ic_water"
+        android:text="TRACK WATER" />
+    <Button
+        android:id="@+id/food"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/water"
+        android:drawableLeft="@mipmap/ic_food"
+        android:text="TRACK FOOD" />
+
+    <Button
+        android:id="@+id/calories"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/food"
+        android:layout_margin="20dp"
+        android:layout_centerHorizontal="true"
+        android:drawableLeft="@mipmap/ic_workout"
+        android:text="TRACK WORKOUT" />
+</RelativeLayout>

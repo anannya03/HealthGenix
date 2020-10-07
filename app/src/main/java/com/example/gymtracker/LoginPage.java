@@ -2,6 +2,7 @@ package com.example.gymtracker;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -18,7 +19,7 @@ public class LoginPage extends AppCompatActivity {
     public void enterDashboard(View view)
     {
         loginbutton=(Button)findViewById(R.id.loginbutton);
-        //Intent intent= new Intent(MainActivity.this, Dashboard.class);
-        //startActivity(intent);
+        Intent intent= new Intent(LoginPage.this, NavigationMainActivity.class);
+        startActivity(intent);
     }
 }
