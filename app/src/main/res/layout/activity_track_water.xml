@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="15dp"
+    tools:context=".ui.dashboard.TrackWater">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginBottom="28dp"
+        android:src="@mipmap/ic_water"
+        app:layout_constraintBottom_toTopOf="@+id/date"
+        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintLeft_toRightOf="parent"
+        app:layout_constraintRight_toLeftOf="parent" />
+
+    <EditText
+        android:id="@+id/date"
+        android:layout_width="287dp"
+        android:layout_height="39dp"
+        android:layout_gravity="center_horizontal"
+        android:clickable="true"
+        android:focusable="false"
+        android:hint="Enter date"
+        android:inputType="date"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintLeft_toRightOf="parent"
+        app:layout_constraintRight_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="parent"
+        app:layout_constraintVertical_bias="0.738" />
+
+    <TextView
+        android:id="@+id/enter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="ENTER NUMBER OF GLASSES OF WATER"
+        android:textColor="@android:color/black"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="@+id/date"
+        app:layout_constraintTop_toBottomOf="@+id/date" />
+
+    <EditText
+        android:id="@+id/wateredittext"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginRight="80dp"
+        android:text="0"
+        app:layout_constraintEnd_toEndOf="@+id/enter"
+        app:layout_constraintLeft_toRightOf="@+id/enter"
+        app:layout_constraintRight_toLeftOf="@+id/enter"
+        app:layout_constraintTop_toBottomOf="@+id/enter" />
+
+    <Button
+        android:id="@+id/plusbutton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="4dp"
+        android:onClick="increase"
+        android:text="+"
+        android:textSize="30sp"
+        app:layout_constraintLeft_toRightOf="@id/wateredittext"
+        app:layout_constraintTop_toBottomOf="@+id/enter" />
+
+    <Button
+        android:id="@+id/minusbutton"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="4dp"
+        android:onClick="decrease"
+        android:text="-"
+        android:textSize="30sp"
+        app:layout_constraintRight_toLeftOf="@id/wateredittext"
+        app:layout_constraintTop_toBottomOf="@+id/enter" />
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="96dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintEnd_toEndOf="@+id/wateredittext"
+        app:layout_constraintTop_toBottomOf="@+id/wateredittext" />
+
+    <Button
+        android:id="@+id/trackwater"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@android:color/holo_blue_dark"
+        android:text="TRACK WATER"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="@+id/wateredittext"
+        app:layout_constraintTop_toBottomOf="@+id/wateredittext" />
+
+    <ImageView
+        android:id="@+id/soupimage"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="268dp"
+        android:layout_marginRight="268dp"
+        android:src="@mipmap/ic_vegsoup"
+        app:layout_constraintEnd_toEndOf="@+id/line"
+        app:layout_constraintTop_toBottomOf="@+id/line" />
+    <TextView
+        android:layout_width="180dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="52dp"
+        android:layout_marginTop="40dp"
+        android:text="TIP: To increase fluid intake enjoy a fewpieces of fruit everyday as well as some homemade vegetable soup!"
+        app:layout_constraintLeft_toRightOf="@+id/soupimage"
+        app:layout_constraintTop_toBottomOf="@+id/line" />
+</androidx.constraintlayout.widget.ConstraintLayout>
