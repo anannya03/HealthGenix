@@ -33,8 +33,14 @@ public class tabfrag1 extends Fragment {
                 startActivity(intent);
             }
         });
-
         food_track= (Button)view.findViewById(R.id.food);
+        food_track.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent(getActivity(), FoodTracker.class);
+                startActivity(intent);
+            }
+        });
         workout_track= (Button)view.findViewById(R.id.workout);
         workout_track.setOnClickListener(new View.OnClickListener() {
             @Override
