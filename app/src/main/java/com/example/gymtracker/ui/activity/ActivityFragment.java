@@ -15,8 +15,17 @@ import androidx.lifecycle.ViewModelProviders;
 import com.example.gymtracker.R;
 
 public class ActivityFragment extends Fragment {
+    
+    @Override
+    public void onCreate(Bundle savedInstanceState)
+    {
+        super.onCreate(savedInstanceState);
+        setRetainInstance(true);
+    }
 
     private ActivityViewModel activityViewModel;
+    
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         activityViewModel =
