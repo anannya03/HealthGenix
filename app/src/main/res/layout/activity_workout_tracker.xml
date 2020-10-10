@@ -42,7 +42,6 @@
         android:layout_gravity="center_vertical"
         android:layout_marginTop="8dp"
         app:layout_constraintLeft_toRightOf="parent"
-
         app:layout_constraintRight_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/chooseworkout" />
 
@@ -111,7 +110,7 @@
         android:layout_marginTop="20dp"
         android:background="@android:color/black"
         android:text="CALCULATE CALORIES"
-        android:textColor="@android:color/white"
+        android:textColor="@color/colorPrimaryDark"
         app:layout_constraintLeft_toRightOf="parent"
         app:layout_constraintRight_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bodyweight" />
@@ -146,9 +145,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:layout_marginRight="264dp"
-        android:background="@android:color/holo_red_light"
         android:text="RESET"
-        android:textColor="@android:color/white"
+        android:background="@android:color/black"
+        android:textColor="@color/colorPrimaryDark"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/totalcals" />
 
@@ -158,11 +157,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:layout_marginRight="44dp"
-        android:background="@android:color/holo_green_light"
         android:text="TRACK"
-        android:textColor="@android:color/white"
+        android:background="@android:color/black"
+        android:textColor="@color/colorPrimaryDark"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/totalcals" />
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,7 +14,7 @@
         android:layout_marginRight="5dp"
         android:layout_marginBottom="5dp"
         android:background="@mipmap/ic_water"
-        android:onClick="water"
+
         android:text="TRACK WATER"
         android:textSize="30sp" />
     <Button
