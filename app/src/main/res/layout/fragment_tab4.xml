@@ -1,15 +1,69 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" tools:context=".ui.dashboard.tabfrag4">
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.dashboard.tabfrag2">
 
-    <!-- TODO: Update blank fragment layout -->
+    <ImageView
+        android:id="@+id/applogo"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginBottom="340dp"
+        android:src="@mipmap/ic_gym_image"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.563"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="15dp"
-        android:layout_centerHorizontal="true"
+        android:id="@+id/select"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Want more information about the branches of HealthGenix? Select your city and branch below"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/applogo"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintVertical_bias="0.222" />
 
-        android:text="In tab 4" />
+    <Spinner
+        android:id="@+id/city"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="120dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintHorizontal_bias="0.251"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/select" />
 
-</RelativeLayout>
+    <Spinner
+        android:id="@+id/branch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="120dp"
+
+        android:layout_marginTop="24dp"
+        app:layout_constraintHorizontal_bias="0.251"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/city" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:text="GO!"
+        android:background="@android:color/black"
+        android:textColor="@color/colorPrimaryDark"
+        app:layout_constraintTop_toBottomOf="@id/branch" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
