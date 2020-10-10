@@ -39,6 +39,7 @@ public class DashboardFragment extends Fragment {
         tabLayout.addTab(tabLayout.newTab().setText("Tracker"));
         tabLayout.addTab(tabLayout.newTab().setText("Workout"));
         tabLayout.addTab(tabLayout.newTab().setText("Diet Plan"));
+        tabLayout.addTab(tabLayout.newTab().setText("Browse"));
 
         final PagerAdapter adapter = new TabPagerAdapter
                 (getChildFragmentManager(),
