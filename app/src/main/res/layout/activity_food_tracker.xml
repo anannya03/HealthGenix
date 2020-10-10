@@ -63,7 +63,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="right"
         android:layout_marginTop="44dp"
-        android:text="TIP: To increase fluid intake enjoy a fewpieces of fruit everyday as well as some homemade vegetable soup!"
+        android:text="TIP:If you are trying to lose weight, drink a glass of water 30 min before your actual meal. This will aid digestion and also reduce apetite"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintLeft_toRightOf="@+id/soupimage"
         app:layout_constraintRight_toRightOf="parent"
