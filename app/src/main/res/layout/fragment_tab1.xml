@@ -16,7 +16,7 @@
         android:layout_marginEnd="5dp"
         android:layout_marginRight="5dp"
         android:layout_marginBottom="5dp"
-        android:background="@mipmap/ic_water"
+        android:background="@drawable/water"
         android:text="TRACK WATER"
         android:textSize="30sp" />
     <Button
@@ -31,8 +31,9 @@
         android:layout_marginEnd="5dp"
         android:layout_marginRight="5dp"
         android:layout_marginBottom="5dp"
-        android:background="@mipmap/ic_food"
+        android:background="@drawable/food"
         android:text="TRACK FOOD"
+        android:textColor="@android:color/white"
         android:textSize="30sp" />
 
     <Button
@@ -48,7 +49,7 @@
         android:layout_marginEnd="5dp"
         android:layout_marginRight="5dp"
         android:layout_marginBottom="5dp"
-        android:background="@mipmap/ic_workout"
+        android:background="@drawable/gym"
         android:text="TRACK WORKOUT"
         android:textSize="30sp" />
 </RelativeLayout>

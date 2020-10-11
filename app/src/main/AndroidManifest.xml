@@ -9,26 +9,37 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.settings.TermsOfUse"
-            android:parentActivityName=".NavigationMainActivity">
-            </activity>
-        <activity android:name=".ui.settings.ResetPassword"
-            android:parentActivityName=".NavigationMainActivity">
-        </activity>
-        <activity android:name=".ui.settings.PaymentDetails"
-            android:parentActivityName=".NavigationMainActivity">
-        </activity>
-        <activity android:name=".ui.settings.LogOut"
-            android:parentActivityName=".NavigationMainActivity">
-        </activity>
-        <activity android:name=".ui.settings.ContactUsInstagram"  android:parentActivityName=".NavigationMainActivity">
-        </activity>
-        <activity android:name=".ui.settings.Contact"
-            android:parentActivityName=".NavigationMainActivity">
-        </activity>
-        <activity android:name=".ui.settings.AboutThisVersion"
-            android:parentActivityName=".NavigationMainActivity">
-        </activity>
+        <activity android:name=".Welcome"></activity>
+        <activity android:name=".Processing" />
+        <activity android:name=".LogIn" />
+        <activity android:name=".JoinUs" />
+        <activity android:name=".GoalLogin" />
+        <activity android:name=".Goal" />
+        <activity android:name=".GetStartedLog" />
+        <activity android:name=".GetStartedJoin" />
+        <activity android:name=".Gender" />
+        <activity android:name=".ForgottenPassword" />
+        <activity
+            android:name=".ui.settings.TermsOfUse"
+            android:parentActivityName=".NavigationMainActivity" />
+        <activity
+            android:name=".ui.settings.ResetPassword"
+            android:parentActivityName=".NavigationMainActivity" />
+        <activity
+            android:name=".ui.settings.PaymentDetails"
+            android:parentActivityName=".NavigationMainActivity" />
+        <activity
+            android:name=".ui.settings.LogOut"
+            android:parentActivityName=".NavigationMainActivity" />
+        <activity
+            android:name=".ui.settings.ContactUsInstagram"
+            android:parentActivityName=".NavigationMainActivity" />
+        <activity
+            android:name=".ui.settings.Contact"
+            android:parentActivityName=".NavigationMainActivity" />
+        <activity
+            android:name=".ui.settings.AboutThisVersion"
+            android:parentActivityName=".NavigationMainActivity" />
         <activity
             android:name=".ui.dashboard.HomeWorkout"
             android:parentActivityName=".NavigationMainActivity" />
@@ -45,10 +56,9 @@
             android:name=".NavigationMainActivity"
             android:label="DASHBOARD"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".LoginPage">
+        <activity android:name=".Main_Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
