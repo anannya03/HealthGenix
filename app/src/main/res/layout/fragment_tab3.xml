@@ -6,6 +6,11 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="In tab 2" />
+        android:textColor="@android:color/black"
+        android:textSize="30sp"
+        android:gravity="center"
+        android:layout_centerInParent="true"
+        android:text="Depending on your BMI, a Diet Plan will be curated for you!!"
+        />
 
 </RelativeLayout>
