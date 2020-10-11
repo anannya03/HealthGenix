@@ -1,7 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
+    android:background="@android:color/white"
     android:layout_margin="15sp"
     tools:context=".ui.dashboard.tabfrag1">
     <!-- TODO: Update blank fragment layout -->
@@ -16,9 +16,7 @@
         android:layout_marginEnd="5dp"
         android:layout_marginRight="5dp"
         android:layout_marginBottom="5dp"
-        android:drawableLeft="@mipmap/ic_water"
-        android:background="@android:color/black"
-        android:textColor="@color/colorPrimaryDark"
+        android:background="@mipmap/ic_water"
         android:text="TRACK WATER"
         android:textSize="30sp" />
     <Button
@@ -33,9 +31,7 @@
         android:layout_marginEnd="5dp"
         android:layout_marginRight="5dp"
         android:layout_marginBottom="5dp"
-        android:drawableLeft="@mipmap/ic_food"
-        android:background="@android:color/black"
-        android:textColor="@color/colorPrimaryDark"
+        android:background="@mipmap/ic_food"
         android:text="TRACK FOOD"
         android:textSize="30sp" />
 
@@ -49,13 +45,10 @@
         android:layout_marginStart="5dp"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="7dp"
-        android:layout_marginRight="7dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
         android:layout_marginBottom="5dp"
-        android:drawableLeft="@mipmap/ic_workout"
-        android:background="@android:color/black"
-        android:textColor="@color/colorPrimaryDark"
-
+        android:background="@mipmap/ic_workout"
         android:text="TRACK WORKOUT"
         android:textSize="30sp" />
 </RelativeLayout>
