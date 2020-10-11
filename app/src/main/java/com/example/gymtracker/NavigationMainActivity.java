@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.Menu;
 
+import com.example.gymtracker.R;
 import com.google.android.material.navigation.NavigationView;
 import androidx.annotation.NonNull;
 import androidx.core.view.GravityCompat;
