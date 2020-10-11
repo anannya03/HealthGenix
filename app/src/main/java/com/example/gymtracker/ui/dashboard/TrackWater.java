@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.gymtracker.R;
 
@@ -18,7 +19,7 @@ import java.util.Calendar;
 public class TrackWater extends AppCompatActivity {
     EditText eText;
     EditText water;
-    Button plus, minus;
+    Button plus, minus, track;
     int water_tracked;
     DatePickerDialog picker;
     @Override
@@ -32,6 +33,7 @@ public class TrackWater extends AppCompatActivity {
         water_tracked=Integer.parseInt(water.getText().toString());
         plus= (Button)findViewById(R.id.plusbutton);
         minus= (Button)findViewById(R.id.minusbutton);
+        track= (Button)findViewById(R.id.trackwater);
         final Calendar myCalendar = Calendar.getInstance();
         eText= (EditText) findViewById(R.id.date);
         eText.setInputType(InputType.TYPE_NULL);
@@ -53,7 +55,14 @@ public class TrackWater extends AppCompatActivity {
                 picker.getDatePicker().setMaxDate(System.currentTimeMillis());
                 picker.show();
             }
-        });  }
+        });
+        track.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplicationContext(), "Water tracked succesfully!!", Toast.LENGTH_LONG).show();
+            }
+        });
+    }
     public void increase(View view)
     {
         water_tracked++;
