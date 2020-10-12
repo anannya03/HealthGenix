@@ -21,36 +21,47 @@
         <activity android:name=".ForgottenPassword" />
         <activity
             android:name=".ui.settings.TermsOfUse"
+            android:label="TERMS OF USE"
             android:parentActivityName=".NavigationMainActivity" />
         <activity
             android:name=".ui.settings.ResetPassword"
+            android:label="RESET PASSWORD"
             android:parentActivityName=".NavigationMainActivity" />
         <activity
             android:name=".ui.settings.PaymentDetails"
+            android:label="CHANGE PAYMENT DETAILS"
             android:parentActivityName=".NavigationMainActivity" />
         <activity
             android:name=".ui.settings.LogOut"
+            android:label="LOGOUT"
             android:parentActivityName=".NavigationMainActivity" />
         <activity
             android:name=".ui.settings.ContactUsInstagram"
+            android:label="CONTACT US"
             android:parentActivityName=".NavigationMainActivity" />
         <activity
             android:name=".ui.settings.Contact"
+            android:label="CHANGE DETAILS"
             android:parentActivityName=".NavigationMainActivity" />
         <activity
             android:name=".ui.settings.AboutThisVersion"
+            android:label="SETTINGS"
             android:parentActivityName=".NavigationMainActivity" />
         <activity
             android:name=".ui.dashboard.HomeWorkout"
+            android:label="HOME WORKOUTS"
             android:parentActivityName=".NavigationMainActivity" />
         <activity
             android:name=".ui.dashboard.FoodTracker"
+            android:label="FOOD TRACKER"
             android:parentActivityName=".NavigationMainActivity" />
         <activity
             android:name=".ui.dashboard.WorkoutTracker"
+            android:label="WORKOUT TRACKER"
             android:parentActivityName=".NavigationMainActivity" />
         <activity
             android:name=".ui.dashboard.TrackWater"
+            android:label="WATER TRACKER"
             android:parentActivityName=".NavigationMainActivity" />
         <activity
             android:name=".NavigationMainActivity"
