@@ -16,6 +16,22 @@ public class User {
         this.email=email;
         this.pwd=pwd;
     }
+    public long getUser_id()
+    {
+        return(user_id);
+    }
+    public void setUser_id(long user_id)
+    {
+        this.user_id=user_id;
+    }
+    public long getGym_id()
+    {
+        return(gym_id);
+    }
+    public void setGym_id(long gym_id)
+    {
+        this.gym_id=gym_id;
+    }
     public String getFname()
     {
         return(fname);
