@@ -137,9 +137,4 @@ public class User {
         this.mem_end=mem_end;
     }
 
-
-
-
-
-
 }
