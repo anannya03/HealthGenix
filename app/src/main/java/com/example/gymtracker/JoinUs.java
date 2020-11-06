@@ -14,8 +14,11 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import java.sql.Date;
 import java.util.Calendar;
+import com.example.gymtracker.db_classes.User;
+import com.example.gymtracker.db_classes.User_dbhelper;
+
 
 public class JoinUs extends AppCompatActivity {
     EditText firstName;
@@ -26,26 +29,16 @@ public class JoinUs extends AppCompatActivity {
     EditText editText;
     Button joinUs;
     TextView logIn;
-
-
+    String fname, lname, pwd, email_id;
+    Date dob;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_join_us);
-        joinUs = (Button) findViewById(R.id.joinUs);
-        joinUs.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                checkDataEntered();
-
-            }
-        });
-
         firstName = findViewById(R.id.editTextFirstName);
         lastName = findViewById(R.id.editTextTextLastName);
         password = findViewById(R.id.editTextTextPassword);
         email = findViewById(R.id.editTextTextEmailAddress);
-
         logIn = findViewById(R.id.logInTextView);
         logIn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,7 +70,26 @@ public class JoinUs extends AppCompatActivity {
                 picker.show();
             }
         });
+        joinUs = (Button) findViewById(R.id.joinUs);
+        joinUs.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                checkDataEntered();
+                fname=firstName.getText().toString();
+                lname=lastName.getText().toString();
+                email_id=email.getText().toString();
+                pwd=password.getText().toString();
+                User user= new User();
+                user.setFname(fname);
+                user.setLname(lname);
+                user.setEmail(email_id);
+                user.setPwd(pwd);
+                User_dbhelper db=new User_dbhelper(getApplicationContext());
+                db.createUser(user);
 
+                openJoinUs();
+            }
+        });
     }
 
     private void openLogIn() {
@@ -105,7 +117,6 @@ public class JoinUs extends AppCompatActivity {
             Toast t = Toast.makeText(this, "You must enter first name to register!", Toast.LENGTH_SHORT);
             t.show();
         }
-
         if (isEmpty(lastName)) {
             lastName.setError("Last name is required!");
         }
@@ -121,9 +132,8 @@ public class JoinUs extends AppCompatActivity {
             if(password.getText().toString().length() < 9) {
                 password.setError("Minimum 8 characters");
             }
-            openJoinUs();
+
         }
-
-
+        
     }
 }
