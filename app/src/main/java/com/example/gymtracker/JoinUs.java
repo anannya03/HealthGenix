@@ -30,6 +30,7 @@ public class JoinUs extends AppCompatActivity {
     Button joinUs;
     TextView logIn;
     String fname, lname, pwd, email_id;
+    int age;
     Date dob;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,19 +80,33 @@ public class JoinUs extends AppCompatActivity {
                 lname=lastName.getText().toString();
                 email_id=email.getText().toString();
                 pwd=password.getText().toString();
+                long millis=System.currentTimeMillis();
+                java.sql.Date today=new java.sql.Date(millis);
+                int dob_year= picker.getDatePicker().getYear();
+                int curr_year= today.getYear();
+                int dob_month= picker.getDatePicker().getMonth();
+                int curr_month= today.getMonth();
+                if(curr_month<dob_month)
+                {
+                    age= curr_year-dob_year-1;
+                }
+                else
+                {
+                    age= curr_year-dob_year;
+                }
+                Toast.makeText(getApplicationContext(), ""+today, Toast.LENGTH_LONG).show();
                 User user= new User();
                 user.setFname(fname);
                 user.setLname(lname);
                 user.setEmail(email_id);
                 user.setPwd(pwd);
+                user.setAge(age);
                 User_dbhelper db=new User_dbhelper(getApplicationContext());
                 db.createUser(user);
-
                 openJoinUs();
             }
         });
     }
-
     private void openLogIn() {
         Intent intent = new Intent(this, LogIn.class);
         startActivity(intent);
