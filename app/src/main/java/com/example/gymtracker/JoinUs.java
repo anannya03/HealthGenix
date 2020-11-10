@@ -80,21 +80,25 @@ public class JoinUs extends AppCompatActivity {
                 lname=lastName.getText().toString();
                 email_id=email.getText().toString();
                 pwd=password.getText().toString();
-                long millis=System.currentTimeMillis();
-                java.sql.Date today=new java.sql.Date(millis);
                 int dob_year= picker.getDatePicker().getYear();
-                int curr_year= today.getYear();
+                int dob_date= picker.getDatePicker().getDayOfMonth();
                 int dob_month= picker.getDatePicker().getMonth();
-                int curr_month= today.getMonth();
+                int curr_date= Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
+                int curr_year=Calendar.getInstance().get(Calendar.YEAR);
+                int curr_month= Calendar.getInstance().get(Calendar.MONTH);
+                age= curr_year-dob_year;
+                if(curr_month==dob_month)
+                {
+                    if(curr_date<dob_date)
+                    {
+                        age= age-1;
+                    }
+                }
                 if(curr_month<dob_month)
                 {
-                    age= curr_year-dob_year-1;
+                    age= age-1;
                 }
-                else
-                {
-                    age= curr_year-dob_year;
-                }
-                Toast.makeText(getApplicationContext(), ""+today, Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), ""+age, Toast.LENGTH_LONG).show();
                 User user= new User();
                 user.setFname(fname);
                 user.setLname(lname);
