@@ -98,7 +98,11 @@ public class JoinUs extends AppCompatActivity {
                 {
                     age= age-1;
                 }
-                Toast.makeText(getApplicationContext(), ""+age, Toast.LENGTH_LONG).show();
+                if(age<18)
+                {
+                    Toast.makeText(getApplicationContext(), "Children below 18 years of age cannot use this app", Toast.LENGTH_LONG).show();
+                    editText.setText("");
+                }
                 User user= new User();
                 user.setFname(fname);
                 user.setLname(lname);
