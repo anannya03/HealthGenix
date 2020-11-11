@@ -2,6 +2,7 @@ package com.example.gymtracker.db_classes;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import com.example.gymtracker.db_classes.User;
@@ -42,5 +43,21 @@ public class User_dbhelper extends SQLiteOpenHelper {
         contentValues.put("Age", user.getAge());
         db.insert("User", null, contentValues);
         return(true);
+    }
+    public boolean userExist(String emailid)
+    {
+        SQLiteDatabase db=this.getReadableDatabase();
+        Cursor res= db.rawQuery("Select user_id from User where email= ?", new String[]{emailid});
+        res.moveToFirst();
+        int count=0;
+        while(res.isAfterLast()==false)
+        {
+            count++;
+        }
+        if(count>0)
+        {
+            return(true);
+        }
+        return(false);
     }
 }

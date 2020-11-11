@@ -103,15 +103,22 @@ public class JoinUs extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Children below 18 years of age cannot use this app", Toast.LENGTH_LONG).show();
                     editText.setText("");
                 }
-                User user= new User();
-                user.setFname(fname);
-                user.setLname(lname);
-                user.setEmail(email_id);
-                user.setPwd(pwd);
-                user.setAge(age);
                 User_dbhelper db=new User_dbhelper(getApplicationContext());
-                db.createUser(user);
-                openJoinUs();
+                if(db.userExist(email_id)==true)
+                {
+                    Toast.makeText(getApplicationContext(),"Email ID already exists enter another email id", Toast.LENGTH_LONG).show();
+                    email.setText("");
+                }
+                else {
+                    User user = new User();
+                    user.setFname(fname);
+                    user.setLname(lname);
+                    user.setEmail(email_id);
+                    user.setPwd(pwd);
+                    user.setAge(age);
+                    db.createUser(user);
+                    openJoinUs();
+                }
             }
         });
     }
