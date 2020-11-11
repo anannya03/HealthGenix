@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import com.example.gymtracker.db_classes.User;
 
@@ -14,7 +15,7 @@ import java.util.Random;
 
 public class User_dbhelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME="HealthGenix.db";
-    public static final int DATABASE_VERSION=1;
+    public static final int DATABASE_VERSION=3;
     public long user_id;
     public User_dbhelper(Context context)
     {
@@ -22,7 +23,7 @@ public class User_dbhelper extends SQLiteOpenHelper {
     }
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table Users (user_id integer, fname text, lname text, email text, pwd text, age integer, gender char, phno text, weight decimal, height decimal, bmi decimal, mem_start date, mem_end date, gym_id integer, primary key(user_id, email))");
+        db.execSQL("create table Users (user_id integer, fname text, lname text, email text, pwd text, age integer, gender char, phno text, weight decimal, height decimal, bmi decimal, mem_start date, mem_end date, gym_id integer, primary key(email))");
     }
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
@@ -31,7 +32,6 @@ public class User_dbhelper extends SQLiteOpenHelper {
     }
     public boolean createUser(User user)
     {
-
         SQLiteDatabase db=this.getWritableDatabase();
         ContentValues contentValues= new ContentValues();
         Random rnd = new Random();
@@ -43,25 +43,16 @@ public class User_dbhelper extends SQLiteOpenHelper {
         contentValues.put("email", user.getEmail());
         contentValues.put("Pwd",user.getPwd());
         contentValues.put("Age", user.getAge());
-        try {
-            db.insert("User", null, contentValues);
-        }catch(Exception e)
-        {
-            return(false);
-        }
+
+            db.insert("Users", null, contentValues);
+            db.close();
         return(true);
     }
     public boolean userExist(String emailid)
     {
         SQLiteDatabase db=this.getReadableDatabase();
-        Cursor res= db.rawQuery("Select user_id from User where email= ?", new String[]{emailid});
-        res.moveToFirst();
-        int count=0;
-        while(res.isAfterLast()==false)
-        {
-            count++;
-        }
-        if(count>0)
+        Cursor res= db.rawQuery("Select * from Users where email= ?", new String[]{emailid});
+        if(res.getCount()>0)
         {
             return(true);
         }

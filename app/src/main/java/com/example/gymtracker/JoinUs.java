@@ -1,10 +1,11 @@
 package com.example.gymtracker;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteException;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -22,8 +23,6 @@ import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.Calendar;
 import com.example.gymtracker.db_classes.User;
 import com.example.gymtracker.db_classes.User_dbhelper;
-
-
 public class JoinUs extends AppCompatActivity {
     EditText firstName;
     EditText lastName;
@@ -36,12 +35,9 @@ public class JoinUs extends AppCompatActivity {
     String fname, lname, pwd, email_id;
     User user;
     int age;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_join_us);
         firstName = findViewById(R.id.editTextFirstName);
         lastName = findViewById(R.id.editTextTextLastName);
@@ -54,14 +50,11 @@ public class JoinUs extends AppCompatActivity {
                 openLogIn();
             }
         });
-
         editText = (EditText) findViewById(R.id.editTextTextBirthDate);
         editText.setInputType(InputType.TYPE_NULL);
-
         editText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 final Calendar cldr = Calendar.getInstance();
                 int day = cldr.get(Calendar.DAY_OF_MONTH);
                 int month = cldr.get(Calendar.MONTH);
@@ -82,61 +75,60 @@ public class JoinUs extends AppCompatActivity {
         joinUs.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                checkDataEntered();
-                fname=firstName.getText().toString();
-                lname=lastName.getText().toString();
-                email_id=email.getText().toString();
-                pwd=password.getText().toString();
-                int dob_year= picker.getDatePicker().getYear();
-                int dob_date= picker.getDatePicker().getDayOfMonth();
-                int dob_month= picker.getDatePicker().getMonth();
-                int curr_date= Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
-                int curr_year=Calendar.getInstance().get(Calendar.YEAR);
-                int curr_month= Calendar.getInstance().get(Calendar.MONTH);
-                age= curr_year-dob_year;
-                if(curr_month==dob_month)
-                {
-                    if(curr_date<dob_date)
-                    {
-                        age= age-1;
+                if(checkDataEntered()==true) {
+                    fname = firstName.getText().toString();
+                    lname = lastName.getText().toString();
+                    email_id = email.getText().toString();
+                    pwd = password.getText().toString();
+                    int dob_year = picker.getDatePicker().getYear();
+                    int dob_date = picker.getDatePicker().getDayOfMonth();
+                    int dob_month = picker.getDatePicker().getMonth();
+                    int curr_date = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
+                    int curr_year = Calendar.getInstance().get(Calendar.YEAR);
+                    int curr_month = Calendar.getInstance().get(Calendar.MONTH);
+                    age = curr_year - dob_year;
+                    if (curr_month == dob_month) {
+                        if (curr_date < dob_date) {
+                            age = age - 1;
+                        }
+                    }
+                    if (curr_month < dob_month) {
+                        age = age - 1;
+                    }
+                    if (age < 18) {
+                        Toast.makeText(getApplicationContext(), "Children below 18 years of age cannot use this app", Toast.LENGTH_LONG).show();
+                        editText.setText("");
+                    } else {
+                        User_dbhelper db = new User_dbhelper(getApplicationContext());
+                        if (db.userExist(email_id)) {
+
+                            Toast.makeText(getApplicationContext(), "Email id already exists", Toast.LENGTH_LONG).show();
+                            email.setText("");
+
+                        } else {
+                            user = new User();
+                            user.setFname(fname);
+                            user.setLname(lname);
+                            user.setEmail(email_id);
+                            user.setPwd(pwd);
+                            user.setAge(age);
+                            db.createUser(user);
+                            openJoinUs();
+                        }
                     }
                 }
-                if(curr_month<dob_month)
-                {
-                    age= age-1;
-                }
-                if(age<18)
-                {
-                    Toast.makeText(getApplicationContext(), "Children below 18 years of age cannot use this app", Toast.LENGTH_LONG).show();
-                    editText.setText("");
-                }
-                User_dbhelper db= new User_dbhelper(getApplicationContext());
-                user = new User();
-                user.setFname(fname);
-                user.setLname(lname);
-                user.setEmail(email_id);
-                user.setPwd(pwd);
-                user.setAge(age);
-                if(db.createUser(user)==false)
-                    {
-                        Toast.makeText(getApplicationContext(),"Email ID already exists enter another email id", Toast.LENGTH_LONG).show();
-                        email.setText("");
-                    }
-                else {
-                    openJoinUs();
-                }
-                }    });
+            }});
+
+
     }
     private void openLogIn() {
         Intent intent = new Intent(this, LogIn.class);
         startActivity(intent);
     }
-
     private void openJoinUs() {
         Intent intent = new Intent(this, GetStartedJoin.class);
         startActivity(intent);
     }
-
     boolean isEmail(EditText text) {
         CharSequence email = text.getText().toString();
         return (!TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches());
@@ -147,28 +139,31 @@ public class JoinUs extends AppCompatActivity {
         return TextUtils.isEmpty(str);
     }
 
-    void checkDataEntered() {
+    public boolean checkDataEntered() {
         if (isEmpty(firstName)) {
             Toast t = Toast.makeText(this, "You must enter first name to register!", Toast.LENGTH_SHORT);
             t.show();
+            return(false);
         }
-        if (isEmpty(lastName)) {
+        else if (isEmpty(lastName)) {
             lastName.setError("Last name is required!");
+            return(false);
         }
-
-        if (isEmail(email) == false) {
+        else if (isEmail(email) == false) {
             email.setError("Enter valid email!");
+            return(false);
         }
 
-        if(isEmpty(password)) {
+        else if(isEmpty(password)) {
             password.setError("Enter valid password");
+            return(false);
         }
-        else {
+        else{
             if(password.getText().toString().length() < 9) {
                 password.setError("Minimum 8 characters");
+                return(false);
             }
-
         }
-        
+        return(true);
     }
 }
