@@ -1,10 +1,13 @@
 package com.example.gymtracker;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.text.InputType;
 import android.text.TextUtils;
 import android.util.Patterns;
@@ -15,6 +18,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.sql.Date;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.Calendar;
 import com.example.gymtracker.db_classes.User;
 import com.example.gymtracker.db_classes.User_dbhelper;
@@ -30,11 +34,14 @@ public class JoinUs extends AppCompatActivity {
     Button joinUs;
     TextView logIn;
     String fname, lname, pwd, email_id;
+    User user;
     int age;
-    Date dob;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_join_us);
         firstName = findViewById(R.id.editTextFirstName);
         lastName = findViewById(R.id.editTextTextLastName);
@@ -103,24 +110,22 @@ public class JoinUs extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Children below 18 years of age cannot use this app", Toast.LENGTH_LONG).show();
                     editText.setText("");
                 }
-                User_dbhelper db=new User_dbhelper(getApplicationContext());
-                if(db.userExist(email_id)==true)
-                {
-                    Toast.makeText(getApplicationContext(),"Email ID already exists enter another email id", Toast.LENGTH_LONG).show();
-                    email.setText("");
-                }
+                User_dbhelper db= new User_dbhelper(getApplicationContext());
+                user = new User();
+                user.setFname(fname);
+                user.setLname(lname);
+                user.setEmail(email_id);
+                user.setPwd(pwd);
+                user.setAge(age);
+                if(db.createUser(user)==false)
+                    {
+                        Toast.makeText(getApplicationContext(),"Email ID already exists enter another email id", Toast.LENGTH_LONG).show();
+                        email.setText("");
+                    }
                 else {
-                    User user = new User();
-                    user.setFname(fname);
-                    user.setLname(lname);
-                    user.setEmail(email_id);
-                    user.setPwd(pwd);
-                    user.setAge(age);
-                    db.createUser(user);
                     openJoinUs();
                 }
-            }
-        });
+                }    });
     }
     private void openLogIn() {
         Intent intent = new Intent(this, LogIn.class);

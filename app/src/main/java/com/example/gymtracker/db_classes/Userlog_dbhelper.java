@@ -5,7 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class Userlog_dbhelper extends SQLiteOpenHelper {
-    public static final String DATABASE_NAME="GymTracker.db";
+    public static final String DATABASE_NAME="HealthGenix.db";
     public static final int DATABASE_VERSION=1;
     public int entry_id=301101;
     Userlog_dbhelper(Context context)
@@ -14,7 +14,7 @@ public class Userlog_dbhelper extends SQLiteOpenHelper {
     }
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table User_log"+"(entry_id integer primary key, user_id integer, date_tracked date, consumed_cal decimal,water_tracked integer, burnt_cal decimal)");
+        db.execSQL("create table User_log (entry_id integer primary key, user_id integer, date_tracked date, consumed_cal decimal,water_tracked integer, burnt_cal decimal)");
     }
 
     @Override

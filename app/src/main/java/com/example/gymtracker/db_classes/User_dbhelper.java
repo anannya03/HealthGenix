@@ -9,10 +9,11 @@ import com.example.gymtracker.db_classes.User;
 
 import androidx.annotation.Nullable;
 
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.Random;
 
 public class User_dbhelper extends SQLiteOpenHelper {
-    public static final String DATABASE_NAME="GymTracker.db";
+    public static final String DATABASE_NAME="HealthGenix.db";
     public static final int DATABASE_VERSION=1;
     public long user_id;
     public User_dbhelper(Context context)
@@ -21,15 +22,16 @@ public class User_dbhelper extends SQLiteOpenHelper {
     }
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table User"+"(user_id integer primary key, fname text, lname text, email text, pwd text, age integer, gender char, phno text, weight decimal, height decimal, bmi decimal, mem_start date, mem_end date, gym_id integer)");
+        db.execSQL("create table Users (user_id integer, fname text, lname text, email text, pwd text, age integer, gender char, phno text, weight decimal, height decimal, bmi decimal, mem_start date, mem_end date, gym_id integer, primary key(user_id, email))");
     }
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
-        db.execSQL("Drop table if exists User");
+        db.execSQL("Drop table if exists Users");
         onCreate(db);
     }
     public boolean createUser(User user)
     {
+
         SQLiteDatabase db=this.getWritableDatabase();
         ContentValues contentValues= new ContentValues();
         Random rnd = new Random();
@@ -41,7 +43,12 @@ public class User_dbhelper extends SQLiteOpenHelper {
         contentValues.put("email", user.getEmail());
         contentValues.put("Pwd",user.getPwd());
         contentValues.put("Age", user.getAge());
-        db.insert("User", null, contentValues);
+        try {
+            db.insert("User", null, contentValues);
+        }catch(Exception e)
+        {
+            return(false);
+        }
         return(true);
     }
     public boolean userExist(String emailid)
