@@ -11,6 +11,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.gymtracker.db_classes.User_dbhelper;
+
 public class Goal extends AppCompatActivity {
     Button fat;
     Button fit;
@@ -65,18 +67,28 @@ public class Goal extends AppCompatActivity {
 
     public void openLoseWeight(){
         Toast.makeText(this, "Your goal is to lose Weight", Toast.LENGTH_SHORT).show();
+        /*JoinUs.user.setFitness("Lose weight");
+        User_dbhelper db= new User_dbhelper(getApplicationContext());
+        db.enterFitnessGoal(JoinUs.user);*/
         Intent intent = new Intent(this, Processing.class);
         startActivity(intent);
     }
 
     public void openFit(){
         Toast.makeText(this, "Your goal is to get fitter", Toast.LENGTH_SHORT).show();
+       /* JoinUs.user.setFitness("Get Fitter");
+        User_dbhelper db= new User_dbhelper(getApplicationContext());
+        db.enterFitnessGoal(JoinUs.user); */
         Intent intent = new Intent(this, Processing.class);
         startActivity(intent);
     }
 
     public void openMuscle(){
         Toast.makeText(this, "Your goal is to gain muscles", Toast.LENGTH_SHORT).show();
+        /*
+        JoinUs.user.setFitness("Gain muscle");
+        User_dbhelper db= new User_dbhelper(getApplicationContext());
+        db.enterFitnessGoal(JoinUs.user); */
         Intent intent = new Intent(this, Processing.class);
         startActivity(intent);
     }

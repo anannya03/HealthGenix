@@ -11,6 +11,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.gymtracker.db_classes.User_dbhelper;
+import com.example.gymtracker.JoinUs;
 public class Gender extends AppCompatActivity {
     Button female;
     Button male;
@@ -52,16 +54,24 @@ public class Gender extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         return true;
     }
-
-
     public void openFemale(){
         Toast.makeText(this, "Female selected", Toast.LENGTH_SHORT).show();
+        /*
+        JoinUs.user.setGen('F');
+        User_dbhelper db= new User_dbhelper(getApplicationContext());
+        db.enterGender(JoinUs.user); */
         Intent intent = new Intent(this, Goal.class);
         startActivity(intent);
     }
 
     public void openMale(){
         Toast.makeText(this, "Male selected", Toast.LENGTH_SHORT).show();
+        /*
+        JoinUs.user.setGen('M');
+        User_dbhelper db= new User_dbhelper(getApplicationContext());
+        db.enterGender(JoinUs.user);
+
+         */
         Intent intent = new Intent(this, Goal.class);
         startActivity(intent);
     }

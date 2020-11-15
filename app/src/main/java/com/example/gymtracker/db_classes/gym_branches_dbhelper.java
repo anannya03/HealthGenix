@@ -4,7 +4,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 public class gym_branches_dbhelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME="HealthGenix.db";
-    public static final int DATABASE_VERSION=3;
+    public static final int DATABASE_VERSION=4;
     public int gym_id=201101;
 
     gym_branches_dbhelper(Context context)

@@ -12,10 +12,9 @@ import androidx.annotation.Nullable;
 
 import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.Random;
-
 public class User_dbhelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME="HealthGenix.db";
-    public static final int DATABASE_VERSION=3;
+    public static final int DATABASE_VERSION=5;
     public long user_id;
     public User_dbhelper(Context context)
     {
@@ -23,7 +22,7 @@ public class User_dbhelper extends SQLiteOpenHelper {
     }
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table Users (user_id integer, fname text, lname text, email text, pwd text, age integer, gender char, phno text, weight decimal, height decimal, bmi decimal, mem_start date, mem_end date, gym_id integer, primary key(email))");
+        db.execSQL("create table Users (user_id integer, fname text, lname text, email text not null, pwd text, age integer, gender text, phno text, weight decimal, height decimal, bmi decimal, mem_start date, mem_end date, gym_id integer, fitness_goal text primary key(email))");
     }
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
@@ -43,10 +42,26 @@ public class User_dbhelper extends SQLiteOpenHelper {
         contentValues.put("email", user.getEmail());
         contentValues.put("Pwd",user.getPwd());
         contentValues.put("Age", user.getAge());
-
             db.insert("Users", null, contentValues);
             db.close();
         return(true);
+    }
+    public boolean enterGender(User user)
+    {
+        SQLiteDatabase db= this.getWritableDatabase();
+        ContentValues contentValues= new ContentValues();
+        contentValues.put("gender", (byte) user.getGen());
+        db.insert("users", null, contentValues);
+        return(true);
+    }
+    public boolean enterFitnessGoal(User user)
+    {
+        SQLiteDatabase db= this.getWritableDatabase();
+        ContentValues contentValues= new ContentValues();
+        contentValues.put("fitness_goal", user.getFitness());
+        db.insert("users", null, contentValues);
+        return(true);
+
     }
     public boolean userExist(String emailid)
     {
@@ -58,4 +73,10 @@ public class User_dbhelper extends SQLiteOpenHelper {
         }
         return(false);
     }
+
+    public boolean passWordMatch(String pass, String emailid)
+    {
+        return(true);
+    }
+
 }

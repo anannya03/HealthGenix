@@ -119,7 +119,6 @@ public class JoinUs extends AppCompatActivity {
                 }
             }});
 
-
     }
     private void openLogIn() {
         Intent intent = new Intent(this, LogIn.class);
