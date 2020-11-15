@@ -16,8 +16,7 @@ import com.example.gymtracker.JoinUs;
 public class Gender extends AppCompatActivity {
     Button female;
     Button male;
-
-
+    String email;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,14 +28,15 @@ public class Gender extends AppCompatActivity {
                 openFemale();
             }
         });
-        male = (Button) findViewById(R.id.female);
+        male = (Button) findViewById(R.id.male);
         male.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 openMale();
             }
         });
-
+        Bundle bundle=getIntent().getExtras();
+        email= bundle.getString("email");
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
@@ -50,29 +50,23 @@ public class Gender extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
     public boolean onCreateOptionsMenu(Menu menu) {
         return true;
     }
     public void openFemale(){
         Toast.makeText(this, "Female selected", Toast.LENGTH_SHORT).show();
-        /*
-        JoinUs.user.setGen('F');
         User_dbhelper db= new User_dbhelper(getApplicationContext());
-        db.enterGender(JoinUs.user); */
+        db.enterGender("F", email);
         Intent intent = new Intent(this, Goal.class);
+        intent.putExtra("email", email);
         startActivity(intent);
     }
-
     public void openMale(){
         Toast.makeText(this, "Male selected", Toast.LENGTH_SHORT).show();
-        /*
-        JoinUs.user.setGen('M');
         User_dbhelper db= new User_dbhelper(getApplicationContext());
-        db.enterGender(JoinUs.user);
-
-         */
+        db.enterGender("M", email);
         Intent intent = new Intent(this, Goal.class);
+        intent.putExtra("email", email);
         startActivity(intent);
     }
 

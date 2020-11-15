@@ -126,6 +126,7 @@ public class JoinUs extends AppCompatActivity {
     }
     private void openJoinUs() {
         Intent intent = new Intent(this, GetStartedJoin.class);
+        intent.putExtra("email",email_id);
         startActivity(intent);
     }
     boolean isEmail(EditText text) {

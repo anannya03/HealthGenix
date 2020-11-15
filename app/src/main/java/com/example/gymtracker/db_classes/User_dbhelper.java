@@ -22,7 +22,7 @@ public class User_dbhelper extends SQLiteOpenHelper {
     }
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table Users (user_id integer, fname text, lname text, email text not null, pwd text, age integer, gender text, phno text, weight decimal, height decimal, bmi decimal, mem_start date, mem_end date, gym_id integer, fitness_goal text primary key(email))");
+        db.execSQL("create table Users(user_id integer, fname text, lname text, email text, pwd text, age integer, gender text, phno text, weight decimal, height decimal, bmi decimal, mem_start date, mem_end date, gym_id integer, fitness_goal text, primary key(email))");
     }
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
@@ -46,20 +46,18 @@ public class User_dbhelper extends SQLiteOpenHelper {
             db.close();
         return(true);
     }
-    public boolean enterGender(User user)
+    public boolean enterGender(String gen, String emailid)
     {
         SQLiteDatabase db= this.getWritableDatabase();
-        ContentValues contentValues= new ContentValues();
-        contentValues.put("gender", (byte) user.getGen());
-        db.insert("users", null, contentValues);
+        db.execSQL("Update Users set gender = ? where email=?", new String[]{gen,emailid});
         return(true);
     }
-    public boolean enterFitnessGoal(User user)
+    public boolean enterFitnessGoal(String fit_goal, String emailid)
     {
+
         SQLiteDatabase db= this.getWritableDatabase();
-        ContentValues contentValues= new ContentValues();
-        contentValues.put("fitness_goal", user.getFitness());
-        db.insert("users", null, contentValues);
+        db.execSQL("Update Users set fitness_goal = ? where email=?", new String[]{fit_goal,emailid});
+
         return(true);
 
     }

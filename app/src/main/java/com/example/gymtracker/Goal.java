@@ -17,10 +17,14 @@ public class Goal extends AppCompatActivity {
     Button fat;
     Button fit;
     Button muscle;
+    String email;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_goal);
+
+        Bundle bundle=getIntent().getExtras();
+        email= bundle.getString("email");
 
         fat = (Button) findViewById(R.id.loseWeight);
         fat.setOnClickListener(new View.OnClickListener(){
@@ -64,31 +68,25 @@ public class Goal extends AppCompatActivity {
         return true;
     }
 
-
     public void openLoseWeight(){
         Toast.makeText(this, "Your goal is to lose Weight", Toast.LENGTH_SHORT).show();
-        /*JoinUs.user.setFitness("Lose weight");
         User_dbhelper db= new User_dbhelper(getApplicationContext());
-        db.enterFitnessGoal(JoinUs.user);*/
+        db.enterFitnessGoal("Lose Weight", email);
         Intent intent = new Intent(this, Processing.class);
         startActivity(intent);
     }
-
     public void openFit(){
         Toast.makeText(this, "Your goal is to get fitter", Toast.LENGTH_SHORT).show();
-       /* JoinUs.user.setFitness("Get Fitter");
         User_dbhelper db= new User_dbhelper(getApplicationContext());
-        db.enterFitnessGoal(JoinUs.user); */
+        db.enterFitnessGoal("Get Fit", email);
+
         Intent intent = new Intent(this, Processing.class);
         startActivity(intent);
     }
-
     public void openMuscle(){
         Toast.makeText(this, "Your goal is to gain muscles", Toast.LENGTH_SHORT).show();
-        /*
-        JoinUs.user.setFitness("Gain muscle");
         User_dbhelper db= new User_dbhelper(getApplicationContext());
-        db.enterFitnessGoal(JoinUs.user); */
+        db.enterFitnessGoal("Gain Muscle", email);
         Intent intent = new Intent(this, Processing.class);
         startActivity(intent);
     }
