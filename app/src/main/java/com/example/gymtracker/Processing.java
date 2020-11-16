@@ -14,6 +14,7 @@ public class Processing extends AppCompatActivity {
     private Handler handler = new Handler();
     private android.widget.ImageView ImageView;
     private int progress;
+    String email;
 
 
     @Override
@@ -21,6 +22,8 @@ public class Processing extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_processing);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        Bundle bundle= getIntent().getExtras();
+        email= bundle.getString("email");
 
         new Thread(new Runnable() {
             public void run() {
@@ -43,6 +46,7 @@ public class Processing extends AppCompatActivity {
                 handler.post(new Runnable() {
                     public void run() {
                         Intent intent = new Intent(Processing.this, NavigationMainActivity.class);
+                        intent.putExtra("email", email);
                         startActivity(intent);
                     }
                 });

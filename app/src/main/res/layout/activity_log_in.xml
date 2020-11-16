@@ -38,7 +38,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextEmailAddress"
+        android:id="@+id/editTextEmailAddress"
         style="@style/Widget.AppCompat.EditText"
         android:layout_width="363dp"
         android:layout_height="40dp"
@@ -60,7 +60,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/editTextPassword"
         style="@style/Widget.AppCompat.EditText"
         android:layout_width="363dp"
         android:layout_height="40dp"
@@ -115,8 +115,8 @@
         android:id="@+id/logIn"
         android:layout_width="360dp"
         android:layout_height="43dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="140dp"
         android:background="@drawable/textbox"
         android:backgroundTint="#000000"
@@ -124,7 +124,7 @@
         android:textColor="#ffffff"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
 
     <TextView
         android:id="@+id/joinUsText"

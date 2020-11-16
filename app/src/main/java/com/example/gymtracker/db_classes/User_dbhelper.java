@@ -42,8 +42,8 @@ public class User_dbhelper extends SQLiteOpenHelper {
         contentValues.put("email", user.getEmail());
         contentValues.put("Pwd",user.getPwd());
         contentValues.put("Age", user.getAge());
-            db.insert("Users", null, contentValues);
-            db.close();
+        db.insert("Users", null, contentValues);
+        db.close();
         return(true);
     }
     public boolean enterGender(String gen, String emailid)
@@ -54,12 +54,9 @@ public class User_dbhelper extends SQLiteOpenHelper {
     }
     public boolean enterFitnessGoal(String fit_goal, String emailid)
     {
-
         SQLiteDatabase db= this.getWritableDatabase();
         db.execSQL("Update Users set fitness_goal = ? where email=?", new String[]{fit_goal,emailid});
-
         return(true);
-
     }
     public boolean userExist(String emailid)
     {
@@ -71,10 +68,20 @@ public class User_dbhelper extends SQLiteOpenHelper {
         }
         return(false);
     }
-
     public boolean passWordMatch(String pass, String emailid)
     {
-        return(true);
+        SQLiteDatabase db= this.getReadableDatabase();
+        Cursor res= db.rawQuery("Select pwd from Users where email=?", new String[]{emailid});
+        res.moveToFirst();
+        String dbpass= res.getString(0);
+        if(pass.equals(dbpass))
+        {
+            return(true);
+        }
+        else
+        {
+            return(false);
+        }
     }
 
 }

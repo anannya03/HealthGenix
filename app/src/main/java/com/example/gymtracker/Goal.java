@@ -72,7 +72,7 @@ public class Goal extends AppCompatActivity {
         Toast.makeText(this, "Your goal is to lose Weight", Toast.LENGTH_SHORT).show();
         User_dbhelper db= new User_dbhelper(getApplicationContext());
         db.enterFitnessGoal("Lose Weight", email);
-        Intent intent = new Intent(this, Processing.class);
+        Intent intent = new Intent(this, LogIn.class);
         startActivity(intent);
     }
     public void openFit(){
@@ -80,14 +80,14 @@ public class Goal extends AppCompatActivity {
         User_dbhelper db= new User_dbhelper(getApplicationContext());
         db.enterFitnessGoal("Get Fit", email);
 
-        Intent intent = new Intent(this, Processing.class);
+        Intent intent = new Intent(this, LogIn.class);
         startActivity(intent);
     }
     public void openMuscle(){
         Toast.makeText(this, "Your goal is to gain muscles", Toast.LENGTH_SHORT).show();
         User_dbhelper db= new User_dbhelper(getApplicationContext());
         db.enterFitnessGoal("Gain Muscle", email);
-        Intent intent = new Intent(this, Processing.class);
+        Intent intent = new Intent(this, LogIn.class);
         startActivity(intent);
     }
 }
