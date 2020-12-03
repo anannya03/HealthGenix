@@ -16,7 +16,9 @@ import android.widget.Toast;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.gymtracker.NavigationMainActivity;
 import com.example.gymtracker.R;
+import com.example.gymtracker.db_classes.User_dbhelper;
 
 import java.util.Calendar;
 import java.util.HashMap;
@@ -26,6 +28,7 @@ public class WorkoutTracker extends AppCompatActivity {
     TextView entertime, enterweight, cals, totalcals;
     EditText timeentry, bodyweight, date_edittext;
     DatePickerDialog picker;
+    String date_tracked;
     public static double workout_time, weight;
     public static double calories=0.0, total_calories=0.0, met=0.0;
     Button calculatecalories, resetbutton, trackbutton;
@@ -144,6 +147,14 @@ public class WorkoutTracker extends AppCompatActivity {
         trackbutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                int track_year = picker.getDatePicker().getYear();
+                int track_date = picker.getDatePicker().getDayOfMonth();
+                int track_month = picker.getDatePicker().getMonth();
+                date_tracked=""+track_year+"-"+track_month+"-"+track_date;
+                String emailid= NavigationMainActivity.login_email;
+                User_dbhelper user_dbhelper= new User_dbhelper(getApplicationContext());
+                double cal=user_dbhelper.enterCalories(emailid, date_tracked, total_calories);
+                Toast.makeText(getApplicationContext(), "You have burnt "+cal+ " calories on  "+date_tracked, Toast.LENGTH_LONG).show();
 
             }
         });

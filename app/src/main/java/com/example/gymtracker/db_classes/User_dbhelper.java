@@ -99,32 +99,55 @@ public class User_dbhelper extends SQLiteOpenHelper {
         }
         return(false);
     }
-    public int enterWater(String emailid, String track_date, int glasses)
-    {
-        int total_glasses, existing_glasses=0;
-        SQLiteDatabase db= this.getWritableDatabase();
-        if(entryExist(emailid, track_date))
-        {
-            Cursor res= db.rawQuery("Select water_tracked from UserLog where email_id=? and date_tracked=?", new String[]{emailid, track_date});
+    public int enterWater(String emailid, String track_date, int glasses) {
+        int total_glasses, existing_glasses = 0;
+        SQLiteDatabase db = this.getWritableDatabase();
+        if (entryExist(emailid, track_date)) {
+            Cursor res = db.rawQuery("Select water_tracked from UserLog where email_id=? and date_tracked=?", new String[]{emailid, track_date});
             res.moveToFirst();
-            existing_glasses= res.getInt(0);
-            total_glasses=existing_glasses+glasses;
-            db.execSQL("Update UserLog set water_tracked=? where email_id=? and date_tracked=?",new String[]{String.valueOf(total_glasses), emailid,track_date});
-            return(total_glasses);
-        }
-        else
-        {
-            ContentValues contentValues= new ContentValues();
+            existing_glasses = res.getInt(0);
+            total_glasses = existing_glasses + glasses;
+            db.execSQL("Update UserLog set water_tracked=? where email_id=? and date_tracked=?", new String[]{String.valueOf(total_glasses), emailid, track_date});
+            return (total_glasses);
+        } else {
+            ContentValues contentValues = new ContentValues();
             Random rnd = new Random();
             entry_id = rnd.nextInt(999999);
             contentValues.put("entry_id", entry_id);
             contentValues.put("email_id", emailid);
             contentValues.put("date_tracked", track_date);
-            contentValues.put("water_tracked",glasses);
+            contentValues.put("water_tracked", glasses);
             db.insert("UserLog", null, contentValues);
             db.close();
-            return(glasses);
+            return (glasses);
+        }
+    }
+        public double enterCalories(String emailid, String track_date, double cals)
+        {
+            double total_cals, existing_cals = 0;
+            SQLiteDatabase db = this.getWritableDatabase();
+            if (entryExist(emailid, track_date)) {
+                Cursor res = db.rawQuery("Select burnt_cal from UserLog where email_id=? and date_tracked=?", new String[]{emailid, track_date});
+                res.moveToFirst();
+                existing_cals = res.getInt(0);
+                total_cals = existing_cals + cals;
+                db.execSQL("Update UserLog set burnt_cal=? where email_id=? and date_tracked=?", new String[]{String.valueOf(total_cals), emailid, track_date});
+                return (total_cals);
+            } else {
+                ContentValues contentValues = new ContentValues();
+                Random rnd = new Random();
+                entry_id = rnd.nextInt(999999);
+                contentValues.put("entry_id", entry_id);
+                contentValues.put("email_id", emailid);
+                contentValues.put("date_tracked", track_date);
+                contentValues.put("burnt_cal", cals);
+                db.insert("UserLog", null, contentValues);
+                db.close();
+                return (cals);
+            }
+
+
         }
     }
 
-}
+
