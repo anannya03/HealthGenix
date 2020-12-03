@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Adapter;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
@@ -16,6 +17,7 @@ import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import com.example.gymtracker.NavigationMainActivity;
 import com.example.gymtracker.R;
 import com.google.android.material.tabs.TabLayout;
 
@@ -40,6 +42,7 @@ public class DashboardFragment extends Fragment {
         tabLayout.addTab(tabLayout.newTab().setText("Workout"));
         tabLayout.addTab(tabLayout.newTab().setText("Diet Plan"));
         tabLayout.addTab(tabLayout.newTab().setText("Browse"));
+
 
         final PagerAdapter adapter = new TabPagerAdapter
                 (getChildFragmentManager(),

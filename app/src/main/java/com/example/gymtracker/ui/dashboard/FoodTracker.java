@@ -17,7 +17,7 @@ public class FoodTracker extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_tracker);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         foodtracker=(TextView)findViewById(R.id.foodtracker);
         String linkText = "<a href='https://www.nutritionix.com/dashboard'>FOOD TRACKER</a>";
         foodtracker.setText(Html.fromHtml(linkText));

@@ -8,7 +8,11 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.Toast;
+
 import androidx.fragment.app.Fragment;
+
+import com.example.gymtracker.NavigationMainActivity;
 import com.example.gymtracker.R;
 
 public class tabfrag2 extends Fragment {
@@ -33,6 +37,7 @@ public class tabfrag2 extends Fragment {
                 Intent intent= new Intent(getActivity(), HomeWorkout.class);
                 startActivity(intent);            }
         });
+        Toast.makeText(getActivity().getApplicationContext(), ""+ NavigationMainActivity.login_email, Toast.LENGTH_LONG);
 
         return(view);
 

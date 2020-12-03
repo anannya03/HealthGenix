@@ -6,9 +6,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.gymtracker.NavigationMainActivity;
 import com.example.gymtracker.R;
 
 public class tabfrag1 extends Fragment {
@@ -23,6 +25,7 @@ public class tabfrag1 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+
         View view = inflater.inflate(R.layout.fragment_tab1, container, false);
         water_track= (Button)view.findViewById(R.id.water);
         water_track.setOnClickListener(new View.OnClickListener() {
@@ -49,6 +52,8 @@ public class tabfrag1 extends Fragment {
 
             }
         });
+        Toast.makeText(getActivity().getApplicationContext(), ""+ NavigationMainActivity.login_email, Toast.LENGTH_LONG);
+
         return(view);
     }
 

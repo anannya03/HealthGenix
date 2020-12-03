@@ -101,7 +101,6 @@ public class JoinUs extends AppCompatActivity {
                     } else {
                         User_dbhelper db = new User_dbhelper(getApplicationContext());
                         if (db.userExist(email_id)) {
-
                             Toast.makeText(getApplicationContext(), "Email id already exists", Toast.LENGTH_LONG).show();
                             email.setText("");
 
