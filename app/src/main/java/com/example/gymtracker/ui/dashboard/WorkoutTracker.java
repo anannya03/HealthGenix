@@ -1,5 +1,6 @@
 package com.example.gymtracker.ui.dashboard;
 import android.app.Activity;
+import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Adapter;
@@ -7,6 +8,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -16,12 +18,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.gymtracker.R;
 
+import java.util.Calendar;
 import java.util.HashMap;
 
 public class WorkoutTracker extends AppCompatActivity {
     Spinner spinnerworkout;
-    TextView chooseworkout, entertime, enterweight, cals, totalcals;
-    EditText timeentry, bodyweight;
+    TextView entertime, enterweight, cals, totalcals;
+    EditText timeentry, bodyweight, date_edittext;
+    DatePickerDialog picker;
     public static double workout_time, weight;
     public static double calories=0.0, total_calories=0.0, met=0.0;
     Button calculatecalories, resetbutton, trackbutton;
@@ -31,7 +35,7 @@ public class WorkoutTracker extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_workout_tracker);
-        chooseworkout=(TextView)findViewById(R.id.chooseworkout);
+
         entertime=(TextView)findViewById(R.id.entertime);
         enterweight=(TextView)findViewById(R.id.enterweight);
         timeentry=(EditText)findViewById(R.id.timeentry);
@@ -64,6 +68,26 @@ public class WorkoutTracker extends AppCompatActivity {
         met_vals.put("Standing – working on computer / reading / talking on phone", 1.8);
         met_vals.put("Dance workout-Zumba",8.8);
         met_vals.put("Dance workout- Aerobics", 2.5);
+        date_edittext=(EditText)findViewById(R.id.date);
+        date_edittext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Calendar cldr = Calendar.getInstance();
+                int day = cldr.get(Calendar.DAY_OF_MONTH);
+                int month = cldr.get(Calendar.MONTH);
+                int year = cldr.get(Calendar.YEAR);
+                // date picker dialog
+                picker = new DatePickerDialog(WorkoutTracker.this,
+                        new DatePickerDialog.OnDateSetListener() {
+                            @Override
+                            public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
+                                date_edittext.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
+                            }
+                        }, year, month, day);
+                picker.getDatePicker().setMaxDate(System.currentTimeMillis());
+                picker.show();
+            }
+        });
         ArrayAdapter myAdapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_dropdown_item_1line, exercise);
         spinnerworkout.setSelection(0);
@@ -115,6 +139,12 @@ public class WorkoutTracker extends AppCompatActivity {
                 calories=0;
                 cals.setText("");
                 totalcals.setText("");
+            }
+        });
+        trackbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
             }
         });
     }
