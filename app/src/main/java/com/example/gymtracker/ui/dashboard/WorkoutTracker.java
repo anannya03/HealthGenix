@@ -31,8 +31,6 @@ public class WorkoutTracker extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_workout_tracker);
-        ActionBar actionBar=this.getSupportActionBar();
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         chooseworkout=(TextView)findViewById(R.id.chooseworkout);
         entertime=(TextView)findViewById(R.id.entertime);
         enterweight=(TextView)findViewById(R.id.enterweight);
@@ -85,7 +83,6 @@ public class WorkoutTracker extends AppCompatActivity {
         calculatecalories.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 try {
                     workout_time = Double.parseDouble(timeentry.getText().toString());
 

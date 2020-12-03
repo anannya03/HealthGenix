@@ -30,9 +30,6 @@ public class TrackWater extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_track_water);
-        ActionBar actionBar= this.getSupportActionBar();
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
         water= (EditText)findViewById(R.id.wateredittext);
         water_tracked=Integer.parseInt(water.getText().toString());
         plus= (Button)findViewById(R.id.plusbutton);

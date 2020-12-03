@@ -54,15 +54,15 @@
         <activity
             android:name=".ui.dashboard.FoodTracker"
             android:label="FOOD TRACKER"
-            android:parentActivityName=".NavigationMainActivity" />
+             />
         <activity
             android:name=".ui.dashboard.WorkoutTracker"
             android:label="WORKOUT TRACKER"
-            android:parentActivityName=".NavigationMainActivity" />
+             />
         <activity
             android:name=".ui.dashboard.TrackWater"
             android:label="WATER TRACKER"
-            android:parentActivityName=".NavigationMainActivity" />
+            />
         <activity
             android:name=".NavigationMainActivity"
             android:label="DASHBOARD"
