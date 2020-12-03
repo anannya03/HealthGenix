@@ -59,10 +59,8 @@ public class LogIn extends AppCompatActivity {
                         }
                     }
                 }
-
             }
         });
-
         joinUs = (TextView) findViewById(R.id.joinUsText);
         joinUs.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,7 +68,6 @@ public class LogIn extends AppCompatActivity {
                 openJoinUs();
             }
         });
-
         forgotPassword = (TextView) findViewById(R.id.forgotPassword);
         forgotPassword.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,21 +80,17 @@ public class LogIn extends AppCompatActivity {
         CharSequence str = text.getText().toString();
         return TextUtils.isEmpty(str);
     }
-
     private void openForgotPassword() {
         Intent intent = new Intent(this, ForgottenPassword.class);
         startActivity(intent);
     }
-
     private void openJoinUs() {
         Intent intent = new Intent(this, JoinUs.class);
         startActivity(intent);
     }
-
     private void openLogIn() {
         Intent intent = new Intent(this, Processing.class);
         intent.putExtra("email", email_text);
         startActivity(intent);
-
     }
 }

@@ -75,7 +75,6 @@ public class WorkoutTracker extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 workout_type = exercise[i];
                 met= met_vals.get(exercise[i]);
-
             }
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {

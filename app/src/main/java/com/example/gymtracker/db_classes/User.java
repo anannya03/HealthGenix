@@ -9,13 +9,6 @@ public class User {
     Date mem_start, mem_end;
     char gen;
     public User(){}
-    public User(String fname, String lname, String email, String pwd)
-    {
-        this.fname =fname;
-        this.lname=lname;
-        this.email=email;
-        this.pwd=pwd;
-    }
     public long getUser_id()
     {
         return(user_id);

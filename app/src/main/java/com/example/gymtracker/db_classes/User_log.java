@@ -1,7 +1,8 @@
 package com.example.gymtracker.db_classes;
 import java.sql.Date;
 public class User_log {
-    int entry_id, user_id;
+    int entry_id;
+    String email_id;
     Date date;
     double consumed_cal, burnt_cal;
     int water_tracked;
@@ -10,17 +11,13 @@ public class User_log {
     User_log(int entry_id, int user_id, Date date)
     {
         this.entry_id=entry_id;
-        this.user_id=user_id;
         this.date=date;
     }
     public int getEntry_id()
     {
         return(entry_id);
     }
-    public  int getUser_id()
-    {
-        return(user_id);
-    }
+    public String getEmail_id(){return email_id;}
     public int getWater_tracked()
     {
         return(water_tracked);
@@ -41,9 +38,8 @@ public class User_log {
     {
         this.entry_id=entry_id;
     }
-    public void setUser_id(int user_id)
-    {
-        this.user_id=user_id;
+    public void setEmail_id(String email_id){
+        this.email_id= email_id;
     }
     public void setDate(Date date)
     {
