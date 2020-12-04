@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.gymtracker">
 
     <application
@@ -10,102 +9,63 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Welcome">
-            android:windowSoftInputMode="adjustResize|stateHidden"
-        </activity>
-        <activity android:name=".Processing">
-            android:windowSoftInputMode="adjustPan"
-        </activity>
-        <activity android:name=".LogIn">
-            android:windowSoftInputMode="adjustResize|stateHidden"
-        </activity>
-        <activity android:name=".JoinUs" >
-            android:windowSoftInputMode="adjustResize|stateHidden"
-        </activity>
-        <activity android:name=".GoalLogin" >
-            android:windowSoftInputMode="adjustPan"
-        </activity>
-        <activity android:name=".Goal" >
-            android:windowSoftInputMode="adjustPan"
-        </activity>
-        <activity android:name=".GetStartedLog" >
-            android:windowSoftInputMode="adjustPan"
-        </activity>
-        <activity android:name=".GetStartedJoin" >
-            android:windowSoftInputMode="adjustPan"
-        </activity>
-        <activity android:name=".Gender" >
-            android:windowSoftInputMode="adjustPan"
-        </activity>
-        <activity android:name=".ForgottenPassword" >
-            android:windowSoftInputMode="adjustPan"
-        </activity>
+        <activity android:name=".Welcome"></activity>
+        <activity android:name=".Processing" />
+        <activity android:name=".LogIn" />
+        <activity android:name=".JoinUs" />
+        <activity android:name=".GoalLogin" />
+        <activity android:name=".Goal" />
+        <activity android:name=".GetStartedLog" />
+        <activity android:name=".GetStartedJoin" />
+        <activity android:name=".Gender" />
+        <activity android:name=".ForgottenPassword" />
         <activity
             android:name=".ui.settings.TermsOfUse"
             android:label="TERMS OF USE"
-            android:windowSoftInputMode="adjustPan"
             android:parentActivityName=".NavigationMainActivity" />
         <activity
             android:name=".ui.settings.ResetPassword"
             android:label="RESET PASSWORD"
-            android:windowSoftInputMode="adjustPan"
             android:parentActivityName=".NavigationMainActivity" />
         <activity
             android:name=".ui.settings.PaymentDetails"
             android:label="CHANGE PAYMENT DETAILS"
-            android:windowSoftInputMode="adjustPan"
             android:parentActivityName=".NavigationMainActivity" />
         <activity
             android:name=".ui.settings.LogOut"
             android:label="LOGOUT"
-            android:windowSoftInputMode="adjustPan"
             android:parentActivityName=".NavigationMainActivity" />
         <activity
             android:name=".ui.settings.ContactUsInstagram"
             android:label="CONTACT US"
-            android:windowSoftInputMode="adjustPan"
             android:parentActivityName=".NavigationMainActivity" />
         <activity
             android:name=".ui.settings.Contact"
             android:label="CHANGE DETAILS"
-            android:windowSoftInputMode="adjustPan"
             android:parentActivityName=".NavigationMainActivity" />
         <activity
             android:name=".ui.settings.AboutThisVersion"
             android:label="SETTINGS"
-            android:windowSoftInputMode="adjustPan"
             android:parentActivityName=".NavigationMainActivity" />
         <activity
             android:name=".ui.dashboard.HomeWorkout"
             android:label="HOME WORKOUTS"
-            android:windowSoftInputMode="adjustPan"
             android:parentActivityName=".NavigationMainActivity" />
         <activity
             android:name=".ui.dashboard.FoodTracker"
             android:label="FOOD TRACKER"
-            android:windowSoftInputMode="adjustPan"
-            android:parentActivityName=".NavigationMainActivity" />
+            />
         <activity
             android:name=".ui.dashboard.WorkoutTracker"
             android:label="WORKOUT TRACKER"
-            android:windowSoftInputMode="adjustPan"
-            android:parentActivityName=".NavigationMainActivity" />
+            />
         <activity
             android:name=".ui.dashboard.TrackWater"
             android:label="WATER TRACKER"
-            android:windowSoftInputMode="adjustPan"
-            android:parentActivityName=".NavigationMainActivity" />
-        <activity
-            android:name=".ui.dashboard.WorkoutTracker"
-            tools:ignore="DuplicateActivity" />
-        <activity
-            android:name=".ui.dashboard.TrackWater"
-            tools:ignore="DuplicateActivity" />
-
+            />
         <activity
             android:name=".NavigationMainActivity"
             android:label="DASHBOARD"
-            android:windowSoftInputMode="adjustPan"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Main_Activity">
             <intent-filter>

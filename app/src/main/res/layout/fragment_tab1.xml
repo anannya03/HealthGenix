@@ -5,51 +5,49 @@
     android:layout_margin="15sp"
     tools:context=".ui.dashboard.tabfrag1">
     <!-- TODO: Update blank fragment layout -->
+
     <Button
         android:id="@+id/water"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_width="wrap_content"
+        android:layout_height="177dp"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="5dp"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="5dp"
         android:layout_marginRight="5dp"
-        android:layout_marginBottom="5dp"
-        android:background="@drawable/water"
-        android:text="TRACK WATER"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/water1"
         android:textSize="30sp" />
+
     <Button
         android:id="@+id/food"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_width="377dp"
+        android:layout_height="197dp"
         android:layout_below="@+id/water"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="5dp"
         android:layout_marginLeft="5dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="21dp"
         android:layout_marginEnd="5dp"
         android:layout_marginRight="5dp"
         android:layout_marginBottom="5dp"
-        android:background="@drawable/food"
-        android:text="TRACK FOOD"
-        android:textColor="@android:color/white"
+        android:background="@drawable/food2"
         android:textSize="30sp" />
 
     <Button
         android:id="@+id/workout"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
+        android:layout_width="371dp"
+        android:layout_height="187dp"
         android:layout_below="@+id/food"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_marginStart="5dp"
         android:layout_marginLeft="5dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginRight="5dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="6dp"
+        android:layout_marginRight="6dp"
         android:layout_marginBottom="5dp"
-        android:background="@drawable/gym"
-        android:text="TRACK WORKOUT"
+        android:background="@drawable/gym3"
         android:textSize="30sp" />
 </RelativeLayout>

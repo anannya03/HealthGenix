@@ -1,16 +1,37 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" tools:context=".ui.dashboard.tabfrag2">
+    android:layout_height="match_parent"
+    android:background="#000"
+    tools:context=".ui.dashboard.tabfrag2">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ScrollView
+        android:layout_width="10dp"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="470dp"
+        android:layout_marginLeft="470dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginRight="2dp"
+        android:layout_marginBottom="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            />
+    </ScrollView>
+
+    <ImageView
+        android:id="@+id/dietPlan"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textColor="@android:color/black"
-        android:textSize="30sp"
-        android:gravity="center"
-        android:layout_centerInParent="true"
-        android:text="Depending on your BMI, a Diet Plan will be curated for you!!"
-        />
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="0dp"
+         />
 
 </RelativeLayout>
