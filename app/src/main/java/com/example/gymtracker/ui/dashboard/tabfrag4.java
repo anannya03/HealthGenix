@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 
 import androidx.fragment.app.Fragment;
@@ -14,10 +15,11 @@ import com.example.gymtracker.R;
 
 public class tabfrag4 extends Fragment {
     public static final String []cities={"Bangalore", "Raipur", "Pune"};
-    public static final String[] bangalore= {"HealthGenix Basavanagudi branch", "HealthGenix Jayanagar branch", "HealthGenix Indiranagar" };
-    public static final String[] raipur={"HealthGenix Bhatagaon branch", "HealthGenix Kamal Vihar branch"};
-    public static final String[] pune= {"HealthGenix Viman Nagar branch", "HealthGenix Aundh branch"};
+    public static final String[] bangalore= {"HealthGenix Basavanagudi branch", "HealthGenix Jayanagar branch" };
+    public static final String[] raipur={"HealthGenix Gitanjali Nagar branch"};
+    public static final String[] pune= {"HealthGenix Balewadi branch"};
     Spinner city, branch;
+    Button gobutton;
     @Override
     public void onCreate(Bundle savedInstanceState) {
 
@@ -61,6 +63,34 @@ public class tabfrag4 extends Fragment {
             }
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
+            }
+        });
+        gobutton= (Button)view.findViewById(R.id.gobutton);
+        gobutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String br=branch.getSelectedItem().toString();
+                if(br.equals("HealthGenix Balewadi branch"))
+                {
+
+                }
+                if(br.equals("HealthGenix Basavanagudi branch"))
+                {
+
+                }
+                if(br.equals("HealthGenix Jayanagar branch"))
+                {
+
+                }
+                if(br.equals("HealthGenix Balewadi branch"))
+                {
+
+                }
+                if(br.equals("HealthGenix Gitanjali Nagar branch"))
+                {
+
+                }
+
             }
         });
         return(view);

@@ -54,11 +54,11 @@
         <activity
             android:name=".ui.dashboard.FoodTracker"
             android:label="FOOD TRACKER"
-            />
+             />
         <activity
             android:name=".ui.dashboard.WorkoutTracker"
             android:label="WORKOUT TRACKER"
-            />
+             />
         <activity
             android:name=".ui.dashboard.TrackWater"
             android:label="WATER TRACKER"

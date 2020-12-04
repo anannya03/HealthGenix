@@ -14,7 +14,7 @@ import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.Random;
 public class User_dbhelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME="HealthGenix.db";
-    public static final int DATABASE_VERSION=8;
+    public static final int DATABASE_VERSION=7;
     public long user_id;
     public int entry_id;
     public User_dbhelper(Context context)
@@ -25,9 +25,9 @@ public class User_dbhelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("create table Users(user_id integer, fname text, lname text, email text, pwd text, age integer, gender text, phno text, weight decimal, height decimal, bmi decimal, mem_start date, mem_end date, gym_id integer, fitness_goal text, primary key(email))");
         db.execSQL("create table UserLog(entry_id integer primary key, email_id text, date_tracked date, consumed_cal decimal,water_tracked integer, burnt_cal decimal)");
-       // db.execSQL("create table Gym (gym_id integer primary key, city text, area text, pincode text, full_add text, details text)");
-       // db.execSQL("create table Workout (workout_id integer primary key, work_name String, work_date date, type text, booked integer, capacity integer,foreign key(gym_id) references Gym(gym_id))");
-       // db.execSQL("create table Workout_booking(user_id integer,workout_id integer, gym_id integer,primary key(user_id, workout_id, gym_id), foreign key(user_id) references User(user_id), foreign key(gym_id) references Gym(gym_id),foreign key(work_id) references Workout(work_id))");
+        db.execSQL("create table Gym (gym_id integer primary key, city text, area text, pincode text, full_add text, details text)");
+        db.execSQL("create table Workout (workout_id integer primary key, work_name String, work_date date, type text, booked integer, capacity integer,foreign key(gym_id) references Gym(gym_id))");
+        db.execSQL("create table Workout_booking(user_id integer,workout_id integer, gym_id integer,primary key(user_id, workout_id, gym_id), foreign key(user_id) references User(user_id), foreign key(gym_id) references Gym(gym_id),foreign key(work_id) references Workout(work_id))");
     }
     @Override
     public void onUpgrade(SQLiteDatabase db, int i, int i1) {
@@ -144,15 +144,6 @@ public class User_dbhelper extends SQLiteOpenHelper {
                 db.close();
                 return (cals);
             }
-        }
-
-        public String extractGoal(String emailid){
-            String goal;
-            SQLiteDatabase db=this.getReadableDatabase();
-            Cursor res = db.rawQuery("Select fitness_goal from Users where email=?", new String[]{emailid});
-            res.moveToFirst();
-            goal = res.getString(0);
-            return goal;
         }
     }
 
