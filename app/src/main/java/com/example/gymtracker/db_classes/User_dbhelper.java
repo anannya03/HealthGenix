@@ -23,7 +23,6 @@ public class User_dbhelper extends SQLiteOpenHelper {
     }
     @Override
     public void onCreate(SQLiteDatabase db) {
-
         db.execSQL("create table Users(user_id integer, fname text, lname text, email text, pwd text, age integer, gender text, phno text, weight decimal, height decimal, bmi decimal, mem_start date, mem_end date, gym_id integer, fitness_goal text, primary key(email))");
         db.execSQL("create table UserLog(entry_id integer primary key, email_id text, date_tracked date, consumed_cal decimal,water_tracked integer, burnt_cal decimal)");
        // db.execSQL("create table Gym (gym_id integer primary key, city text, area text, pincode text, full_add text, details text)");
@@ -145,8 +144,6 @@ public class User_dbhelper extends SQLiteOpenHelper {
                 db.close();
                 return (cals);
             }
-
-
         }
 
         public String extractGoal(String emailid){
