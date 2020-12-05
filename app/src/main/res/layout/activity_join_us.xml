@@ -1,23 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:scrollbarStyle="insideOverlay"
-    android:scrollbars="vertical"
-    android:verticalScrollbarPosition="right">
+    android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="65dp"
         android:layout_height="58dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.01"
+        android:layout_gravity="center_horizontal"
         app:srcCompat="@drawable/logo" />
 
     <TextView
@@ -29,11 +27,30 @@
         android:text="WELCOME TO A HEALTHIER LIFE"
         android:textColor="#000000"
         android:textSize="26sp"
+        android:layout_gravity="center_horizontal"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/imageView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewTextMultiLine"
+        android:layout_width="362dp"
+        android:layout_height="73dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginLeft="48dp"
+        android:fontFamily="sans-serif"
+        android:gravity="center_horizontal"
+        android:singleLine="false"
+        android:text="Create your Healthgenix member profile and get first
+         access to the very best of Healthgenix's program, inspiration and community"
+        android:textAlignment="center"
+        android:textColor="#838383"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_gravity="center_horizontal"
+        app:layout_constraintTop_toBottomOf="@id/textView2" />
+
 
     <EditText
         android:id="@+id/editTextTextEmailAddress"
@@ -42,20 +59,21 @@
         android:layout_height="40dp"
         android:layout_marginStart="80dp"
         android:layout_marginLeft="80dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="241dp"
         android:layout_marginRight="241dp"
-        android:layout_marginBottom="444dp"
         android:background="@drawable/textbox"
         android:ems="10"
+        android:layout_gravity="center_horizontal"
         android:fadingEdge="horizontal|vertical"
         android:hint="Email Address"
         android:inputType="textEmailAddress"
         android:padding="10dp"
         android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.194"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.153"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewTextMultiLine" />
 
     <EditText
         android:id="@+id/editTextTextPassword"
@@ -64,20 +82,21 @@
         android:layout_height="40dp"
         android:layout_marginStart="80dp"
         android:layout_marginLeft="80dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="241dp"
         android:layout_marginRight="241dp"
-        android:layout_marginBottom="384dp"
         android:background="@drawable/textbox"
         android:ems="10"
         android:fadingEdge="horizontal|vertical"
         android:hint="Password"
+        android:layout_gravity="center_horizontal"
         android:inputType="textPassword"
         android:padding="10dp"
         android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.194"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.153"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextTextEmailAddress" />
 
     <EditText
         android:id="@+id/editTextFirstName"
@@ -86,20 +105,21 @@
         android:layout_height="40dp"
         android:layout_marginStart="80dp"
         android:layout_marginLeft="80dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="241dp"
         android:layout_marginRight="241dp"
-        android:layout_marginBottom="324dp"
         android:background="@drawable/textbox"
         android:ems="10"
+        android:layout_gravity="center_horizontal"
         android:fadingEdge="horizontal|vertical"
         android:hint="First Name"
         android:inputType="textPersonName"
         android:padding="10dp"
         android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.187"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.141"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextTextPassword" />
 
     <EditText
         android:id="@+id/editTextTextLastName"
@@ -108,20 +128,21 @@
         android:layout_height="40dp"
         android:layout_marginStart="80dp"
         android:layout_marginLeft="80dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="241dp"
         android:layout_marginRight="241dp"
-        android:layout_marginBottom="268dp"
         android:background="@drawable/textbox"
         android:ems="10"
+        android:layout_gravity="center_horizontal"
         android:fadingEdge="horizontal|vertical"
         android:hint="Last Name"
         android:inputType="textPersonName"
         android:padding="10dp"
         android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.187"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.153"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextFirstName" />
 
     <EditText
         android:id="@+id/editTextTextBirthDate"
@@ -130,53 +151,21 @@
         android:layout_height="40dp"
         android:layout_marginStart="80dp"
         android:layout_marginLeft="80dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="241dp"
         android:layout_marginRight="241dp"
-        android:layout_marginBottom="208dp"
         android:background="@drawable/textbox"
         android:ems="10"
         android:fadingEdge="horizontal|vertical"
         android:hint="DD/MM/YYYY"
         android:inputType=""
         android:padding="10dp"
+        android:layout_gravity="center_horizontal"
         android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.205"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/textViewTextMultiLine"
-        android:layout_width="362dp"
-        android:layout_height="73dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginBottom="4dp"
-        android:fontFamily="sans-serif"
-        android:gravity="center_horizontal"
-        android:singleLine="false"
-        android:text="Create your Healthgenix member profile and get first
-         access to the very best of Healthgenix's program, inspiration and community"
-        android:textAlignment="center"
-        android:textColor="#838383"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextEmailAddress"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/textViewTextMultiLine2"
-        android:layout_width="365dp"
-        android:layout_height="55dp"
-        android:layout_marginBottom="32dp"
-        android:fontFamily="sans-serif"
-        android:gravity="center_horizontal"
-        android:singleLine="false"
-        android:text="By creating an account, you agree to Healthgenic's Privacy policy and Terms of use"
-        android:textAlignment="center"
-        android:textColor="#838383"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.478"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.141"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextTextLastName" />
 
     <Button
         android:id="@+id/joinUs"
@@ -190,8 +179,10 @@
         android:text="JOIN US"
         android:textColor="#ffffff"
         android:textSize="20dp"
+        android:layout_gravity="center_horizontal"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextBirthDate" />
+
 
     <TextView
         android:id="@+id/logInTextView"
@@ -201,9 +192,34 @@
         android:layout_marginEnd="20dp"
         android:layout_marginRight="20dp"
         android:text="Log In"
+
         android:textSize="16dp"
         android:textStyle="italic"
+        app:layout_constraintBottom_toTopOf="@id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="1.0"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/textViewTextMultiLine2"
+        android:layout_width="365dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="32dp"
+        android:fontFamily="sans-serif"
+
+        android:singleLine="false"
+        android:layout_gravity="center_horizontal"
+        android:text="By creating an account, you agree to Healthgenic's Privacy policy and Terms of use"
+        android:textAlignment="center"
+        android:textColor="#838383"
+        app:layout_constraintTop_toBottomOf="@id/joinUs"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.478"
+         />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
