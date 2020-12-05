@@ -11,8 +11,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.gymtracker.db_classes.User_dbhelper;
-import com.example.gymtracker.JoinUs;
+import com.example.gymtracker.db_classes.DBHelper;
+
 public class Gender extends AppCompatActivity {
     Button female;
     Button male;
@@ -55,7 +55,16 @@ public class Gender extends AppCompatActivity {
     }
     public void openFemale(){
         Toast.makeText(this, "Female selected", Toast.LENGTH_SHORT).show();
-        User_dbhelper db= new User_dbhelper(getApplicationContext());
+        DBHelper db;
+        db = new DBHelper(getApplicationContext());
+        try {
+            db.createDatabase();
+            db.openDataBase();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+
         db.enterGender("F", email);
         Intent intent = new Intent(this, Goal.class);
         intent.putExtra("email", email);
@@ -63,7 +72,16 @@ public class Gender extends AppCompatActivity {
     }
     public void openMale(){
         Toast.makeText(this, "Male selected", Toast.LENGTH_SHORT).show();
-        User_dbhelper db= new User_dbhelper(getApplicationContext());
+        DBHelper db;
+        db = new DBHelper(getApplicationContext());
+        try {
+            db.createDatabase();
+            db.openDataBase();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+
         db.enterGender("M", email);
         Intent intent = new Intent(this, Goal.class);
         intent.putExtra("email", email);

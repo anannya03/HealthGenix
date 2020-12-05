@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.gymtracker.db_classes.User_dbhelper;
+import com.example.gymtracker.db_classes.DBHelper;
 
 public class Goal extends AppCompatActivity {
     Button fat;
@@ -70,14 +70,32 @@ public class Goal extends AppCompatActivity {
 
     public void openLoseWeight(){
         Toast.makeText(this, "Your goal is to lose Weight", Toast.LENGTH_SHORT).show();
-        User_dbhelper db= new User_dbhelper(getApplicationContext());
+        DBHelper db;
+        db = new DBHelper(getApplicationContext());
+        try {
+            db.createDatabase();
+            db.openDataBase();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+
         db.enterFitnessGoal("Lose Weight", email);
         Intent intent = new Intent(this, LogIn.class);
         startActivity(intent);
     }
     public void openFit(){
         Toast.makeText(this, "Your goal is to get fitter", Toast.LENGTH_SHORT).show();
-        User_dbhelper db= new User_dbhelper(getApplicationContext());
+        DBHelper db;
+        db = new DBHelper(getApplicationContext());
+        try {
+            db.createDatabase();
+            db.openDataBase();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+
         db.enterFitnessGoal("Get Fit", email);
 
         Intent intent = new Intent(this, LogIn.class);
@@ -85,7 +103,16 @@ public class Goal extends AppCompatActivity {
     }
     public void openMuscle(){
         Toast.makeText(this, "Your goal is to gain muscles", Toast.LENGTH_SHORT).show();
-        User_dbhelper db= new User_dbhelper(getApplicationContext());
+        DBHelper db;
+        db = new DBHelper(getApplicationContext());
+        try {
+            db.createDatabase();
+            db.openDataBase();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+
         db.enterFitnessGoal("Gain Muscle", email);
         Intent intent = new Intent(this, LogIn.class);
         startActivity(intent);

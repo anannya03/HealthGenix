@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.gymtracker.db_classes.User_dbhelper;
+import com.example.gymtracker.db_classes.DBHelper;
 
 public class LogIn extends AppCompatActivity {
     Button logIn;
@@ -39,7 +39,16 @@ public class LogIn extends AppCompatActivity {
                 else {
                     email_text = email.getText().toString();
                     pass_text= pass.getText().toString();
-                    User_dbhelper db= new User_dbhelper(getApplicationContext());
+                    DBHelper db;
+                    db = new DBHelper(getApplicationContext());
+                    try {
+                        db.createDatabase();
+                        db.openDataBase();
+                    }
+                    catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
                     if(!db.userExist(email_text))
                     {
                         Toast.makeText(getApplicationContext(),"The user does not exist. Try with a different email id or Sign Up as a new user", Toast.LENGTH_LONG).show();

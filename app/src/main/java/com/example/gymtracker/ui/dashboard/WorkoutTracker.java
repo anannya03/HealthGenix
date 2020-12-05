@@ -1,24 +1,21 @@
 package com.example.gymtracker.ui.dashboard;
-import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-import androidx.appcompat.app.ActionBar;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.gymtracker.NavigationMainActivity;
 import com.example.gymtracker.R;
-import com.example.gymtracker.db_classes.User_dbhelper;
+import com.example.gymtracker.db_classes.DBHelper;
 
 import java.util.Calendar;
 import java.util.HashMap;
@@ -152,8 +149,17 @@ public class WorkoutTracker extends AppCompatActivity {
                 int track_month = picker.getDatePicker().getMonth();
                 date_tracked=""+track_year+"-"+track_month+"-"+track_date;
                 String emailid= NavigationMainActivity.login_email;
-                User_dbhelper user_dbhelper= new User_dbhelper(getApplicationContext());
-                double cal=user_dbhelper.enterCalories(emailid, date_tracked, total_calories);
+                DBHelper db;
+                db = new DBHelper(getApplicationContext());
+                try {
+                    db.createDatabase();
+                    db.openDataBase();
+                }
+                catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                double cal=db.enterCalories(emailid, date_tracked, total_calories);
                 Toast.makeText(getApplicationContext(), "You have burnt "+cal+ " calories on  "+date_tracked, Toast.LENGTH_LONG).show();
 
             }

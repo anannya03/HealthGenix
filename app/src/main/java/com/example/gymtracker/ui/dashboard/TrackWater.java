@@ -1,6 +1,5 @@
 package com.example.gymtracker.ui.dashboard;
 
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
@@ -14,7 +13,7 @@ import android.widget.Toast;
 
 import com.example.gymtracker.NavigationMainActivity;
 import com.example.gymtracker.R;
-import com.example.gymtracker.db_classes.User_dbhelper;
+import com.example.gymtracker.db_classes.DBHelper;
 
 
 import java.util.Calendar;
@@ -66,8 +65,17 @@ public class TrackWater extends AppCompatActivity {
                 date_tracked=""+track_year+"-"+track_month+"-"+track_date;
                 int glasses= Integer.parseInt(water.getText().toString());
                 String emailid= NavigationMainActivity.login_email;
-                User_dbhelper user_dbhelper= new User_dbhelper(getApplicationContext());
-                int gl=user_dbhelper.enterWater(emailid, date_tracked, glasses);
+                DBHelper db;
+                db = new DBHelper(getApplicationContext());
+                try {
+                    db.createDatabase();
+                    db.openDataBase();
+                }
+                catch (Exception e) {
+                    e.printStackTrace();
+                }
+
+                int gl=db.enterWater(emailid, date_tracked, glasses);
                 Toast.makeText(getApplicationContext(), "You have tracked "+gl+ " glasses of water on "+date_tracked, Toast.LENGTH_LONG).show();
             }
         });

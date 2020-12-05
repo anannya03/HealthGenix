@@ -1,14 +1,9 @@
 package com.example.gymtracker;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteException;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
 import android.text.InputType;
 import android.text.TextUtils;
 import android.util.Patterns;
@@ -18,11 +13,10 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-import java.sql.Date;
-import java.sql.SQLIntegrityConstraintViolationException;
+
 import java.util.Calendar;
 import com.example.gymtracker.db_classes.User;
-import com.example.gymtracker.db_classes.User_dbhelper;
+import com.example.gymtracker.db_classes.DBHelper;
 public class JoinUs extends AppCompatActivity {
     EditText firstName;
     EditText lastName;
@@ -99,7 +93,16 @@ public class JoinUs extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Children below 18 years of age cannot use this app", Toast.LENGTH_LONG).show();
                         editText.setText("");
                     } else {
-                        User_dbhelper db = new User_dbhelper(getApplicationContext());
+                        DBHelper db;
+                        db = new DBHelper(getApplicationContext());
+                        try {
+                            db.createDatabase();
+                            db.openDataBase();
+                        }
+                        catch (Exception e) {
+                            e.printStackTrace();
+                        }
+
                         if (db.userExist(email_id)) {
                             Toast.makeText(getApplicationContext(), "Email id already exists", Toast.LENGTH_LONG).show();
                             email.setText("");
