@@ -38,7 +38,15 @@ public class tabfrag2 extends Fragment {
                 startActivity(intent);            }
         });
         Toast.makeText(getActivity().getApplicationContext(), ""+ NavigationMainActivity.login_email, Toast.LENGTH_LONG);
-
+        bookworkout.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent(getActivity(), BookWorkout.class);
+                intent.putExtra("email", NavigationMainActivity.login_email);
+                startActivity(intent);
+            }
+        });
         return(view);
 
         }
