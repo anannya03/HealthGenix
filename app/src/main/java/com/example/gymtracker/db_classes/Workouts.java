@@ -5,18 +5,26 @@ import java.sql.Time;
 
 public class Workouts {
     int work_id, booked, cap, gym_id;
-    String work_name, type;
-    Date date;
-    Time time;
+    String work_name;
+    String branch;
+    String work_date;
+    String work_time;
     Workouts()
     {   }
-    Workouts(int gym_id, Date date, Time time, String work_name, String type)
+    Workouts(int gym_id, String date, String time, String work_name)
     {
         this.gym_id=gym_id;
-        this.date=date;
-        this.time=time;
+        this.work_date=date;
+        this.work_time=time;
         this.work_name=work_name;
-        this.type=type;
+
+    }
+    public void setBranch(String branch){
+        this.branch=branch;
+    }
+    public String getBranch()
+    {
+        return(branch);
     }
     public void setWork_id(int work_id)
     {
@@ -38,17 +46,14 @@ public class Workouts {
     {
         this.gym_id=gym_id;
     }
-    public void setType(String type)
+
+    public void setDate(String date)
     {
-        this.type=type;
+        this.work_date= date;
     }
-    public void setDate(Date date)
+    public void setTime(String time)
     {
-        this.date= date;
-    }
-    public void setTime(Time time)
-    {
-        this.time= time;
+        this.work_time= time;
     }
     public int getWork_id()
     {
@@ -70,16 +75,13 @@ public class Workouts {
     {
         return(work_name);
     }
-    public String getType()
+
+    public String getDate()
     {
-        return(type);
+        return(work_date);
     }
-    public Date getDate()
+    public String getTime()
     {
-        return(date);
-    }
-    public Time getTime()
-    {
-        return(time);
+        return(work_time);
     }
 }

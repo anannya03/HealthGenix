@@ -22,20 +22,20 @@ class Holder {
 }
 public class CustomAdapter extends BaseAdapter {
     Context context;
-    ArrayList<workout_desc> workouts;
-    public CustomAdapter(Context context, ArrayList<workout_desc> workouts)
+    ArrayList<workout_desc> workout;
+    public CustomAdapter(Context context, ArrayList<workout_desc> workout)
     {
         this.context=context;
-        this.workouts=workouts;
+        this.workout=workout;
     }
     @Override
     public int getCount() {
-        return(workouts.size());
+        return(workout.size());
     }
 
     @Override
     public Object getItem(int position) {
-        return(workouts.get(position));
+        return(workout.get(position));
     }
 
     @Override

@@ -43,8 +43,7 @@ public class tabfrag2 extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent= new Intent(getActivity(), BookWorkout.class);
-                intent.putExtra("email", NavigationMainActivity.login_email);
-                startActivity(intent);
+                 startActivity(intent);
             }
         });
         return(view);

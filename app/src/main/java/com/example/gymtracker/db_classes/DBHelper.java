@@ -18,9 +18,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.sql.SQLIntegrityConstraintViolationException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 public class DBHelper extends SQLiteOpenHelper {
-    public static final String DATABASE_NAME="GymTracker.db";
+    public static final String DATABASE_NAME="HealthGenix.db";
     public static final int DATABASE_VERSION=1;
     public static String DB_PATH="";
     public long user_id;
@@ -28,7 +30,6 @@ public class DBHelper extends SQLiteOpenHelper {
     private SQLiteDatabase myDataBase;
     private SQLiteOpenHelper sqLiteOpenHelper;
     private final Context myContext;
-
     public DBHelper(Context context)
     {
         super(context, DATABASE_NAME, null,DATABASE_VERSION );
@@ -53,8 +54,6 @@ public class DBHelper extends SQLiteOpenHelper {
                             SQLiteDatabase.OPEN_READONLY);
         }
         catch (SQLiteException e) {
-
-            // database doesn't exist yet.
             Log.e("message", "" + e);
         }
         if (checkDB != null) {
@@ -238,6 +237,24 @@ public class DBHelper extends SQLiteOpenHelper {
         res.moveToFirst();
         goal = res.getString(0);
         return goal;
+    }
+    public List<Workouts> getWorkouts(String emailid)
+    {
+        List<Workouts> works= new ArrayList<Workouts>();
+        SQLiteDatabase db= this.getReadableDatabase();
+        Cursor res= db.rawQuery("select workout.work_name, workout.work_date, workout.work_time, Gym_details.branch_name from Gym_details, workout, users where Gym_details.gym_id= workout.gym_id and users.gym_id= workout.gym_id and users.email= ?;", new String[]{emailid});
+        res.moveToFirst();
+        while(!res.isAfterLast())
+        {
+            Workouts work= new Workouts();
+            work.setWork_name(res.getString(0));
+            work.setDate(res.getString(1));
+            work.setTime(res.getString(2));
+            work.setBranch(res.getString(3));
+            works.add(work);
+            res.moveToNext();
+        }
+        return(works);
     }
     }
 
