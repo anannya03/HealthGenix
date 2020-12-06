@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.gymtracker.R;
+import com.example.gymtracker.db_classes.DBHelper;
 import com.example.gymtracker.ui.dashboard.workout_desc;
 
 import java.util.ArrayList;
@@ -42,7 +43,6 @@ public class CustomAdapter extends BaseAdapter {
     public long getItemId(int position) {
         return(position);
     }
-
     @Override
     public View getView(int position, View view, ViewGroup parent) {
         final Holder holder;
@@ -62,11 +62,30 @@ public class CustomAdapter extends BaseAdapter {
         holder.title.setText (data.getWork_name());
         holder.desc.setText (data.getDesc());
         holder.book.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
-                Toast.makeText(context,"You have booked"+ data.getWork_name(),Toast.LENGTH_LONG).show();
+                int book= data.getBooked();
+                int work_id= data.getWork_id();
+                int cap= data.getCap();
+                if(book>=cap)
+                {
+                    Toast.makeText(context, "Sorry, This workout just reached its limit. Try booking another one", Toast.LENGTH_LONG).show();
+                }
+                else {
+                    book = book+1;
+                    DBHelper db;
+                    db = new DBHelper(context);
+                    try {
+                        db.createDatabase();
+                        db.openDataBase();
+                    }
+                    catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    db.updateBooking(work_id, book);
+                    Toast.makeText(context, "You have booked " + data.getWork_name() +"succesfully", Toast.LENGTH_LONG).show();
 
+                }
             }
         });
         return view;

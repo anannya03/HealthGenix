@@ -43,11 +43,13 @@ public class BookWorkout extends AppCompatActivity {
             String date= ob.getDate();
             String time= ob.getTime();
             String  branch= ob.getBranch();
-            workouts.add(new workout_desc(name, "Branch"+branch+"\n Date:"+date+"\nTime:"+time));
+            int work_id= ob.getWork_id();
+            int booked= ob.getBooked();
+            int cap= ob.getCap();
+            workouts.add(new workout_desc(name, "Branch: "+branch+"\n Date: "+date+"\nTime: "+time, work_id, booked,cap));
         }
         lv = findViewById(R.id.lv);
         CustomAdapter adapter = new CustomAdapter(this, workouts);
         lv.setAdapter(adapter);
-
     }
 }

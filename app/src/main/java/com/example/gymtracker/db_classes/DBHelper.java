@@ -9,15 +9,10 @@ import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import com.example.gymtracker.db_classes.User;
-
-import androidx.annotation.Nullable;
-
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -242,7 +237,7 @@ public class DBHelper extends SQLiteOpenHelper {
     {
         List<Workouts> works= new ArrayList<Workouts>();
         SQLiteDatabase db= this.getReadableDatabase();
-        Cursor res= db.rawQuery("select workout.work_name, workout.work_date, workout.work_time, Gym_details.branch_name from Gym_details, workout, users where Gym_details.gym_id= workout.gym_id and users.gym_id= workout.gym_id and users.email= ?;", new String[]{emailid});
+        Cursor res= db.rawQuery("select  workout.work_name, workout.work_date, workout.work_time, Gym_details.branch_name, workout.workout_id, workout.booked, workout.capacity from Gym_details, workout, users where Gym_details.gym_id= workout.gym_id and users.gym_id= workout.gym_id and users.email= ?;", new String[]{emailid});
         res.moveToFirst();
         while(!res.isAfterLast())
         {
@@ -251,11 +246,20 @@ public class DBHelper extends SQLiteOpenHelper {
             work.setDate(res.getString(1));
             work.setTime(res.getString(2));
             work.setBranch(res.getString(3));
+            work.setWork_id(res.getInt(4));
+            work.setBooked(res.getInt(5));
+            work.setCap(res.getInt(6));
             works.add(work);
             res.moveToNext();
         }
         return(works);
     }
+    public void updateBooking(int workout_id, int booked)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("Update Workout set booked = ? where workout_id=?", new String[]{String.valueOf(booked),String.valueOf(workout_id)});
     }
+
+}
 
 

@@ -1,11 +1,14 @@
 package com.example.gymtracker.ui.dashboard;
 
 public class workout_desc {
-
         public String work_name;
         public String desc;
-        public workout_desc(String work_name, String desc)
+        public int work_id, booked, cap;
+        public workout_desc(String work_name, String desc, int work_id, int booked, int cap)
         {
+            this.work_id=work_id;
+            this.booked= booked;
+            this.cap=cap;
             this.work_name=work_name;
             this.desc=desc;
 
@@ -25,6 +28,19 @@ public class workout_desc {
         public String getDesc()
         {
             return(desc);
+        }
+        public int getWork_id()
+        {
+            return (work_id);
+        }
+        public int getBooked()
+        {
+            return(booked);
+
+        }
+        public int getCap()
+        {
+            return(cap);
         }
     }
 
