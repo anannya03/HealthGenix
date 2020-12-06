@@ -70,26 +70,6 @@ public class tabfrag4 extends Fragment {
             @Override
             public void onClick(View view) {
                 String br=branch.getSelectedItem().toString();
-                if(br.equals("HealthGenix Balewadi branch"))
-                {
-
-                }
-                if(br.equals("HealthGenix Basavanagudi branch"))
-                {
-
-                }
-                if(br.equals("HealthGenix Jayanagar branch"))
-                {
-
-                }
-                if(br.equals("HealthGenix Balewadi branch"))
-                {
-
-                }
-                if(br.equals("HealthGenix Gitanjali Nagar branch"))
-                {
-
-                }
 
             }
         });
