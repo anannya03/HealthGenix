@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 public class DBHelper extends SQLiteOpenHelper {
-    public static final String DATABASE_NAME="HealthGenix.db";
+    public static final String DATABASE_NAME="GymTracker.db";
     public static final int DATABASE_VERSION=1;
     public static String DB_PATH="";
     public long user_id;

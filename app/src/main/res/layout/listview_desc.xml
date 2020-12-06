@@ -3,16 +3,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal">
+
     <TextView
         android:id="@+id/Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_weight="1"
+        android:fontFamily="sans-serif-condensed"
         android:text="WORKOUT NAME"
         android:textAlignment="center"
         android:textColor="@android:color/black"
-        android:textSize="28sp" />
+        android:textSize="28sp"
+        android:textStyle="bold" />
+
     <TextView
         android:id="@+id/description"
         android:layout_width="wrap_content"
@@ -20,19 +24,24 @@
         android:layout_below="@id/Title"
         android:layout_marginTop="32dp"
         android:layout_weight="1"
-        android:text="Date: \n Time:  \n Duration: "
+        android:fontFamily="sans-serif-condensed"
+        android:text=" Date: \n Time:  \n Duration: "
         android:textColor="@android:color/black"
         android:textSize="18sp" />
 
     <Button
         android:id="@+id/book"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/Title"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="-35dp"
-        android:layout_marginRight="25dp"
+        android:layout_width="109dp"
+        android:layout_height="107dp"
+        android:layout_below="@id/description"
+
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="21dp"
+        android:background="@drawable/button"
         android:text="BOOK"
-        android:textSize="18sp" />
+        android:textColor="#ffffff"
+        android:textSize="20dp"
+        android:textStyle="bold" />
 
 </RelativeLayout>

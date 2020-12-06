@@ -25,7 +25,7 @@ public class BookWorkout extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_workout);
         email= NavigationMainActivity.login_email;
-        //need to extract gym id and display those workouts
+
         DBHelper db;
         db = new DBHelper(getApplicationContext());
         try {
