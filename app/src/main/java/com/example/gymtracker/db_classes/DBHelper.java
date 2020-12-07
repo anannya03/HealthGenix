@@ -259,6 +259,31 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("Update Workout set booked = ? where workout_id=?", new String[]{String.valueOf(booked),String.valueOf(workout_id)});
     }
 
+    public String getAddress(String branch){
+        String address;
+        SQLiteDatabase db=this.getReadableDatabase();
+        Cursor res = db.rawQuery("Select full_add from Gym_details where branch_name=?", new String[]{branch});
+        res.moveToFirst();
+        address = res.getString(0);
+        return address;
+    }
+
+    public void updateUsersSetGymId(String emailId, String branch){
+        SQLiteDatabase db = this.getWritableDatabase();
+        SQLiteDatabase dbReadable=this.getReadableDatabase();
+        Cursor res = dbReadable.rawQuery("Select gym_id from Gym_details where branch_name=?", new String[]{branch});
+        res.moveToFirst();
+        int gym_id = res.getInt(0);
+        db.execSQL("Update Users set gym_id  = ? where email=?", new String[]{String.valueOf(gym_id), emailId});
+    }
+
+    public void updateUsersSetMemDate(String memStart, String memEnd, String emailId)
+    {
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("Update Users set mem_start_date  = ? , mem_end_date = ? where email=?",
+                new String[]{memStart, memEnd , emailId});
+    }
 }
 
 
