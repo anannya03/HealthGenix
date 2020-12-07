@@ -11,10 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ArmsAbsWorkout"></activity>
+        <activity android:name=".coupleworkouts"></activity>
+        <activity android:name=".ArmsAbsWorkout" />
         <activity
             android:name=".ui.dashboard.Fullbodyworkout"
-            android:label="FULL BODY WORKOUTS"></activity>
+            android:label="FULL BODY WORKOUTS" />
         <activity android:name=".Welcome" />
         <activity android:name=".Processing" />
         <activity android:name=".LogIn" />
