@@ -15,7 +15,6 @@ import org.w3c.dom.Text;
 
 public class HiitWorkout extends AppCompatActivity {
     TextView h1, h2, h3;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
