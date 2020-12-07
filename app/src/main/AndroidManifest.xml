@@ -89,6 +89,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.dashboard.GymBrowseRaipur"
+            android:label="Gym Details" />
+        <activity android:name=".ui.dashboard.PaymentActivityOneMonth"
+            android:label="Purchase" />
+
+        <meta-data
+            android:name="com.razorpay.ApiKey"
+            android:value="rzp_test_RE4K9f5guLw95O"
+            />
+
     </application>
 
 </manifest>

@@ -7,33 +7,66 @@ android:layout_height="match_parent"
 android:layout_margin="15dp"
 
     >
-<Button
-    android:layout_width="match_parent"
-    android:layout_height="200dp"
-    android:id="@+id/homeworkout"
-    android:text="VIEW HOME WORKOUT SESSIONS"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintHorizontal_bias="0.0"
-    android:textSize="20sp"
-    app:layout_constraintLeft_toLeftOf="parent"
-    android:background="@android:color/black"
-    android:textColor="@color/colorPrimaryDark"
-    app:layout_constraintRight_toRightOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintVertical_bias="0.153" />
 
-<Button
-    android:id="@+id/bookworkout"
-    android:layout_width="match_parent"
-    android:layout_height="200dp"
-    android:layout_marginTop="28dp"
-    android:text="BOOK A WORKOUT AT HEALTHGENIX"
-    android:background="@android:color/black"
-    android:textColor="@color/colorPrimaryDark"
-    android:textSize="20sp"
-    app:layout_constraintHorizontal_bias="0.0"
-    app:layout_constraintLeft_toLeftOf="parent"
-    app:layout_constraintRight_toRightOf="parent"
+    <Button
+        android:id="@+id/homeworkout"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/home"
+        android:text="HOME WORKOUT SESSIONS"
+        android:textColor="#fff"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.434" />
 
-    app:layout_constraintTop_toBottomOf="@id/homeworkout" />
+    <Button
+        android:id="@+id/bookworkout"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/gym4"
+        android:text="BOOK STUDIO WORKOUT"
+        android:textColor="#fff"
+        android:textSize="20sp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+
+        app:layout_constraintTop_toBottomOf="@id/homeworkout" />
+
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="361dp"
+        android:layout_height="62dp"
+        android:gravity="center_horizontal"
+        android:text="PICK YOUR PLAN"
+        android:textAlignment="center"
+        android:textSize="100px"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.272"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.051" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="Start training with a personal plan that
+guides you, whilst adjusting to your progress, schedule and other activities."
+        android:textAlignment="center"
+        android:textSize="50px"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.17" />
 </androidx.constraintlayout.widget.ConstraintLayout>
