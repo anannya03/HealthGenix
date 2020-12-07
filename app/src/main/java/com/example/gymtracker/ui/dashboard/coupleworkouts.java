@@ -1,4 +1,4 @@
-package com.example.gymtracker;
+package com.example.gymtracker.ui.dashboard;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,6 +8,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+
+import com.example.gymtracker.R;
 
 public class coupleworkouts extends AppCompatActivity {
     TextView c1, c2, c3;

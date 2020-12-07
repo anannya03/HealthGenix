@@ -9,7 +9,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.gymtracker.ArmsAbsWorkout;
 import com.example.gymtracker.R;
 
 public class HomeWorkout extends AppCompatActivity {
@@ -41,6 +40,20 @@ public class HomeWorkout extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent= new Intent(HomeWorkout.this, ArmsAbsWorkout.class);
+                startActivity(intent);
+            }
+        });
+        couple.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent(HomeWorkout.this, coupleworkouts.class);
+                startActivity(intent);
+            }
+        });
+        hiit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent(HomeWorkout.this, HiitWorkout.class);
                 startActivity(intent);
             }
         });
