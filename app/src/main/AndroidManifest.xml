@@ -3,6 +3,7 @@
     package="com.example.gymtracker">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -11,12 +12,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.dashboard.HiitWorkout"
-            android:label="HIGH INTENSITY INTERVAL TRAINING"/>
-        <activity android:name=".ui.dashboard.coupleworkouts"
-            android:label="COUPLE WORKOUTS"/>
-        <activity android:name=".ui.dashboard.ArmsAbsWorkout"
-            android:label="ARMS AND ABS WORKOUTS"/>
+        <activity android:name=".ui.dashboard.Thankyou"></activity>
+        <activity
+            android:name=".ui.dashboard.HiitWorkout"
+            android:label="HIGH INTENSITY INTERVAL TRAINING" />
+        <activity
+            android:name=".ui.dashboard.coupleworkouts"
+            android:label="COUPLE WORKOUTS" />
+        <activity
+            android:name=".ui.dashboard.ArmsAbsWorkout"
+            android:label="ARMS AND ABS WORKOUTS" />
         <activity
             android:name=".ui.dashboard.Fullbodyworkout"
             android:label="FULL BODY WORKOUTS" />
