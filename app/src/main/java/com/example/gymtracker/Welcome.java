@@ -8,12 +8,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.VideoView;
-
 public class Welcome extends AppCompatActivity {
     Button join;
     Button log;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,9 +41,7 @@ public class Welcome extends AppCompatActivity {
                 openLog();
             }
         });
-
     }
-
     public void openJoin(){
         Intent intent = new Intent(this, JoinUs.class);
         startActivity(intent);

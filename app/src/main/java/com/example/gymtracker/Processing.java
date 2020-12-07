@@ -16,7 +16,6 @@ public class Processing extends AppCompatActivity {
     private int progress;
     String email;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
