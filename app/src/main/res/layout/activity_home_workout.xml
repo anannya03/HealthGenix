@@ -14,15 +14,17 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="200dp">
+
                 <ImageView
-                    android:layout_width="200dp"
                     android:id="@+id/strongcore"
+                    android:layout_width="200dp"
                     android:layout_height="200dp"
                     android:layout_gravity="center_horizontal"
-                    android:src="@mipmap/ic_strongcore" />
+                    android:src="@drawable/fullbody_home" />
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
+                    android:id="@+id/fullbodybutton"
                     android:layout_centerInParent="true"
                     android:layout_marginLeft="23dp"
                     android:layout_toRightOf="@id/strongcore"
@@ -32,28 +34,7 @@
                     android:textColor="@android:color/black"
                     android:textSize="20sp" />
             </RelativeLayout>
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="200dp">
 
-                <ImageView
-                    android:layout_width="200dp"
-                    android:id="@+id/warmup"
-                    android:layout_height="200dp"
-                    android:layout_gravity="center_horizontal"
-                    android:src="@mipmap/ic_warmups" />
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_centerInParent="true"
-                    android:layout_marginLeft="23dp"
-                    android:layout_toRightOf="@id/warmup"
-                    android:gravity="center"
-                    android:text="WARMUPS FOR ATHLETES"
-                    android:background="@android:color/white"
-                    android:textColor="@android:color/black"
-                    android:textSize="20sp" />
-            </RelativeLayout>
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="200dp">
@@ -63,8 +44,7 @@
                     android:id="@+id/armsabsglutes"
                     android:layout_height="200dp"
                     android:layout_gravity="center_horizontal"
-                    android:src="@mipmap/ic_armsabsglutes" />
-
+                    android:src="@drawable/armsabs_home" />
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -73,6 +53,7 @@
                     android:background="@android:color/white"
                     android:layout_toRightOf="@id/armsabsglutes"
                     android:gravity="center"
+                    android:id="@+id/armsabsglutesbutton"
                     android:text="ARMS ABS AND GLUTES"
                     android:textColor="@android:color/black"
                     android:textSize="20sp" />
@@ -86,7 +67,7 @@
                     android:id="@+id/coupleworkouts"
                     android:layout_height="200dp"
                     android:layout_gravity="center_horizontal"
-                    android:src="@mipmap/ic_coupleworkouts" />
+                    android:src="@drawable/couple_home" />
 
                 <Button
                     android:layout_width="wrap_content"
@@ -95,6 +76,7 @@
                     android:layout_marginLeft="23dp"
                     android:background="@android:color/white"
                     android:layout_toRightOf="@id/coupleworkouts"
+                    android:id="@+id/coupleworkoutsbutton"
                     android:gravity="center"
                     android:text="COUPLE WORKOUTS"
                     android:textColor="@android:color/black"
@@ -109,15 +91,17 @@
                     android:id="@+id/cardio"
                     android:layout_height="200dp"
                     android:layout_gravity="center_horizontal"
-                    android:src="@mipmap/ic_cardio" />
-                <TextView
+                    android:src="@drawable/hiithome" />
+                <Button
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_centerInParent="true"
                     android:layout_marginLeft="23dp"
+                    android:background="@android:color/white"
                     android:layout_toRightOf="@id/cardio"
+                    android:id="@+id/hiitbutton"
                     android:gravity="center"
-                    android:text="HIGH-INTENSITY CARDIO WORKOUTS"
+                    android:text="HIGH INTENSITY INTERVAL TRAINING"
                     android:textColor="@android:color/black"
                     android:textSize="20sp" />
             </RelativeLayout>

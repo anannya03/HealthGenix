@@ -11,7 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ui.dashboard.Fullbodyworkout"
+            android:label="FULL BODY WORKOUTS">
 
+        </activity>
         <activity android:name=".Welcome" />
         <activity android:name=".Processing" />
         <activity android:name=".LogIn" />
@@ -37,7 +40,7 @@
         <activity
             android:name=".ui.settings.LogOut"
             android:label="LOGOUT"
-            android:parentActivityName=".NavigationMainActivity" />
+             />
         <activity
             android:name=".ui.settings.ContactUsInstagram"
             android:label="CONTACT US"
@@ -53,13 +56,11 @@
         <activity
             android:name=".ui.dashboard.HomeWorkout"
             android:label="HOME WORKOUTS"
-            android:parentActivityName=".NavigationMainActivity" />
-        <activity android:name=".ui.dashboard.BookWorkout"
+             />
+        <activity
+            android:name=".ui.dashboard.BookWorkout"
             android:label="BOOK WORKOUT"
-            android:parentActivityName=".NavigationMainActivity"
-            />
-
-
+            android:parentActivityName=".NavigationMainActivity" />
         <activity
             android:name=".ui.dashboard.FoodTracker"
             android:label="FOOD TRACKER" />

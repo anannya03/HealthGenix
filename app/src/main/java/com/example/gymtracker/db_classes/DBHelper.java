@@ -43,8 +43,7 @@ public class DBHelper extends SQLiteOpenHelper {
         try {
             String myPath = DB_PATH;
             checkDB
-                    = SQLiteDatabase
-                    .openDatabase(
+                    = SQLiteDatabase.openDatabase(
                             myPath, null,
                             SQLiteDatabase.OPEN_READONLY);
         }
