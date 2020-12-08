@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.gymtracker.NavigationMainActivity;
 import com.example.gymtracker.R;
 import com.example.gymtracker.db_classes.DBHelper;
 import com.example.gymtracker.ui.dashboard.workout_desc;
@@ -66,32 +67,42 @@ public class CustomAdapter extends BaseAdapter {
         holder.book.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int booked= data.getBooked();
-                int work_id= data.getWork_id();
-                int cap= data.getCap();
-
-                if(booked>=cap)
-                {
-                    Toast.makeText(context, "Sorry, This workout just reached its limit. Try booking another one", Toast.LENGTH_LONG).show();
+                int booked = data.getBooked();
+                int work_id = data.getWork_id();
+                int cap = data.getCap();
+                String branch = data.getBranch();
+                String email = NavigationMainActivity.login_email;
+                DBHelper db;
+                db = new DBHelper(context);
+                try {
+                    db.createDatabase();
+                    db.openDataBase();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-                else {
-                    booked = booked+1;
-                    DBHelper db;
-                    db = new DBHelper(context);
-                    try {
-                        db.createDatabase();
-                        db.openDataBase();
+                if (db.workoutBooked(email, work_id)) {
+                    Toast.makeText(context, "You have already made a booking for this workout! ", Toast.LENGTH_LONG).show();
+                } else {
+                    if (booked >= cap) {
+                        Toast.makeText(context, "Sorry, This workout just reached its limit. Try booking another one", Toast.LENGTH_LONG).show();
+                    } else {
+                        booked = booked + 1;
+                        DBHelper db1;
+                        db1 = new DBHelper(context);
+                        try {
+                            db1.createDatabase();
+                            db1.openDataBase();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        db1.updateBooking(work_id, booked);
+                        db1.insertWorkoutBooking(email, work_id, branch);
+                        holder.book.setBackgroundColor(Color.parseColor("#696969"));
+                        holder.book.setClickable(false);
+                        holder.book.setEnabled(false);
+                        Intent intent = new Intent(context, Thankyou.class);
+                        context.startActivity(intent);
                     }
-                    catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    db.updateBooking(work_id, booked);
-
-                    holder.book.setBackgroundColor(Color.parseColor("#696969"));
-                    holder.book.setClickable(false);
-                    holder.book.setEnabled(false);
-                    Intent intent= new Intent(context, Thankyou.class);
-                    context.startActivity(intent);
                 }
             }
         });

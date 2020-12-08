@@ -277,7 +277,28 @@ public class  DBHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL("Update Users set gym_id  = ? where email=?", new String[]{String.valueOf(gym_id), emailId});
     }
-
+    public boolean workoutBooked(String email, int work_id)
+    {
+        SQLiteDatabase dbReadable=this.getReadableDatabase();
+        Cursor res = dbReadable.rawQuery("Select email, work_id from Workout_booking where email=? and work_id=?", new String[]{email, String.valueOf(work_id)});
+        if(res.getCount()>0)
+        {
+            return(true);
+        }
+        return(false);
+    }
+    public void insertWorkoutBooking(String emailid, int work_id, String branch)
+    {
+        SQLiteDatabase db= this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        Random rnd = new Random();
+        entry_id = rnd.nextInt(999999);
+        contentValues.put("work_id", work_id);
+        contentValues.put("email", emailid);
+        contentValues.put("gym_branch", branch);
+        db.insert("Workout_booking", null, contentValues);
+        db.close();
+    }
     public void updateUsersSetMemDate(String memStart, String memEnd, String emailId)
     {
 
