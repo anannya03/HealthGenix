@@ -12,7 +12,6 @@ import android.widget.Toast;
 
 import com.example.gymtracker.NavigationMainActivity;
 import com.example.gymtracker.R;
-import com.example.gymtracker.db_classes.DBHelper;
 import com.razorpay.Checkout;
 import com.razorpay.PaymentResultListener;
 
@@ -103,18 +102,22 @@ public class PaymentActivityOneMonth extends Activity implements PaymentResultLi
     public void onPaymentSuccess(String razorpayPaymentID) {
         try {
             Toast.makeText(this, "Payment Successful: " + razorpayPaymentID, Toast.LENGTH_SHORT).show();
-            DBHelper db;
-            db = new DBHelper(getApplicationContext());
-            try {
-                db.createDatabase();
-                db.openDataBase();
-            }
-            catch (Exception e) {
-                e.printStackTrace();
-            }
-            calculateDate();
-            db.updateUsersSetGymId(branch, email);
-            db.updateUsersSetMemDate(date_tracked, dateEnd, email);
+            Intent intent = new Intent(PaymentActivityOneMonth.this, OrderConfirmation.class);
+            //intent.putExtra("Branch", "branch");
+            startActivity(intent);
+//            DBHelper db;
+//            db = new DBHelper(getApplicationContext());
+//            try {
+//                db.createDatabase();
+//                db.openDataBase();
+//            }
+//            catch (Exception e) {
+//                e.printStackTrace();
+//            }
+//            calculateDate();
+//            db.updateUsersSetGymId(branch, email);
+//            db.updateUsersSetMemDate(date_tracked, dateEnd, email);
+
 
         } catch (Exception e) {
             Log.e(TAG, "Exception in onPaymentSuccess", e);

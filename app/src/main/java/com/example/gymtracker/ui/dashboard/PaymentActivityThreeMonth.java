@@ -1,4 +1,4 @@
-package com.example.gymtracker;
+package com.example.gymtracker.ui.dashboard;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.gymtracker.NavigationMainActivity;
+import com.example.gymtracker.R;
 import com.example.gymtracker.db_classes.DBHelper;
 import com.razorpay.Checkout;
 import com.razorpay.PaymentResultListener;

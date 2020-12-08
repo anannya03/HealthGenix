@@ -11,11 +11,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ui.dashboard.OrderConfirmation"></activity>
         <activity
             android:name=".PaymentActivitySixMonths"
             android:label="@string/title_activity_payment_six_months"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".PaymentActivityThreeMonth" />
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ui.dashboard.PaymentActivityThreeMonth" />
         <activity
             android:name=".ui.dashboard.HiitWorkout"
             android:label="HIGH INTENSITY INTERVAL TRAINING" />
