@@ -5,22 +5,21 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.example.gymtracker.R;
 
+import java.util.List;
+
 public class SettingsFragment extends Fragment
 {
-    private Button button;
-    private Button payment;
-    private Button password;
-    private Button termsOfUse;
-    private Button logOut;
-    private Button contactUs;
-    private Button version;
+    ListView listView;
     @Override
     public void onCreate(Bundle savedInstanceState)
     {
@@ -31,62 +30,18 @@ public class SettingsFragment extends Fragment
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_settings, container, false);
-        contactUs = (Button)view.findViewById(R.id.contactUs);
-        contactUs.setOnClickListener(new View.OnClickListener() {
-
+        final String[] settings = {"Contact", "ContactUsInstagram", "AboutThisVersion", "TermsOfUse", "LogOut" };
+        listView = (ListView) view.findViewById(R.id.lv);
+        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getActivity().getApplicationContext(),
+                android.R.layout.simple_list_item_1, settings);
+        listView.setAdapter(arrayAdapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), ContactUsInstagram.class);
-                startActivity(intent);
-            }
-        });
-        button = (Button)view.findViewById(R.id.contact);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), Contact.class);
-                startActivity(intent);
-            }
-        });
-        payment = (Button)view.findViewById(R.id.payment);
-        payment.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), PaymentDetails.class);
-                startActivity(intent);
-            }
-        });
-        termsOfUse = view.findViewById(R.id.termsOfUse);
-        termsOfUse.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), TermsOfUse.class);
-                startActivity(intent);
-            }
-        });
-        password = (Button)view.findViewById(R.id.password);
-        password.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), ResetPassword.class);
-                startActivity(intent);
-            }
-        });
-        logOut = (Button)view.findViewById(R.id.logOut);
-        logOut.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                LogOutAlert logOutAlert = new LogOutAlert();
-                logOutAlert.show(getChildFragmentManager(), "Log Out alert");
-            }
-        });
-
-        version = (Button) view.findViewById(R.id.version);
-        version.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), AboutThisVersion.class);
-                startActivity(intent);
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if(position==0){
+                    Intent intent = new Intent(getActivity(), Contact.class);
+                    startActivity(intent);
+                }
             }
         });
         return view;
