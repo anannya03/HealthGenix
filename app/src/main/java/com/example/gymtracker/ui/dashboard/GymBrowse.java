@@ -8,7 +8,6 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.gymtracker.PaymentActivityThreeMonth;
 import com.example.gymtracker.R;
 import com.example.gymtracker.db_classes.DBHelper;
 

@@ -63,7 +63,7 @@
         <activity
             android:name=".ui.dashboard.BookWorkout"
             android:label="BOOK WORKOUT"
-            android:parentActivityName=".NavigationMainActivity" />
+             />
         <activity
             android:name=".ui.dashboard.FoodTracker"
             android:label="FOOD TRACKER" />
@@ -76,6 +76,13 @@
         <activity
             android:name=".ui.dashboard.GymBrowse"
             android:label="BROWSE MEMBERSHIPS" />
+        <activity
+            android:name=".ui.dashboard.PaymentActivitySixMonths"
+             />
+        <activity
+            android:name=".ui.dashboard.PaymentActivityThreeMonth"
+             />
+
         <activity
             android:name=".NavigationMainActivity"
             android:label="DASHBOARD"
