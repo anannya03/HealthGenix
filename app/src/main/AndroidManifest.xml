@@ -11,13 +11,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.dashboard.OrderConfirmation"></activity>
-        <activity
-            android:name=".ui.dashboard.PaymentActivitySixMonths"
-            android:label="@string/title_activity_payment_six_months"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ui.dashboard.PaymentActivityThreeMonth" />
-        <activity android:name=".DummyActivity"></activity>
 
         <activity
             android:name=".ui.dashboard.HiitWorkout"
@@ -89,7 +82,8 @@
         <activity
             android:name=".ui.dashboard.GymBrowse"
             android:label="BROWSE MEMBERSHIPS" />
-
+        <activity android:name=".ui.dashboard.PaymentActivitySixMonths" />
+        <activity android:name=".ui.dashboard.PaymentActivityOneYear" />
         <activity
             android:name=".NavigationMainActivity"
             android:label="DASHBOARD"

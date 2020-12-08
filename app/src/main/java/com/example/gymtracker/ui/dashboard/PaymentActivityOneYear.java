@@ -20,15 +20,16 @@ import com.razorpay.PaymentResultListener;
 
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Objects;
 import java.util.TimeZone;
 
-public class PaymentActivityThreeMonth extends Activity implements PaymentResultListener {
+public class PaymentActivityOneYear extends Activity implements PaymentResultListener {
     private static final String TAG = com.example.gymtracker.ui.dashboard.PaymentActivityOneMonth.class.getSimpleName();
     String branch;
     String email;
-    String start_date;
-    String end_date;
+    String date_tracked, dateEnd;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -106,6 +107,13 @@ public class PaymentActivityThreeMonth extends Activity implements PaymentResult
     public void onPaymentSuccess(String razorpayPaymentID) {
         try {
             Toast.makeText(this, "Payment Successful: " + razorpayPaymentID, Toast.LENGTH_SHORT).show();
+            date_tracked= "2020-12-12";
+            SimpleDateFormat sdf= new SimpleDateFormat("yyyy-MM-dd");
+            Calendar c= Calendar.getInstance();
+            c.setTime(Objects.requireNonNull(sdf.parse(date_tracked)));
+            date_tracked= sdf.format(c.getTime());
+            c.add(Calendar.DATE, 365);
+            dateEnd= sdf.format(c.getTime());
             DBHelper db;
             db = new DBHelper(getApplicationContext());
             try {
@@ -115,9 +123,10 @@ public class PaymentActivityThreeMonth extends Activity implements PaymentResult
             catch (Exception e) {
                 e.printStackTrace();
             }
-            calculateDate();
+
             db.updateUsersSetGymId(branch, email);
-            db.updateUsersSetMemDate(start_date, end_date, email);
+            db.updateUsersSetMemDate(date_tracked,dateEnd, email);
+
 
         } catch (Exception e) {
             Log.e(TAG, "Exception in onPaymentSuccess", e);
@@ -139,18 +148,9 @@ public class PaymentActivityThreeMonth extends Activity implements PaymentResult
         }
     }
 
-    public void calculateDate(){
-        Calendar cal = Calendar.getInstance();
-        cal.setTimeZone(TimeZone.getTimeZone("GMT"));
-         start_date = getDate(cal);
-        cal.add(Calendar.MONTH, 3);
-         end_date = getDate(cal);
-    }
 
-    public static String getDate(Calendar cal){
-        return "" + cal.get(Calendar.YEAR) +"/" +
-                (cal.get(Calendar.MONTH)+1) + "/" + cal.get(Calendar.DATE);
-    }
+
+
 
     }
 
