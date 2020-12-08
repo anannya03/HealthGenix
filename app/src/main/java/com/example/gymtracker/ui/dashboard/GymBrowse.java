@@ -71,7 +71,7 @@ public class GymBrowse extends AppCompatActivity {
     }
 
     private void PaymentPageThreeMonth() {
-        Intent intent = new Intent(this, PaymentActivityThreeMonth.class);
+        Intent intent = new Intent(this, PaymentActivityOneYear.class);
         intent.putExtra("Email", email);
         intent.putExtra("Branch", branch);
         startActivity(intent);
