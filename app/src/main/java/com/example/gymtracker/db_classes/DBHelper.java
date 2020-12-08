@@ -316,6 +316,21 @@ public class  DBHelper extends SQLiteOpenHelper {
         db.execSQL("Update Users set mem_start_date  = ? , mem_end_date = ? where email=?",
                 new String[]{memStart, memEnd , emailId});
     }
+
+    public String getEndDate(String branch) {
+        int gymId;
+        String endDate;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor res = db.rawQuery("Select gym_id from Gym_details where branch_name=?", new String[]{branch});
+        res.moveToFirst();
+        gymId = res.getInt(0);
+        SQLiteDatabase dbRead = this.getReadableDatabase();
+        Cursor resDate = db.rawQuery("Select mem_end_date from users where branch_id=?", new String[]{String.valueOf(gymId)});
+        resDate.moveToFirst();
+        return resDate.getString(0);
+    }
 }
+
+
 
 

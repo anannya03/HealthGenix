@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        <activity android:name=".DummyActivity"></activity>
         <activity
             android:name=".ui.dashboard.HiitWorkout"
             android:label="HIGH INTENSITY INTERVAL TRAINING" />
@@ -83,7 +83,7 @@
             android:name=".ui.dashboard.GymBrowse"
             android:label="BROWSE MEMBERSHIPS" />
         <activity android:name=".ui.dashboard.PaymentActivitySixMonths" />
-        <activity android:name=".ui.dashboard.PaymentActivityOneYear" />
+        <activity android:name=".ui.dashboard.PaymentActivityThreeMonth" />
         <activity
             android:name=".NavigationMainActivity"
             android:label="DASHBOARD"
