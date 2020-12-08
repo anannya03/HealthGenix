@@ -16,8 +16,8 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-public class DBHelper extends SQLiteOpenHelper {
-    public static final String DATABASE_NAME="Gym.db";
+public class  DBHelper extends SQLiteOpenHelper {
+    public static final String DATABASE_NAME="Health.db";
     public static final int DATABASE_VERSION=1;
     public static String DB_PATH="";
     public long user_id;
@@ -269,12 +269,13 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     public void updateUsersSetGymId(String emailId, String branch){
-        SQLiteDatabase db = this.getWritableDatabase();
+
         SQLiteDatabase dbReadable=this.getReadableDatabase();
         Cursor res = dbReadable.rawQuery("Select gym_id from Gym_details where branch_name=?", new String[]{branch});
         res.moveToFirst();
         int gym_id = res.getInt(0);
-        db.execSQL("Update Users set gym_id  = ? where email=?", new String[]{String.valueOf(gym_id), String.valueOf(emailId)});
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("Update Users set gym_id  = ? where email=?", new String[]{String.valueOf(gym_id), emailId});
     }
 
     public void updateUsersSetMemDate(String memStart, String memEnd, String emailId)

@@ -66,15 +66,16 @@ public class CustomAdapter extends BaseAdapter {
         holder.book.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int book= data.getBooked();
+                int booked= data.getBooked();
                 int work_id= data.getWork_id();
                 int cap= data.getCap();
-                if(book>=cap)
+
+                if(booked>=cap)
                 {
                     Toast.makeText(context, "Sorry, This workout just reached its limit. Try booking another one", Toast.LENGTH_LONG).show();
                 }
                 else {
-                    book = book+1;
+                    booked = booked+1;
                     DBHelper db;
                     db = new DBHelper(context);
                     try {
@@ -84,8 +85,8 @@ public class CustomAdapter extends BaseAdapter {
                     catch (Exception e) {
                         e.printStackTrace();
                     }
-                    db.updateBooking(work_id, book);
-                    Toast.makeText(context, "You have booked " + data.getWork_name() +"succesfully", Toast.LENGTH_LONG).show();
+                    db.updateBooking(work_id, booked);
+
                     holder.book.setBackgroundColor(Color.parseColor("#696969"));
                     holder.book.setClickable(false);
                     holder.book.setEnabled(false);

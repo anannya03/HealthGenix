@@ -65,6 +65,10 @@
             android:label="BOOK WORKOUT"
              />
         <activity
+            android:name=".ui.dashboard.Thankyou"
+            android:label="THANK YOU"
+            />
+        <activity
             android:name=".ui.dashboard.FoodTracker"
             android:label="FOOD TRACKER" />
         <activity
