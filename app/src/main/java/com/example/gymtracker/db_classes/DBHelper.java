@@ -274,7 +274,7 @@ public class DBHelper extends SQLiteOpenHelper {
         Cursor res = dbReadable.rawQuery("Select gym_id from Gym_details where branch_name=?", new String[]{branch});
         res.moveToFirst();
         int gym_id = res.getInt(0);
-        db.execSQL("Update Users set gym_id  = ? where email=?", new String[]{String.valueOf(gym_id), emailId});
+        db.execSQL("Update Users set gym_id  = ? where email=?", new String[]{String.valueOf(gym_id), String.valueOf(emailId)});
     }
 
     public void updateUsersSetMemDate(String memStart, String memEnd, String emailId)

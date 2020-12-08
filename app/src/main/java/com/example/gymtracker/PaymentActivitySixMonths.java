@@ -20,7 +20,7 @@ import org.json.JSONObject;
 
 import java.util.Calendar;
 
-public class PaymentActivityOneMonth extends Activity implements PaymentResultListener {
+public class PaymentActivitySixMonths extends Activity implements PaymentResultListener {
     private static final String TAG = PaymentActivityOneMonth.class.getSimpleName();
     String branch;
     String email;
@@ -29,7 +29,7 @@ public class PaymentActivityOneMonth extends Activity implements PaymentResultLi
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_payment_one_month);
+        setContentView(R.layout.activity_payment_six_months);
         //setContentView();
         Bundle bundle= getIntent().getExtras();
         branch= bundle.getString("Branch");

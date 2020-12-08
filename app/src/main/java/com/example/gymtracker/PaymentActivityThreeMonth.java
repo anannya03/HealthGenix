@@ -1,4 +1,6 @@
-package com.example.gymtracker.ui.dashboard;
+package com.example.gymtracker;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -10,8 +12,6 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.gymtracker.NavigationMainActivity;
-import com.example.gymtracker.R;
 import com.example.gymtracker.db_classes.DBHelper;
 import com.razorpay.Checkout;
 import com.razorpay.PaymentResultListener;
@@ -19,13 +19,14 @@ import com.razorpay.PaymentResultListener;
 import org.json.JSONObject;
 
 import java.util.Calendar;
+import java.util.TimeZone;
 
-public class PaymentActivityOneMonth extends Activity implements PaymentResultListener {
-    private static final String TAG = PaymentActivityOneMonth.class.getSimpleName();
+public class PaymentActivityThreeMonth extends Activity implements PaymentResultListener {
+    private static final String TAG = com.example.gymtracker.ui.dashboard.PaymentActivityOneMonth.class.getSimpleName();
     String branch;
     String email;
-    String date_tracked;
-    String dateEnd;
+    String start_date;
+    String end_date;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -114,7 +115,7 @@ public class PaymentActivityOneMonth extends Activity implements PaymentResultLi
             }
             calculateDate();
             db.updateUsersSetGymId(branch, email);
-            db.updateUsersSetMemDate(date_tracked, dateEnd, email);
+            db.updateUsersSetMemDate(start_date, end_date, email);
 
         } catch (Exception e) {
             Log.e(TAG, "Exception in onPaymentSuccess", e);
@@ -137,16 +138,17 @@ public class PaymentActivityOneMonth extends Activity implements PaymentResultLi
     }
 
     public void calculateDate(){
-        int curr_date = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
-        int curr_year = Calendar.getInstance().get(Calendar.YEAR);
-        int curr_month = Calendar.getInstance().get(Calendar.MONTH);
-        date_tracked=""+curr_year+"-"+curr_month+"-"+curr_date;
-        if(curr_month > 11){
-            curr_year += 1;
-            curr_month = 1;
-        }
-        int end_month = curr_month+1;
-
-        dateEnd=""+curr_year+"-"+end_month+"-"+curr_date;
+        Calendar cal = Calendar.getInstance();
+        cal.setTimeZone(TimeZone.getTimeZone("GMT"));
+         start_date = getDate(cal);
+        cal.add(Calendar.MONTH, 3);
+         end_date = getDate(cal);
     }
-}
+
+    public static String getDate(Calendar cal){
+        return "" + cal.get(Calendar.YEAR) +"/" +
+                (cal.get(Calendar.MONTH)+1) + "/" + cal.get(Calendar.DATE);
+    }
+
+    }
+

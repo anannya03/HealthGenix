@@ -11,12 +11,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.dashboard.HiitWorkout"
-            android:label="HIGH INTENSITY INTERVAL TRAINING"/>
-        <activity android:name=".ui.dashboard.coupleworkouts"
-            android:label="COUPLE WORKOUTS"/>
-        <activity android:name=".ui.dashboard.ArmsAbsWorkout"
-            android:label="ARMS AND ABS WORKOUTS"/>
+        <activity
+            android:name=".PaymentActivitySixMonths"
+            android:label="@string/title_activity_payment_six_months"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".PaymentActivityThreeMonth" />
+        <activity
+            android:name=".ui.dashboard.HiitWorkout"
+            android:label="HIGH INTENSITY INTERVAL TRAINING" />
+        <activity
+            android:name=".ui.dashboard.coupleworkouts"
+            android:label="COUPLE WORKOUTS" />
+        <activity
+            android:name=".ui.dashboard.ArmsAbsWorkout"
+            android:label="ARMS AND ABS WORKOUTS" />
         <activity
             android:name=".ui.dashboard.Fullbodyworkout"
             android:label="FULL BODY WORKOUTS" />
@@ -84,16 +92,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.dashboard.GymBrowseRaipur"
+        <activity
+            android:name=".ui.dashboard.GymBrowse"
             android:label="Gym Details" />
-        <activity android:name=".ui.dashboard.PaymentActivityOneMonth"
+        <activity
+            android:name=".ui.dashboard.PaymentActivityOneMonth"
             android:label="Purchase" />
 
         <meta-data
             android:name="com.razorpay.ApiKey"
-            android:value="rzp_test_RE4K9f5guLw95O"
-            />
-
+            android:value="rzp_test_RE4K9f5guLw95O" />
     </application>
 
 </manifest>
