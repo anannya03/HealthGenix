@@ -40,6 +40,7 @@ public class PaymentActivityOneMonth extends Activity implements PaymentResultLi
          */
         Checkout.preload(getApplicationContext());
 
+
         // Payment button created by you in XML layout
         Button button = (Button) findViewById(R.id.btn_pay);
 
@@ -63,7 +64,9 @@ public class PaymentActivityOneMonth extends Activity implements PaymentResultLi
     }
 
     public void startPayment() {
+        //checkout.setKeyID("<YOUR_KEY_ID>");
         /*
+
           You need to pass current activity in order to let Razorpay create CheckoutActivity
          */
         final Activity activity = this;
@@ -92,7 +95,6 @@ public class PaymentActivityOneMonth extends Activity implements PaymentResultLi
             e.printStackTrace();
         }
     }
-
     /**
      * The name of the function has to be
      * onPaymentSuccess
@@ -103,7 +105,7 @@ public class PaymentActivityOneMonth extends Activity implements PaymentResultLi
     public void onPaymentSuccess(String razorpayPaymentID) {
         try {
             Toast.makeText(this, "Payment Successful: " + razorpayPaymentID, Toast.LENGTH_SHORT).show();
-            DBHelper db;
+           /* DBHelper db;
             db = new DBHelper(getApplicationContext());
             try {
                 db.createDatabase();
@@ -114,7 +116,7 @@ public class PaymentActivityOneMonth extends Activity implements PaymentResultLi
             }
             calculateDate();
             db.updateUsersSetGymId(branch, email);
-            db.updateUsersSetMemDate(date_tracked, dateEnd, email);
+            db.updateUsersSetMemDate(date_tracked, dateEnd, email); */
 
         } catch (Exception e) {
             Log.e(TAG, "Exception in onPaymentSuccess", e);

@@ -107,7 +107,7 @@ public class tabfrag4 extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity().getApplicationContext(), GymBrowse.class);
+                Intent intent = new Intent(getActivity(), GymBrowse.class);
                 intent.putExtra("Branch", branchChosen);
                 startActivity(intent);
             }

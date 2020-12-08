@@ -1,6 +1,7 @@
 
 package com.example.gymtracker.ui.dashboard;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -88,6 +89,8 @@ public class CustomAdapter extends BaseAdapter {
                     holder.book.setBackgroundColor(Color.parseColor("#696969"));
                     holder.book.setClickable(false);
                     holder.book.setEnabled(false);
+                    Intent intent= new Intent(context, Thankyou.class);
+                    context.startActivity(intent);
                 }
             }
         });

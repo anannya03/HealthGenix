@@ -74,6 +74,9 @@
             android:name=".ui.dashboard.TrackWater"
             android:label="WATER TRACKER" />
         <activity
+            android:name=".ui.dashboard.GymBrowse"
+            android:label="BROWSE MEMBERSHIPS" />
+        <activity
             android:name=".NavigationMainActivity"
             android:label="DASHBOARD"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -84,14 +87,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.dashboard.GymBrowseRaipur"
-            android:label="Gym Details" />
         <activity android:name=".ui.dashboard.PaymentActivityOneMonth"
             android:label="Purchase" />
 
         <meta-data
             android:name="com.razorpay.ApiKey"
-            android:value="rzp_test_RE4K9f5guLw95O"
+            android:value="rzp_test_rnw2nOaPgjE7S3"
             />
 
     </application>
