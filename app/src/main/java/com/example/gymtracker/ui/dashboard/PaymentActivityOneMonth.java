@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.gymtracker.DummyActivity;
 import com.example.gymtracker.NavigationMainActivity;
 import com.example.gymtracker.R;
 import com.example.gymtracker.db_classes.DBHelper;
@@ -33,7 +34,7 @@ public class PaymentActivityOneMonth extends Activity implements PaymentResultLi
         //setContentView();
         Bundle bundle= getIntent().getExtras();
         branch= bundle.getString("Branch");
-        email = NavigationMainActivity.login_email;
+        email= bundle.getString("Email");
         /*
          To ensure faster loading of the Checkout form,
           call this method as early as possible in your checkout flow.
@@ -104,8 +105,24 @@ public class PaymentActivityOneMonth extends Activity implements PaymentResultLi
     @Override
     public void onPaymentSuccess(String razorpayPaymentID) {
         try {
-            Toast.makeText(this, "Payment Successful: " + razorpayPaymentID, Toast.LENGTH_SHORT).show();
-           /* DBHelper db;
+            Toast.makeText(this, "Payment Successful: " + razorpayPaymentID +"\n Branch: "+branch+"\nEmail:"+email, Toast.LENGTH_SHORT).show();
+            int curr_date = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
+            int curr_year = Calendar.getInstance().get(Calendar.YEAR);
+            int curr_month = Calendar.getInstance().get(Calendar.MONTH);
+            int end_month, end_year;
+            date_tracked=""+curr_year+"-"+curr_month+"-"+curr_date;
+            if(curr_month > 11){
+                end_year= curr_year+1;
+                end_month = 1;
+            }
+            else
+            {
+                end_month=curr_month+1;
+                end_year= curr_year;
+            }
+
+            dateEnd=""+curr_year+"-"+end_month+"-"+curr_date;
+            DBHelper db;
             db = new DBHelper(getApplicationContext());
             try {
                 db.createDatabase();
@@ -116,7 +133,9 @@ public class PaymentActivityOneMonth extends Activity implements PaymentResultLi
             }
             calculateDate();
             db.updateUsersSetGymId(branch, email);
-            db.updateUsersSetMemDate(date_tracked, dateEnd, email); */
+            db.updateUsersSetMemDate(date_tracked, dateEnd, email);
+            Intent intent= new Intent(PaymentActivityOneMonth.this, DummyActivity.class);
+            startActivity(intent);
 
         } catch (Exception e) {
             Log.e(TAG, "Exception in onPaymentSuccess", e);

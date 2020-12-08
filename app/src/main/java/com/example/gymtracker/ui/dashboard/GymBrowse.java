@@ -16,6 +16,7 @@ public class GymBrowse extends AppCompatActivity {
     //private static final String TAG = GymBrowseRaipur.class.getSimpleName();
     TextView textView;
     String branch;
+    String email;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +30,8 @@ public class GymBrowse extends AppCompatActivity {
         textView = (TextView) findViewById(R.id.textView14);
         Bundle bundle= getIntent().getExtras();
         branch= bundle.getString("Branch");
+        email= bundle.getString("Email");
+
         DBHelper db;
         db = new DBHelper(getApplicationContext());
         try {
@@ -63,17 +66,20 @@ public class GymBrowse extends AppCompatActivity {
     private void PaymentPageSixMonths() {
         Intent intent = new Intent(this, com.example.gymtracker.ui.dashboard.PaymentActivitySixMonths.class);
         intent.putExtra("Branch", branch);
+        intent.putExtra("Email", email);
         startActivity(intent);
     }
 
     private void PaymentPageThreeMonth() {
         Intent intent = new Intent(this, PaymentActivityThreeMonth.class);
+        intent.putExtra("Email", email);
         intent.putExtra("Branch", branch);
         startActivity(intent);
     }
 
     void PaymentPage() {
         Intent intent = new Intent(this, PaymentActivityOneMonth.class);
+        intent.putExtra("Email", email);
         intent.putExtra("Branch", branch);
         startActivity(intent);
     }

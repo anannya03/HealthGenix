@@ -267,15 +267,25 @@ public class  DBHelper extends SQLiteOpenHelper {
         address = res.getString(0);
         return address;
     }
+    public  int getGymId(String branch)
+    {
+        SQLiteDatabase dbReadable=this.getReadableDatabase();
+        int gym_id=1010;
+        Cursor res = dbReadable.rawQuery("Select Gym_id from Gym_details where Branch_name=?", new String[]{branch});
+        if(res!=null && res.moveToFirst())
+        {
+            gym_id = res.getInt(0);
 
+        }
+        return(gym_id);
+
+    }
     public void updateUsersSetGymId(String emailId, String branch){
 
-        SQLiteDatabase dbReadable=this.getReadableDatabase();
-        Cursor res = dbReadable.rawQuery("Select gym_id from Gym_details where branch_name=?", new String[]{branch});
-        res.moveToFirst();
-        int gym_id = res.getInt(0);
+      int gym_id=getGymId(branch);
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL("Update Users set gym_id  = ? where email=?", new String[]{String.valueOf(gym_id), emailId});
+
     }
     public boolean workoutBooked(String email, int work_id)
     {

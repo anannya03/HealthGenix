@@ -11,12 +11,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.dashboard.HiitWorkout"
-            android:label="HIGH INTENSITY INTERVAL TRAINING"/>
-        <activity android:name=".ui.dashboard.coupleworkouts"
-            android:label="COUPLE WORKOUTS"/>
-        <activity android:name=".ui.dashboard.ArmsAbsWorkout"
-            android:label="ARMS AND ABS WORKOUTS"/>
+        <activity android:name=".DummyActivity"></activity>
+        <activity
+            android:name=".ui.dashboard.HiitWorkout"
+            android:label="HIGH INTENSITY INTERVAL TRAINING" />
+        <activity
+            android:name=".ui.dashboard.coupleworkouts"
+            android:label="COUPLE WORKOUTS" />
+        <activity
+            android:name=".ui.dashboard.ArmsAbsWorkout"
+            android:label="ARMS AND ABS WORKOUTS" />
         <activity
             android:name=".ui.dashboard.Fullbodyworkout"
             android:label="FULL BODY WORKOUTS" />
@@ -62,12 +66,10 @@
             android:label="HOME WORKOUTS" />
         <activity
             android:name=".ui.dashboard.BookWorkout"
-            android:label="BOOK WORKOUT"
-             />
+            android:label="BOOK WORKOUT" />
         <activity
             android:name=".ui.dashboard.Thankyou"
-            android:label="THANK YOU"
-            />
+            android:label="THANK YOU" />
         <activity
             android:name=".ui.dashboard.FoodTracker"
             android:label="FOOD TRACKER" />
@@ -80,13 +82,8 @@
         <activity
             android:name=".ui.dashboard.GymBrowse"
             android:label="BROWSE MEMBERSHIPS" />
-        <activity
-            android:name=".ui.dashboard.PaymentActivitySixMonths"
-             />
-        <activity
-            android:name=".ui.dashboard.PaymentActivityThreeMonth"
-             />
-
+        <activity android:name=".ui.dashboard.PaymentActivitySixMonths" />
+        <activity android:name=".ui.dashboard.PaymentActivityThreeMonth" />
         <activity
             android:name=".NavigationMainActivity"
             android:label="DASHBOARD"
@@ -98,14 +95,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.dashboard.PaymentActivityOneMonth"
+        <activity
+            android:name=".ui.dashboard.PaymentActivityOneMonth"
             android:label="Purchase" />
 
         <meta-data
             android:name="com.razorpay.ApiKey"
-            android:value="rzp_test_rnw2nOaPgjE7S3"
-            />
-
+            android:value="rzp_test_rnw2nOaPgjE7S3" />
     </application>
 
 </manifest>
