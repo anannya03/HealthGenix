@@ -10,8 +10,10 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.gymtracker.DummyActivity;
 import com.example.gymtracker.NavigationMainActivity;
 import com.example.gymtracker.R;
+import com.example.gymtracker.db_classes.DBHelper;
 import com.razorpay.Checkout;
 import com.razorpay.PaymentResultListener;
 
@@ -32,12 +34,13 @@ public class PaymentActivityOneMonth extends Activity implements PaymentResultLi
         //setContentView();
         Bundle bundle= getIntent().getExtras();
         branch= bundle.getString("Branch");
-        email = NavigationMainActivity.login_email;
+        email= bundle.getString("Email");
         /*
          To ensure faster loading of the Checkout form,
           call this method as early as possible in your checkout flow.
          */
         Checkout.preload(getApplicationContext());
+
 
         // Payment button created by you in XML layout
         Button button = (Button) findViewById(R.id.btn_pay);
@@ -62,7 +65,9 @@ public class PaymentActivityOneMonth extends Activity implements PaymentResultLi
     }
 
     public void startPayment() {
+        //checkout.setKeyID("<YOUR_KEY_ID>");
         /*
+
           You need to pass current activity in order to let Razorpay create CheckoutActivity
          */
         final Activity activity = this;
@@ -91,7 +96,6 @@ public class PaymentActivityOneMonth extends Activity implements PaymentResultLi
             e.printStackTrace();
         }
     }
-
     /**
      * The name of the function has to be
      * onPaymentSuccess
@@ -101,23 +105,38 @@ public class PaymentActivityOneMonth extends Activity implements PaymentResultLi
     @Override
     public void onPaymentSuccess(String razorpayPaymentID) {
         try {
-            Toast.makeText(this, "Payment Successful: " + razorpayPaymentID, Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(PaymentActivityOneMonth.this, OrderConfirmation.class);
-            //intent.putExtra("Branch", "branch");
-            startActivity(intent);
-//            DBHelper db;
-//            db = new DBHelper(getApplicationContext());
-//            try {
-//                db.createDatabase();
-//                db.openDataBase();
-//            }
-//            catch (Exception e) {
-//                e.printStackTrace();
-//            }
-//            calculateDate();
-//            db.updateUsersSetGymId(branch, email);
-//            db.updateUsersSetMemDate(date_tracked, dateEnd, email);
 
+            Toast.makeText(this, "Payment Successful: " + razorpayPaymentID +"\n Branch: "+branch+"\nEmail:"+email, Toast.LENGTH_SHORT).show();
+            int curr_date = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
+            int curr_year = Calendar.getInstance().get(Calendar.YEAR);
+            int curr_month = Calendar.getInstance().get(Calendar.MONTH);
+            int end_month, end_year;
+            date_tracked=""+curr_year+"-"+curr_month+"-"+curr_date;
+            if(curr_month > 11){
+                end_year= curr_year+1;
+                end_month = 1;
+            }
+            else
+            {
+                end_month=curr_month+1;
+                end_year= curr_year;
+            }
+
+            dateEnd=""+curr_year+"-"+end_month+"-"+curr_date;
+            DBHelper db;
+            db = new DBHelper(getApplicationContext());
+            try {
+                db.createDatabase();
+                db.openDataBase();
+            }
+            catch (Exception e) {
+                e.printStackTrace();
+            }
+            calculateDate();
+            db.updateUsersSetGymId(branch, email);
+            db.updateUsersSetMemDate(date_tracked, dateEnd, email);
+            Intent intent= new Intent(PaymentActivityOneMonth.this, OrderConfirmation.class);
+            startActivity(intent);
 
         } catch (Exception e) {
             Log.e(TAG, "Exception in onPaymentSuccess", e);

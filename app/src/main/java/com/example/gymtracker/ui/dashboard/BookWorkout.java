@@ -46,7 +46,7 @@ public class BookWorkout extends AppCompatActivity {
             int work_id= ob.getWork_id();
             int booked= ob.getBooked();
             int cap= ob.getCap();
-            workouts.add(new workout_desc(name, "Branch: "+branch+"\n Date: "+date+"\nTime: "+time, work_id, booked,cap));
+            workouts.add(new workout_desc(name, "Branch: "+branch+"\n Date: "+date+"\nTime: "+time, work_id, booked,cap, branch));
         }
         lv = findViewById(R.id.lv);
         CustomAdapter adapter = new CustomAdapter(this, workouts);

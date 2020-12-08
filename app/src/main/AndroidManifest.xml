@@ -13,10 +13,12 @@
         android:theme="@style/AppTheme">
         <activity android:name=".ui.dashboard.OrderConfirmation"></activity>
         <activity
-            android:name=".PaymentActivitySixMonths"
+            android:name=".ui.dashboard.PaymentActivitySixMonths"
             android:label="@string/title_activity_payment_six_months"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ui.dashboard.PaymentActivityThreeMonth" />
+        <activity android:name=".DummyActivity"></activity>
+
         <activity
             android:name=".ui.dashboard.HiitWorkout"
             android:label="HIGH INTENSITY INTERVAL TRAINING" />
@@ -71,8 +73,10 @@
             android:label="HOME WORKOUTS" />
         <activity
             android:name=".ui.dashboard.BookWorkout"
-            android:label="BOOK WORKOUT"
-            android:parentActivityName=".NavigationMainActivity" />
+            android:label="BOOK WORKOUT" />
+        <activity
+            android:name=".ui.dashboard.Thankyou"
+            android:label="THANK YOU" />
         <activity
             android:name=".ui.dashboard.FoodTracker"
             android:label="FOOD TRACKER" />
@@ -82,6 +86,10 @@
         <activity
             android:name=".ui.dashboard.TrackWater"
             android:label="WATER TRACKER" />
+        <activity
+            android:name=".ui.dashboard.GymBrowse"
+            android:label="BROWSE MEMBERSHIPS" />
+
         <activity
             android:name=".NavigationMainActivity"
             android:label="DASHBOARD"
@@ -94,15 +102,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.dashboard.GymBrowse"
-            android:label="Gym Details" />
-        <activity
             android:name=".ui.dashboard.PaymentActivityOneMonth"
             android:label="Purchase" />
 
         <meta-data
             android:name="com.razorpay.ApiKey"
-            android:value="rzp_test_RE4K9f5guLw95O" />
+            android:value="rzp_test_rnw2nOaPgjE7S3" />
     </application>
 
 </manifest>

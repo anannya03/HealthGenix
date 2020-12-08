@@ -16,8 +16,8 @@ import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-public class DBHelper extends SQLiteOpenHelper {
-    public static final String DATABASE_NAME="Gym.db";
+public class  DBHelper extends SQLiteOpenHelper {
+    public static final String DATABASE_NAME="Health.db";
     public static final int DATABASE_VERSION=1;
     public static String DB_PATH="";
     public long user_id;
@@ -267,16 +267,48 @@ public class DBHelper extends SQLiteOpenHelper {
         address = res.getString(0);
         return address;
     }
-
-    public void updateUsersSetGymId(String emailId, String branch){
-        SQLiteDatabase db = this.getWritableDatabase();
+    public  int getGymId(String branch)
+    {
         SQLiteDatabase dbReadable=this.getReadableDatabase();
-        Cursor res = dbReadable.rawQuery("Select gym_id from Gym_details where branch_name=?", new String[]{branch});
-        res.moveToFirst();
-        int gym_id = res.getInt(0);
-        db.execSQL("Update Users set gym_id  = ? where email=?", new String[]{String.valueOf(gym_id), String.valueOf(emailId)});
-    }
+        int gym_id=1010;
+        Cursor res = dbReadable.rawQuery("Select Gym_id from Gym_details where Branch_name=?", new String[]{branch});
+        if(res!=null && res.moveToFirst())
+        {
+            gym_id = res.getInt(0);
 
+        }
+        return(gym_id);
+
+    }
+    public void updateUsersSetGymId(String emailId, String branch){
+
+      int gym_id=getGymId(branch);
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("Update Users set gym_id  = ? where email=?", new String[]{String.valueOf(gym_id), emailId});
+
+    }
+    public boolean workoutBooked(String email, int work_id)
+    {
+        SQLiteDatabase dbReadable=this.getReadableDatabase();
+        Cursor res = dbReadable.rawQuery("Select email, work_id from Workout_booking where email=? and work_id=?", new String[]{email, String.valueOf(work_id)});
+        if(res.getCount()>0)
+        {
+            return(true);
+        }
+        return(false);
+    }
+    public void insertWorkoutBooking(String emailid, int work_id, String branch)
+    {
+        SQLiteDatabase db= this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        Random rnd = new Random();
+        entry_id = rnd.nextInt(999999);
+        contentValues.put("work_id", work_id);
+        contentValues.put("email", emailid);
+        contentValues.put("gym_branch", branch);
+        db.insert("Workout_booking", null, contentValues);
+        db.close();
+    }
     public void updateUsersSetMemDate(String memStart, String memEnd, String emailId)
     {
 

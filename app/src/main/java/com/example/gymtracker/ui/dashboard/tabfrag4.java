@@ -12,11 +12,12 @@ import android.widget.Spinner;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.gymtracker.NavigationMainActivity;
 import com.example.gymtracker.R;
 
 public class tabfrag4 extends Fragment {
     public static final String []cities={"Bangalore", "Raipur", "Pune"};
-    public static final String[] bangalore= { "HealthGenix Jayanagar Branch", "HealthGenix Basavangudi Branch" };
+    public static final String[] bangalore= { "HealthGenix Basavangudi Branch", "HealthGenix Jayanagar Branch" };
     public static final String[] raipur={"HealthGenix Gitanjali Nagar Branch"};
     public static final String[] pune= {"HealthGenix Balewadi Branch"};
     Spinner city, branch;
@@ -73,10 +74,8 @@ public class tabfrag4 extends Fragment {
                             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                                 branchChosen = raipur[i];
                             }
-
                             @Override
                             public void onNothingSelected(AdapterView<?> parent) {
-
                             }
                         });
                         break;
@@ -107,7 +106,9 @@ public class tabfrag4 extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getActivity().getApplicationContext(), GymBrowse.class);
+                Intent intent = new Intent(getActivity(), GymBrowse.class);
+                String email= NavigationMainActivity.login_email;
+                intent.putExtra("Email", email);
                 intent.putExtra("Branch", branchChosen);
                 startActivity(intent);
             }
