@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
+        <activity android:name=".ui.dashboard.BookWorkoutBranch"></activity>
         <activity
             android:name=".ui.dashboard.HiitWorkout"
             android:label="HIGH INTENSITY INTERVAL TRAINING" />
@@ -41,10 +41,6 @@
         <activity
             android:name=".ui.settings.ResetPassword"
             android:label="RESET PASSWORD"
-            android:parentActivityName=".NavigationMainActivity" />
-        <activity
-            android:name=".ui.settings.PaymentDetails"
-            android:label="CHANGE PAYMENT DETAILS"
             android:parentActivityName=".NavigationMainActivity" />
         <activity
             android:name=".ui.settings.LogOut"

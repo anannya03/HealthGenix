@@ -120,8 +120,6 @@ public class PaymentActivitySixMonths extends Activity implements PaymentResultL
             catch (Exception e) {
                 e.printStackTrace();
             }
-
-            db.updateUsersSetGymId(branch, email);
             db.updateUsersSetMemDate(date_tracked, dateEnd, email);
 
         } catch (Exception e) {

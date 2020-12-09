@@ -18,13 +18,17 @@ public class BookWorkout extends AppCompatActivity {
     static ArrayList<workout_desc> workouts;
     List<Workouts> tempworks;
     ListView lv;
-    String email;
+    String email,branchChosen ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_book_workout);
-        email= NavigationMainActivity.login_email;
+
+        Bundle bundle= getIntent().getExtras();
+        email= bundle.getString("Email");
+        branchChosen= bundle.getString("Branch");
+
 
         DBHelper db;
         db = new DBHelper(getApplicationContext());
@@ -35,7 +39,7 @@ public class BookWorkout extends AppCompatActivity {
         catch (Exception e) {
             e.printStackTrace();
         }
-        tempworks= db.getWorkouts(email);
+        tempworks= db.getWorkouts(branchChosen);
         workouts= new ArrayList<workout_desc>();
         for( Workouts ob:tempworks)
         {

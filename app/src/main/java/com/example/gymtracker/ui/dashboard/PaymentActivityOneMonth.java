@@ -123,7 +123,7 @@ public class PaymentActivityOneMonth extends Activity implements PaymentResultLi
                 e.printStackTrace();
             }
             db.updateUsersSetMemDate(date_tracked, dateEnd, email);
-            db.updateUsersSetGymId(branch, email);
+            db.close();
 
            } catch (Exception e) {
             Log.e(TAG, "Exception in onPaymentSuccess", e);
