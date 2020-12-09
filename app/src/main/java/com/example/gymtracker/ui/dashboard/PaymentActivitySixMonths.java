@@ -121,7 +121,10 @@ public class PaymentActivitySixMonths extends Activity implements PaymentResultL
                 e.printStackTrace();
             }
             db.updateUsersSetMemDate(date_tracked, dateEnd, email);
-            Intent intent = new Intent(PaymentActivitySixMonths.this, OrderConfirmation.class);
+            Intent intent= new Intent(PaymentActivitySixMonths.this, OrderConfirmation.class);
+            intent.putExtra("email", email);
+            intent.putExtra("date_start", date_tracked);
+            intent.putExtra("date_end", dateEnd);
             startActivity(intent);
 
         } catch (Exception e) {
