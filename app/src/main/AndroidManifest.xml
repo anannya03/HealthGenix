@@ -79,6 +79,9 @@
         <activity
             android:name=".ui.dashboard.TrackWater"
             android:label="WATER TRACKER" />
+
+        <activity android:name=".ui.settings.LogOutAlert"
+            android:label="LOG OUT" />
         <activity
             android:name=".ui.dashboard.GymBrowse"
             android:label="BROWSE MEMBERSHIPS" />

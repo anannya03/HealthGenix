@@ -23,27 +23,27 @@
         tools:layout_editor_absoluteY="298dp" />
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="169dp"
+        android:layout_height="81dp"
+        android:layout_marginLeft="44dp"
         android:layout_marginTop="52dp"
-        android:text="View More Workouts"
 
+        android:text="More Workouts"
         android:textColor="@android:color/holo_green_light"
-        android:textSize="13dp"
-        app:layout_constraintTop_toBottomOf="@id/thankmessage"
+        android:textSize="22dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        tools:layout_editor_absoluteX="0dp" />
+        app:layout_constraintTop_toBottomOf="@id/thankmessage" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
-        android:text="Go back to Main Page"
+        android:layout_marginRight="28dp"
+        android:text="Main Page"
         android:textColor="@android:color/holo_green_light"
-        android:textSize="13dp"
-        app:layout_constraintTop_toBottomOf="@id/thankmessage"
+        android:textSize="22dp"
         app:layout_constraintRight_toRightOf="parent"
-        tools:layout_editor_absoluteX="0dp" />
-
+        app:layout_constraintTop_toBottomOf="@id/thankmessage" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
