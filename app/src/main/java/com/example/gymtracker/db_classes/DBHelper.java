@@ -296,24 +296,6 @@ public class  DBHelper extends SQLiteOpenHelper {
         res.close();
         return address;
     }
-   /* public  int getgymid(String branch)
-    {
-        int gymid;
-        SQLiteDatabase db= this.getReadableDatabase();
-        Cursor res= db.rawQuery("Select gym_id from gym_details where branch_name=?", new String[]{branch});
-        res.moveToFirst();
-        gymid= res.getInt(res.getColumnIndex("Gym_id"));
-        res.close();
-        db.close();
-        return(gymid);
-
-    }
-
-    public void updateUsersSetGymId(String emailId, String branch){
-      int gym_id=getgymid(branch);
-        SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("Update Users set gym_id  = ? where email=?", new String[]{String.valueOf(gym_id), emailId});
-    } */
     public boolean workoutBooked(String email, int work_id)
     {
         SQLiteDatabase dbReadable=this.getReadableDatabase();
@@ -343,19 +325,35 @@ public class  DBHelper extends SQLiteOpenHelper {
         db.execSQL("Update Users set mem_start_date  = ? , mem_end_date = ? where email=?",
                 new String[]{memStart, memEnd , emailId});
     }
-
-    public String getEndDate(String branch) {
-        int gymId;
-        String endDate;
-        SQLiteDatabase db = this.getReadableDatabase();
-        Cursor res = db.rawQuery("Select gym_id from Gym_details where branch_name=?", new String[]{branch});
+    public List<User> getProfileDetails(String emailid)
+    {
+        List<User> users= new ArrayList<User>();
+        SQLiteDatabase db= this.getReadableDatabase();
+        Cursor res= db.rawQuery("select fname, lname, age, gender, fitness_goal from Users where email=?", new String[]{emailid});
         res.moveToFirst();
-        gymId = res.getInt(0);
-        SQLiteDatabase dbRead = this.getReadableDatabase();
-        Cursor resDate = db.rawQuery("Select mem_end_date from users where branch_id=?", new String[]{String.valueOf(gymId)});
-        resDate.moveToFirst();
-        return resDate.getString(0);
+        while(!res.isAfterLast())
+        {
+            User user= new User();
+            user.setFname(res.getString(0));
+            user.setLname(res.getString(1));
+            user.setAge(res.getInt(2));
+            user.setGen(res.getString(3));
+            user.setFitness(res.getString(4));
+            users.add(user);
+            res.moveToNext();
+        }
+        return(users);
     }
+
+    public String getFname(String emailid){
+        String fname;
+        SQLiteDatabase db=this.getReadableDatabase();
+        Cursor res = db.rawQuery("Select fname from Users where email=?", new String[]{emailid});
+        res.moveToFirst();
+        fname = res.getString(0);
+        return fname;
+    }
+
 }
 
 

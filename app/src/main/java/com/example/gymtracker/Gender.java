@@ -65,7 +65,7 @@ public class Gender extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        db.enterGender("F", email);
+        db.enterGender("Female", email);
         Intent intent = new Intent(this, Goal.class);
         intent.putExtra("email", email);
         startActivity(intent);
@@ -82,7 +82,7 @@ public class Gender extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        db.enterGender("M", email);
+        db.enterGender("Male", email);
         Intent intent = new Intent(this, Goal.class);
         intent.putExtra("email", email);
         startActivity(intent);

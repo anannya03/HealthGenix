@@ -3,11 +3,11 @@ package com.example.gymtracker.db_classes;
 import java.sql.Date;
 public class User {
     long user_id, gym_id;
-    String fname, lname, email, pwd, phno, fitness;
+    String fname, lname, email, pwd, phno, fitness, gen;
     double weight, height, bmi;
     int age;
     Date mem_start, mem_end;
-    char gen;
+
     public User(){}
     public long getUser_id()
     {
@@ -105,11 +105,11 @@ public class User {
     {
         return(fitness);
     }
-    public char getGen()
+    public String getGen()
     {
         return(gen);
     }
-    public void setGen(char gen)
+    public void setGen(String gen)
     {
         this.gen=gen;
     }
