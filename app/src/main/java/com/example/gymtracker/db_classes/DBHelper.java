@@ -13,7 +13,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 public class  DBHelper extends SQLiteOpenHelper {
@@ -113,7 +116,7 @@ public class  DBHelper extends SQLiteOpenHelper {
                         SQLiteDatabase.OPEN_READONLY);
     }
 
-    public boolean createUser(User user)
+    public void createUser(User user)
     {
         SQLiteDatabase db=this.getWritableDatabase();
         ContentValues contentValues= new ContentValues();
@@ -128,19 +131,16 @@ public class  DBHelper extends SQLiteOpenHelper {
         contentValues.put("Age", user.getAge());
         db.insert("Users", null, contentValues);
         db.close();
-        return(true);
     }
-    public boolean enterGender(String gen, String emailid)
+    public void enterGender(String gen, String emailid)
     {
         SQLiteDatabase db= this.getWritableDatabase();
         db.execSQL("Update Users set gender = ? where email=?", new String[]{gen,emailid});
-        return(true);
     }
-    public boolean enterFitnessGoal(String fit_goal, String emailid)
+    public void enterFitnessGoal(String fit_goal, String emailid)
     {
         SQLiteDatabase db= this.getWritableDatabase();
         db.execSQL("Update Users set fitness_goal = ? where email=?", new String[]{fit_goal,emailid});
-        return(true);
     }
     public boolean userExist(String emailid)
     {
@@ -150,6 +150,8 @@ public class  DBHelper extends SQLiteOpenHelper {
         {
             return(true);
         }
+        res.close();
+        db.close();
         return(false);
     }
     public boolean passWordMatch(String pass, String emailid)
@@ -175,7 +177,33 @@ public class  DBHelper extends SQLiteOpenHelper {
         {
             return(true);
         }
+        res.close();
+
         return(false);
+    }
+    public boolean membershipExists(String emailid) throws ParseException {
+        SQLiteDatabase db=this.getReadableDatabase();
+        Cursor res= db.rawQuery("Select mem_end_date from users where email=?", new String[]{emailid});
+        res.moveToFirst();
+        String endingdate= res.getString(0);
+        if(endingdate!=null)
+        {
+            String today= "2020-12-11";
+            SimpleDateFormat sdf= new SimpleDateFormat("yyyy-MM-dd");
+            Date dt1= sdf.parse(today);
+            Date dt2= sdf.parse(endingdate);
+            assert dt2 != null;
+            if(dt2.after(dt1) || dt1.equals(dt2))
+            {
+                return(true);
+            }
+            if(dt2.before(dt1))
+            {
+                return(false);
+            }
+        }
+        return(false);
+
     }
     public int enterWater(String emailid, String track_date, int glasses) {
         int total_glasses, existing_glasses = 0;
@@ -196,7 +224,7 @@ public class  DBHelper extends SQLiteOpenHelper {
             contentValues.put("date_tracked", track_date);
             contentValues.put("water_tracked", glasses);
             db.insert("UserLog", null, contentValues);
-            db.close();
+
             return (glasses);
         }
     }
@@ -232,20 +260,20 @@ public class  DBHelper extends SQLiteOpenHelper {
         goal = res.getString(0);
         return goal;
     }
-    public List<Workouts> getWorkouts(String emailid)
+    public List<Workouts> getWorkouts(String branch)
     {
         List<Workouts> works= new ArrayList<Workouts>();
         SQLiteDatabase db= this.getReadableDatabase();
-        Cursor res= db.rawQuery("select  workout.work_name, workout.work_date, workout.work_time, Gym_details.branch_name, workout.workout_id, workout.booked, workout.capacity from Gym_details, workout, users where Gym_details.gym_id= workout.gym_id and users.gym_id= workout.gym_id and users.email= ?;", new String[]{emailid});
+        Cursor res= db.rawQuery("select   workout.workout_id, workout.work_name, workout.work_date, workout.work_time, Gym_details.branch_name,workout.booked, workout.capacity from Gym_details, workout where Gym_details.gym_id= workout.gym_id and  Gym_details.branch_name=?", new String[]{branch});
         res.moveToFirst();
         while(!res.isAfterLast())
         {
             Workouts work= new Workouts();
-            work.setWork_name(res.getString(0));
-            work.setDate(res.getString(1));
-            work.setTime(res.getString(2));
-            work.setBranch(res.getString(3));
-            work.setWork_id(res.getInt(4));
+            work.setWork_id(res.getInt(0));
+            work.setWork_name(res.getString(1));
+            work.setDate(res.getString(2));
+            work.setTime(res.getString(3));
+            work.setBranch(res.getString(4));
             work.setBooked(res.getInt(5));
             work.setCap(res.getInt(6));
             works.add(work);
@@ -265,28 +293,27 @@ public class  DBHelper extends SQLiteOpenHelper {
         Cursor res = db.rawQuery("Select full_add from Gym_details where branch_name=?", new String[]{branch});
         res.moveToFirst();
         address = res.getString(0);
+        res.close();
         return address;
     }
-    public  int getGymId(String branch)
+   /* public  int getgymid(String branch)
     {
-        SQLiteDatabase dbReadable=this.getReadableDatabase();
-        int gym_id=1010;
-        Cursor res = dbReadable.rawQuery("Select Gym_id from Gym_details where Branch_name=?", new String[]{branch});
-        if(res!=null && res.moveToFirst())
-        {
-            gym_id = res.getInt(0);
-
-        }
-        return(gym_id);
+        int gymid;
+        SQLiteDatabase db= this.getReadableDatabase();
+        Cursor res= db.rawQuery("Select gym_id from gym_details where branch_name=?", new String[]{branch});
+        res.moveToFirst();
+        gymid= res.getInt(res.getColumnIndex("Gym_id"));
+        res.close();
+        db.close();
+        return(gymid);
 
     }
-    public void updateUsersSetGymId(String emailId, String branch){
 
-      int gym_id=getGymId(branch);
+    public void updateUsersSetGymId(String emailId, String branch){
+      int gym_id=getgymid(branch);
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL("Update Users set gym_id  = ? where email=?", new String[]{String.valueOf(gym_id), emailId});
-
-    }
+    } */
     public boolean workoutBooked(String email, int work_id)
     {
         SQLiteDatabase dbReadable=this.getReadableDatabase();

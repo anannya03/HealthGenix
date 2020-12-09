@@ -107,13 +107,14 @@ public class PaymentActivityOneYear extends Activity implements PaymentResultLis
     public void onPaymentSuccess(String razorpayPaymentID) {
         try {
             Toast.makeText(this, "Payment Successful: " + razorpayPaymentID, Toast.LENGTH_SHORT).show();
-            date_tracked= "2020-12-12";
-            SimpleDateFormat sdf= new SimpleDateFormat("yyyy-MM-dd");
+            date_tracked= "2020-12-11";
+            /*SimpleDateFormat sdf= new SimpleDateFormat("yyyy-MM-dd");
             Calendar c= Calendar.getInstance();
             c.setTime(Objects.requireNonNull(sdf.parse(date_tracked)));
             date_tracked= sdf.format(c.getTime());
-            c.add(Calendar.DATE, 365);
-            dateEnd= sdf.format(c.getTime());
+            c.add(Calendar.DATE, 365); */
+
+            dateEnd= "2021-12-10";
             DBHelper db;
             db = new DBHelper(getApplicationContext());
             try {
@@ -123,10 +124,7 @@ public class PaymentActivityOneYear extends Activity implements PaymentResultLis
             catch (Exception e) {
                 e.printStackTrace();
             }
-
-            db.updateUsersSetGymId(branch, email);
             db.updateUsersSetMemDate(date_tracked,dateEnd, email);
-
 
         } catch (Exception e) {
             Log.e(TAG, "Exception in onPaymentSuccess", e);

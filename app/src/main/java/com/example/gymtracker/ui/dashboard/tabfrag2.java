@@ -42,7 +42,7 @@ public class tabfrag2 extends Fragment {
         {
             @Override
             public void onClick(View view) {
-                Intent intent= new Intent(getActivity(), BookWorkout.class);
+                Intent intent= new Intent(getActivity(), BookWorkoutBranch.class);
                  startActivity(intent);
             }
         });

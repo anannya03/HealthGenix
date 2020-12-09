@@ -106,7 +106,7 @@ public class PaymentActivityOneMonth extends Activity implements PaymentResultLi
             int curr_date = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
             int curr_year = Calendar.getInstance().get(Calendar.YEAR);
             int curr_month = Calendar.getInstance().get(Calendar.MONTH);
-            date_tracked= "2020-12-12";
+            date_tracked= "2020-12-11";
             SimpleDateFormat sdf= new SimpleDateFormat("yyyy-MM-dd");
             Calendar c= Calendar.getInstance();
             c.setTime(sdf.parse(date_tracked));
@@ -122,8 +122,9 @@ public class PaymentActivityOneMonth extends Activity implements PaymentResultLi
             catch (Exception e) {
                 e.printStackTrace();
             }
-            db.updateUsersSetGymId(branch, email);
             db.updateUsersSetMemDate(date_tracked, dateEnd, email);
+            db.close();
+
            } catch (Exception e) {
             Log.e(TAG, "Exception in onPaymentSuccess", e);
         }
