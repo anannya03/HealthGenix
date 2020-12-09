@@ -16,31 +16,14 @@
         android:verticalScrollbarPosition="right"
         tools:context=".MainActivity">
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="343dp"
-            android:layout_height="82dp"
-            android:layout_marginTop="128dp"
-            android:layout_marginEnd="28dp"
-            android:fontFamily="sans-serif"
-            android:gravity="center_horizontal"
-            android:singleLine="false"
-            android:text="You have tracked your calories for 10 days."
-            android:textAlignment="textStart"
-            android:textColor="#000000"
-            android:textSize="20sp"
-            android:textStyle="normal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView3"
-            tools:ignore="RtlCompat" />
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="wrap_content"
-            android:layout_height="214dp"
-            android:layout_marginStart="16dp"
-            android:background="#000000"
+            android:layout_width="499dp"
+            android:layout_height="190dp"
 
+            android:background="#000000"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/gym" />
@@ -74,8 +57,7 @@
             android:fontFamily="sans-serif"
             android:gravity="center_horizontal"
             android:singleLine="false"
-            android:text="You have bought a membership at Healthgenix, Jayanagar branch on 10th October 2020. "
-            android:textAlignment="textStart"
+            android:textAlignment="center"
             android:textColor="#000000"
             android:textSize="20sp"
             android:textStyle="normal"
@@ -89,46 +71,39 @@
             android:id="@+id/memenddate"
             android:layout_width="343dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="36dp"
             android:layout_marginEnd="32dp"
-            android:layout_marginRight="32dp"
             android:fontFamily="sans-serif"
             android:gravity="center_horizontal"
             android:singleLine="false"
-            android:text="Your membership at Healthgenix, Jayanagar branch will end at 10th November 2020 "
-            android:textAlignment="textStart"
+            android:textAlignment="center"
             android:textColor="#000000"
             android:textSize="20sp"
             android:textStyle="normal"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/memstartdate"
             tools:ignore="RtlCompat" />
-        <TextView
-            android:id="@+id/trackdetails"
-            android:layout_width="343dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="32dp"
-            android:layout_marginRight="32dp"
-            android:fontFamily="sans-serif"
-            android:gravity="center_horizontal"
-            android:singleLine="false"
-            android:textAlignment="textStart"
-            android:textColor="#000000"
-            android:textSize="20sp"
-            android:textStyle="normal"
+
+        <Button
+            android:id="@+id/generateReport"
+            android:layout_width="159dp"
+            android:layout_height="51dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginEnd="124dp"
+            android:background="@drawable/rounded_edge"
+            android:backgroundTint="#000"
+            android:text="Generate Report"
+            android:textColor="#fff"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/memenddate"
-            tools:ignore="RtlCompat" />
+            app:layout_constraintTop_toBottomOf="@+id/memenddate" />
 
         <ImageView
             android:id="@+id/imageView2"
             android:layout_width="152dp"
             android:layout_height="10dp"
-            android:layout_marginBottom="296dp"
+            android:layout_marginBottom="260dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.435"
             app:layout_constraintStart_toStartOf="parent"
             app:srcCompat="@android:drawable/dialog_holo_dark_frame" />
 
@@ -136,10 +111,9 @@
             android:id="@+id/imageView4"
             android:layout_width="152dp"
             android:layout_height="10dp"
-            android:layout_marginBottom="180dp"
+            android:layout_marginBottom="184dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.435"
             app:layout_constraintStart_toStartOf="parent"
             app:srcCompat="@android:drawable/dialog_holo_dark_frame" />
 

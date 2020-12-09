@@ -104,6 +104,8 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="36dp"
         android:text="#behealthybehappy"
+        android:textStyle="bold"
+        android:textSize="60px"
         android:textColor="#cff000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

@@ -125,6 +125,9 @@ public class PaymentActivityOneMonth extends Activity implements PaymentResultLi
             db.updateUsersSetMemDate(date_tracked, dateEnd, email);
             db.close();
 
+            Intent intent = new Intent(PaymentActivityOneMonth.this, OrderConfirmation.class);
+            startActivity(intent);
+
            } catch (Exception e) {
             Log.e(TAG, "Exception in onPaymentSuccess", e);
         }

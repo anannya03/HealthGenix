@@ -31,19 +31,19 @@
 
     <Button
         android:id="@+id/book"
-        android:layout_width="360dp"
-        android:layout_height="43dp"
+        android:layout_width="327dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/description"
         android:layout_marginStart="28dp"
 
+        android:layout_marginLeft="28dp"
         android:layout_marginTop="36dp"
         android:layout_marginBottom="52dp"
         android:background="@drawable/textbox"
         android:backgroundTint="#000000"
         android:text="PROCEED TO BOOK"
         android:textColor="#ffffff"
-        android:textSize="20dp"
-        
-        android:layout_marginLeft="28dp" />
+
+        android:textSize="20dp" />
 
 </RelativeLayout>

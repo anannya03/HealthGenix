@@ -194,7 +194,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="28dp"
             android:text="Buy"
             app:layout_constraintStart_toEndOf="@+id/textView9"
             app:layout_constraintTop_toTopOf="@+id/textView9" />
@@ -203,14 +203,15 @@
             android:id="@+id/textView11"
             android:layout_width="237dp"
             android:layout_height="65dp"
-            android:layout_marginStart="22dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="44dp"
             android:background="#d0e8f2"
             android:gravity="center_horizontal"
             android:text="Twelve Months Membership"
             android:textAlignment="center"
             android:textColor="#000000"
             android:textSize="22sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.132"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
@@ -218,7 +219,6 @@
             android:id="@+id/textView12"
             android:layout_width="237dp"
             android:layout_height="35dp"
-            android:layout_marginTop="0dp"
             android:background="#d0e8f2"
             android:gravity="center_horizontal"
             android:text="Rs 34,000/-"
@@ -234,10 +234,10 @@
             android:id="@+id/button2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="1020dp"
+            android:layout_marginTop="1040dp"
             android:text="Buy"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.885"
+            app:layout_constraintHorizontal_bias="0.902"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -248,7 +248,7 @@
             android:layout_marginTop="44dp"
             android:fontFamily="sans-serif-condensed"
             android:gravity="center_horizontal"
-            android:text="ADDRESS"
+            android:text="OUR BRANCHES"
             android:textAlignment="center"
             android:textColor="#000000"
             android:textSize="26sp"
@@ -258,37 +258,64 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textView12" />
 
-        <TextView
-            android:id="@+id/textView14"
-            android:layout_width="420dp"
-            android:layout_height="112dp"
-            android:layout_marginTop="0dp"
-            android:gravity="center_horizontal"
-            android:text="House No 49, Sector-2 Gitanjali Nagar \n Behind Sai Mandir, Shankar Nagar \n
-Raipur, Chattisgarh - 492001 INDIA \n Phone no: 9009931900"
-            android:textAlignment="center"
-            android:textColor="#000000"
-            android:textSize="50px"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.495"
+        <Button
+            android:id="@+id/Basavangudi"
+            android:layout_width="137dp"
+            android:layout_height="56dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/rounded_edge"
+            android:backgroundTint="#d0e8f2"
+            android:text="Basavangudi"
+            android:textColor="#000"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textView13" />
+            app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+        <Button
+            android:id="@+id/Jayanagar"
+            android:layout_width="137dp"
+            android:layout_height="56dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/rounded_edge"
+            android:backgroundTint="#d0e8f2"
+            android:text="Jayanagar"
+            android:textColor="#000"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Basavangudi" />
+
+        <Button
+            android:id="@+id/Pune"
+            android:layout_width="137dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="64dp"
+            android:background="@drawable/rounded_edge"
+            android:backgroundTint="#d0e8f2"
+            android:text="Pune"
+            android:textColor="#000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+        <Button
+            android:id="@+id/Raipur"
+            android:layout_width="137dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="64dp"
+            android:background="@drawable/rounded_edge"
+            android:backgroundTint="#d0e8f2"
+            android:text="Raipur"
+            android:textColor="#000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Pune" />
 
         <TextView
-            android:id="@+id/textView15"
-            android:layout_width="420dp"
-            android:layout_height="40dp"
-            android:layout_marginTop="44dp"
-            android:fontFamily="sans-serif-condensed"
-            android:gravity="center_horizontal"
-            android:textAlignment="center"
-            android:textColor="#000000"
-            android:textSize="26sp"
-            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.132"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textView14" />
+            app:layout_constraintTop_toBottomOf="@+id/Raipur" />
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

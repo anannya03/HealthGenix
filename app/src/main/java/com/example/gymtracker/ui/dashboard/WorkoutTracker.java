@@ -128,8 +128,8 @@ public class WorkoutTracker extends AppCompatActivity {
                 total_calories= total_calories+calories;
                 Math.ceil(calories);
                 Math.ceil(total_calories);
-                cals.setText("CALORIES BURNT="+calories);
-                totalcals.setText("TOTAL CALORIES BURNT="+total_calories);
+                cals.setText("CALORIES BURNT = "+calories);
+                totalcals.setText("TOTAL CALORIES BURNT = "+total_calories);
             }
         });
         resetbutton.setOnClickListener(new View.OnClickListener() {

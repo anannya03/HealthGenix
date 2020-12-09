@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.gymtracker">
+
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,19 +11,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.dashboard.BookWorkoutBranch"></activity>
+        <activity android:name=".ui.activity.GenerateReport"
+            android:label="Tracker Report" />
+
+        <activity android:name=".ui.dashboard.BookWorkoutBranch" />
         <activity
             android:name=".ui.dashboard.HiitWorkout"
-            android:label="HIGH INTENSITY INTERVAL TRAINING" />
+            android:label="HIIT Workout" />
         <activity
             android:name=".ui.dashboard.coupleworkouts"
-            android:label="COUPLE WORKOUTS" />
+            android:label="Couple Workout" />
         <activity
             android:name=".ui.dashboard.ArmsAbsWorkout"
-            android:label="ARMS AND ABS WORKOUTS" />
+            android:label="Arms And Core Workout" />
         <activity
             android:name=".ui.dashboard.Fullbodyworkout"
-            android:label="FULL BODY WORKOUTS" />
+            android:label="Full Body Workouts" />
         <activity android:name=".Welcome" />
         <activity android:name=".Processing" />
         <activity android:name=".LogIn" />
@@ -33,7 +38,6 @@
         <activity android:name=".Gender" />
         <activity
             android:name=".ui.settings.TermsOfUse"
-            android:label="TERMS OF USE"
             android:parentActivityName=".NavigationMainActivity" />
         <activity
             android:name=".ui.settings.ResetPassword"
@@ -41,48 +45,50 @@
             android:parentActivityName=".NavigationMainActivity" />
         <activity
             android:name=".ui.settings.LogOut"
-            android:label="LOGOUT" />
+            android:label="Log Out" />
         <activity
             android:name=".ui.settings.ContactUsInstagram"
-            android:label="CONTACT US"
+            android:label="Support Us"
             android:parentActivityName=".NavigationMainActivity" />
         <activity
             android:name=".ui.settings.Contact"
-            android:label="CHANGE DETAILS"
+            android:label="Change Details"
             android:parentActivityName=".NavigationMainActivity" />
         <activity
             android:name=".ui.settings.AboutThisVersion"
-            android:label="SETTINGS"
+            android:label="Settings"
             android:parentActivityName=".NavigationMainActivity" />
         <activity
             android:name=".ui.dashboard.HomeWorkout"
-            android:label="HOME WORKOUTS" />
+            android:label="Home Workout" />
         <activity
             android:name=".ui.dashboard.BookWorkout"
-            android:label="BOOK WORKOUT" />
+            android:label="Book Workout" />
         <activity
             android:name=".ui.dashboard.Thankyou"
-            android:label="THANK YOU" />
+            android:label="Thank You" />
         <activity
             android:name=".ui.dashboard.FoodTracker"
-            android:label="FOOD TRACKER" />
+            android:label="Food Tracker" />
         <activity
             android:name=".ui.dashboard.WorkoutTracker"
-            android:label="WORKOUT TRACKER" />
+            android:label="Workout Tracker" />
         <activity
             android:name=".ui.dashboard.TrackWater"
-            android:label="WATER TRACKER" />
-        <activity android:name=".ui.settings.LogOutAlert"
-            android:label="LOG OUT" />
+            android:label="Water Tracker" />
+        <activity
+            android:name=".ui.settings.LogOutAlert"
+            android:label="Log Out" />
         <activity android:name=".ui.dashboard.PaymentActivitySixMonths" />
         <activity android:name=".ui.dashboard.PaymentActivityOneYear" />
         <activity
             android:name=".NavigationMainActivity"
-            android:label="DASHBOARD"
+            android:label="Dashboard"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Main_Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

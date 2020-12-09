@@ -39,7 +39,6 @@ public class OrderConfirmation extends AppCompatActivity {
     //        end.setText(endDate);
     //    }
 
-        end.setText("123");
 
         button = (Button) findViewById(R.id.goBack);
         button.setOnClickListener(new View.OnClickListener() {
