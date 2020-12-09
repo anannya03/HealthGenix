@@ -132,6 +132,13 @@ public class  DBHelper extends SQLiteOpenHelper {
         db.insert("Users", null, contentValues);
         db.close();
     }
+    public void updateProfile(String emailid, String fname, String lname, int age, double height, double weight, double bmi, String gender)
+    {
+        SQLiteDatabase db= this.getWritableDatabase();
+        db.execSQL("Update Users set fname=?, lname=?, age=?, height=?, weight=?, bmi=?, gender=? where email=?", new String[]{fname, lname, String.valueOf(age), String.valueOf(height), String.valueOf(weight), String.valueOf(bmi), gender, emailid});
+
+
+    }
     public void enterGender(String gen, String emailid)
     {
         SQLiteDatabase db= this.getWritableDatabase();
@@ -345,14 +352,6 @@ public class  DBHelper extends SQLiteOpenHelper {
         return(users);
     }
 
-    public String getFname(String emailid){
-        String fname;
-        SQLiteDatabase db=this.getReadableDatabase();
-        Cursor res = db.rawQuery("Select fname from Users where email=?", new String[]{emailid});
-        res.moveToFirst();
-        fname = res.getString(0);
-        return fname;
-    }
 
 }
 

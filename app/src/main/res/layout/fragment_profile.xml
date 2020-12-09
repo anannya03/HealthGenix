@@ -24,7 +24,7 @@
         app:srcCompat="@drawable/img" />
 
     <EditText
-        android:id="@+id/editTextName"
+        android:id="@+id/editTextFirstName"
         style="@style/Widget.AppCompat.EditText"
         android:layout_width="363dp"
         android:layout_height="40dp"
@@ -34,7 +34,7 @@
         android:background="@drawable/textbox"
         android:ems="10"
         android:fadingEdge="horizontal|vertical"
-        android:hint="Name"
+        android:hint=" First Name"
         android:inputType="textEmailAddress"
         android:padding="10dp"
         android:visibility="visible"
@@ -43,6 +43,27 @@
         app:layout_constraintHorizontal_bias="0.209"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/imageView2" />
+    <EditText
+        android:id="@+id/editTextLastName"
+        style="@style/Widget.AppCompat.EditText"
+        android:layout_width="363dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="270dp"
+        android:background="@drawable/textbox"
+        android:ems="10"
+        android:fadingEdge="horizontal|vertical"
+        android:hint="Last Name"
+        android:inputType="textEmailAddress"
+        android:padding="10dp"
+        android:visibility="visible"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.209"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/editTextFirstName" />
+
 
     <EditText
         android:id="@+id/editTextAge"
@@ -63,7 +84,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.209"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editTextName" />
+        app:layout_constraintTop_toBottomOf="@id/editTextLastName" />
 
 
     <EditText
@@ -162,6 +183,7 @@
         android:ems="10"
         android:fadingEdge="horizontal|vertical"
         android:hint="Goal"
+        android:editable="false"
         android:inputType=""
         android:padding="10dp"
         android:visibility="visible"
@@ -171,26 +193,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/editTextBMI" />
 
-    <EditText
-        android:id="@+id/editTextGoalWeight"
-        style="@style/Widget.AppCompat.EditText"
-        android:layout_width="363dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="84dp"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="270dp"
-        android:background="@drawable/textbox"
-        android:ems="10"
-        android:fadingEdge="horizontal|vertical"
-        android:hint="Goal Weight"
-        android:inputType=""
-        android:padding="10dp"
-        android:visibility="visible"
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.196"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/editTextGoal" />
 
     <Button
         android:id="@+id/submitProfile"
@@ -203,7 +205,7 @@
         android:background="@drawable/textbox"
         android:backgroundTint="#000000"
         android:text="SUBMIT"
-        app:layout_constraintTop_toBottomOf="@id/editTextGoalWeight"
+        app:layout_constraintTop_toBottomOf="@id/editTextGoal"
         android:textColor="#ffffff"
         android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"

@@ -1,5 +1,5 @@
 package com.example.gymtracker.ui.profile;
-
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,11 +25,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProfileFragment extends Fragment {
-    EditText weight, height, bmi, name, age, gender, goal, goalweight;
+    EditText weight, height, bmi, fname, lname, age, gender, goal;
     String email;
     double  wt, ht, bm;
     int agenumber;
-    String namestring, genderstring, goalstring;
+    String fnamestring, lnamestring, genderstring, goalstring;
     List<User> users;
     Button submitButton;
     @Override
@@ -54,20 +54,23 @@ public class ProfileFragment extends Fragment {
         users= db.getProfileDetails(email);
 
         for( User ob:users) {
-            namestring = ""+ob.getFname()+" "+ob.getLname();
+            fnamestring = ob.getFname();
+            lnamestring=ob.getLname();
             goalstring= ob.getFitness();
             genderstring=ob.getGen();
             agenumber= ob.getAge();
         }
-        name= (EditText)view.findViewById(R.id.editTextName);
+        fname= (EditText)view.findViewById(R.id.editTextFirstName);
+        lname=(EditText)view.findViewById(R.id.editTextLastName);
         age= (EditText)view.findViewById(R.id.editTextAge);
         gender=(EditText)view.findViewById(R.id.editTextGender);
         goal= (EditText)view.findViewById(R.id.editTextGoal);
-        name.setText(""+namestring);
+        fname.setText(""+fnamestring);
+        lname.setText(""+lnamestring);
         goal.setText(""+goalstring);
         gender.setText(""+genderstring);
         age.setText(""+agenumber);
-        goalweight=(EditText)view.findViewById(R.id.editTextGoalWeight);
+
         weight= (EditText)view.findViewById(R.id.editTextWeight);
         height=(EditText)view.findViewById(R.id.editTextHeight);
         bmi= (EditText)view.findViewById(R.id.editTextBMI);
@@ -95,6 +98,22 @@ public class ProfileFragment extends Fragment {
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                fnamestring= fname.getText().toString();
+                lnamestring= lname.getText().toString();
+                agenumber= Integer.parseInt(age.getText().toString());
+                genderstring= gender.getText().toString();
+                wt= Double.parseDouble(weight.getText().toString());
+                ht= Double.parseDouble(height.getText().toString());
+                bm= Double.parseDouble(bmi.getText().toString());
+                DBHelper db1;
+                db1 = new DBHelper(getContext());
+                try {
+                    db1.createDatabase();
+                    db1.openDataBase();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                db1.updateProfile(email, fnamestring, lnamestring, agenumber, ht, wt, bm, genderstring);
                 Toast.makeText(getActivity(), "Your profile is updated.", Toast.LENGTH_SHORT).show();
             }
         });
