@@ -115,6 +115,7 @@ public class CustomAdapter extends BaseAdapter {
                                 holder.book.setClickable(false);
                                 holder.book.setEnabled(false);
                                 Intent intent = new Intent(context, Thankyou.class);
+                                intent.putExtra("Email", email);
                                 context.startActivity(intent);
                             }
                         }
