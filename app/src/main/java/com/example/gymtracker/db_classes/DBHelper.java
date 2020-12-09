@@ -13,7 +13,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Random;
 public class  DBHelper extends SQLiteOpenHelper {
@@ -177,6 +180,30 @@ public class  DBHelper extends SQLiteOpenHelper {
         res.close();
 
         return(false);
+    }
+    public boolean membershipExists(String emailid) throws ParseException {
+        SQLiteDatabase db=this.getReadableDatabase();
+        Cursor res= db.rawQuery("Select mem_end_date from users where email=?", new String[]{emailid});
+        res.moveToFirst();
+        String endingdate= res.getString(0);
+        if(endingdate!=null)
+        {
+            String today= "2020-12-11";
+            SimpleDateFormat sdf= new SimpleDateFormat("yyyy-MM-dd");
+            Date dt1= sdf.parse(today);
+            Date dt2= sdf.parse(endingdate);
+            assert dt2 != null;
+            if(dt2.after(dt1) || dt1.equals(dt2))
+            {
+                return(true);
+            }
+            if(dt2.before(dt1))
+            {
+                return(false);
+            }
+        }
+        return(false);
+
     }
     public int enterWater(String emailid, String track_date, int glasses) {
         int total_glasses, existing_glasses = 0;

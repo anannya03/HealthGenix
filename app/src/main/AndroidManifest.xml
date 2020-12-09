@@ -75,9 +75,6 @@
         <activity
             android:name=".ui.dashboard.TrackWater"
             android:label="WATER TRACKER" />
-        <activity
-            android:name=".ui.dashboard.GymBrowse"
-            android:label="BROWSE MEMBERSHIPS" />
         <activity android:name=".ui.dashboard.PaymentActivitySixMonths" />
         <activity android:name=".ui.dashboard.PaymentActivityOneYear" />
         <activity
