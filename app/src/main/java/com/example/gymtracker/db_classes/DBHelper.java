@@ -161,6 +161,11 @@ public class  DBHelper extends SQLiteOpenHelper {
         db.close();
         return(false);
     }
+    public void setPhno(String emailid, String phno)
+    {
+        SQLiteDatabase db= this.getWritableDatabase();
+        db.execSQL("Update Users set phno = ? where email=?", new String[]{phno,emailid});
+    }
     public boolean passWordMatch(String pass, String emailid)
     {
         SQLiteDatabase db= this.getReadableDatabase();
