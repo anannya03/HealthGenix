@@ -3,16 +3,11 @@ import java.sql.Date;
 public class User_log {
     int entry_id;
     String email_id;
-    Date date;
+    String date_tracked;
     double consumed_cal, burnt_cal;
     int water_tracked;
     User_log()
     {}
-    User_log(int entry_id, int user_id, Date date)
-    {
-        this.entry_id=entry_id;
-        this.date=date;
-    }
     public int getEntry_id()
     {
         return(entry_id);
@@ -22,9 +17,9 @@ public class User_log {
     {
         return(water_tracked);
     }
-    public Date getDate()
+    public String getDate()
     {
-        return(date);
+        return(date_tracked);
     }
     public double getConsumed_cal()
     {
@@ -41,9 +36,9 @@ public class User_log {
     public void setEmail_id(String email_id){
         this.email_id= email_id;
     }
-    public void setDate(Date date)
+    public void setDate(String date_tracked)
     {
-        this.date=date;
+        this.date_tracked=date_tracked;
     }
     public void setConsumed_cal(double consumed_cal)
     {

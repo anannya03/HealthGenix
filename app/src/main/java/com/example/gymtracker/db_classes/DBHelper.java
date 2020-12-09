@@ -356,6 +356,45 @@ public class  DBHelper extends SQLiteOpenHelper {
         }
         return(users);
     }
+    public String getMemStart(String emailid)
+    {
+        String memstartdate;
+        SQLiteDatabase db=this.getReadableDatabase();
+        Cursor res = db.rawQuery("Select mem_start_date from Users where email=?", new String[]{emailid});
+        res.moveToFirst();
+        memstartdate = res.getString(0);
+        res.close();
+        return(memstartdate);
+    }
+    public String getMemEnd(String emailid)
+    {
+        String memenddate;
+        SQLiteDatabase db=this.getReadableDatabase();
+        Cursor res = db.rawQuery("Select mem_end_date from Users where email=?", new String[]{emailid});
+        res.moveToFirst();
+        memenddate = res.getString(0);
+        res.close();
+        return(memenddate);
+
+    }
+    public List<User_log> getTrackedDetails(String emailid)
+    {
+        List<User_log> logs= new ArrayList<User_log>();
+        SQLiteDatabase db= this.getReadableDatabase();
+        Cursor res= db.rawQuery("select water_tracked, burnt_cal, date_tracked from UserLog where email_id=?", new String[]{emailid});
+        res.moveToFirst();
+        while(!res.isAfterLast())
+        {
+            User_log log= new User_log();
+            log.setWater_tracked(res.getInt(0));
+            log.setBurnt_cal(res.getDouble(1));
+            log.setDate(res.getString(2));
+            logs.add(log);
+            res.moveToNext();
+        }
+        return(logs);
+    }
+
 
 
 }
