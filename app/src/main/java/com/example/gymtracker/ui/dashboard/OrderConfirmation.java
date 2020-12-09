@@ -13,13 +13,18 @@ import com.example.gymtracker.R;
 import com.example.gymtracker.db_classes.DBHelper;
 
 public class OrderConfirmation extends AppCompatActivity {
-    String endDate;
+    String endDate, startDate;
+    String email;
     Button button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_confirmation);
         TextView end = (TextView) findViewById(R.id.end);
+        Bundle bundle= getIntent().getExtras();
+        email= bundle.getString("email");
+        startDate= bundle.getString("date_start");
+        endDate=bundle.getString("date_end");
         DBHelper db;
         db = new DBHelper(getApplicationContext());
         try {
@@ -29,17 +34,8 @@ public class OrderConfirmation extends AppCompatActivity {
         catch (Exception e) {
             e.printStackTrace();
         }
-//        Bundle bundle= getIntent().getExtras();
-//        String branch= bundle.getString("Branch");
-        //endDate = db.getEndDate(branch);
-   //     if(endDate.equals("null")){
-   //         end.setText("Not there");
-   //     }
-   //     else{
-    //        end.setText(endDate);
-    //    }
-
-        end.setText("123");
+        db.updateUsersSetMemDate(startDate, endDate, email);
+        end.setText("Your membership ends on "+ endDate);
 
         button = (Button) findViewById(R.id.goBack);
         button.setOnClickListener(new View.OnClickListener() {
@@ -52,6 +48,7 @@ public class OrderConfirmation extends AppCompatActivity {
 
     private void ProcessingPage() {
         Intent intent = new Intent(OrderConfirmation.this, NavigationMainActivity.class);
+        intent.putExtra("email", email);
         startActivity(intent);
     }
 }

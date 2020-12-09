@@ -115,16 +115,12 @@ public class PaymentActivityOneYear extends Activity implements PaymentResultLis
             c.add(Calendar.DATE, 365); */
 
             dateEnd= "2021-12-10";
-            DBHelper db;
-            db = new DBHelper(getApplicationContext());
-            try {
-                db.createDatabase();
-                db.openDataBase();
-            }
-            catch (Exception e) {
-                e.printStackTrace();
-            }
-            db.updateUsersSetMemDate(date_tracked,dateEnd, email);
+            Intent intent= new Intent(PaymentActivityOneYear.this, OrderConfirmation.class);
+            intent.putExtra("email", email);
+            intent.putExtra("date_start", date_tracked);
+            intent.putExtra("date_end", dateEnd);
+            startActivity(intent);
+
 
         } catch (Exception e) {
             Log.e(TAG, "Exception in onPaymentSuccess", e);

@@ -102,7 +102,7 @@ public class PaymentActivityOneMonth extends Activity implements PaymentResultLi
     @Override
     public void onPaymentSuccess(String razorpayPaymentID) {
         try {
-            Toast.makeText(this, "Payment Successful: " + razorpayPaymentID +"\n Branch: "+branch+"\nEmail:"+email, Toast.LENGTH_SHORT).show();
+
             int curr_date = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
             int curr_year = Calendar.getInstance().get(Calendar.YEAR);
             int curr_month = Calendar.getInstance().get(Calendar.MONTH);
@@ -113,17 +113,11 @@ public class PaymentActivityOneMonth extends Activity implements PaymentResultLi
             date_tracked= sdf.format(c.getTime());
             c.add(Calendar.DATE, 30);
             dateEnd= sdf.format(c.getTime());
-            DBHelper db;
-            db = new DBHelper(getApplicationContext());
-            try {
-                db.createDatabase();
-                db.openDataBase();
-            }
-            catch (Exception e) {
-                e.printStackTrace();
-            }
-            db.updateUsersSetMemDate(date_tracked, dateEnd, email);
-            db.close();
+            Intent intent= new Intent(PaymentActivityOneMonth.this, OrderConfirmation.class);
+            intent.putExtra("email", email);
+            intent.putExtra("date_start", date_tracked);
+            intent.putExtra("date_end", dateEnd);
+            startActivity(intent);
 
            } catch (Exception e) {
             Log.e(TAG, "Exception in onPaymentSuccess", e);

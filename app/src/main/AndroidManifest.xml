@@ -20,6 +20,10 @@
             android:name=".ui.dashboard.ArmsAbsWorkout"
             android:label="ARMS AND ABS WORKOUTS" />
         <activity
+            android:name=".ui.dashboard.OrderConfirmation"
+            android:label="MEMBERSHIP CONFIRMED" />
+
+        <activity
             android:name=".ui.dashboard.Fullbodyworkout"
             android:label="FULL BODY WORKOUTS" />
         <activity android:name=".Welcome" />

@@ -111,17 +111,11 @@ public class PaymentActivitySixMonths extends Activity implements PaymentResultL
             date_tracked= sdf.format(c.getTime());
             c.add(Calendar.DATE, 180);
             dateEnd= sdf.format(c.getTime());
-            DBHelper db;
-            db = new DBHelper(getApplicationContext());
-            try {
-                db.createDatabase();
-                db.openDataBase();
-            }
-            catch (Exception e) {
-                e.printStackTrace();
-            }
-            db.updateUsersSetMemDate(date_tracked, dateEnd, email);
-
+            Intent intent= new Intent(PaymentActivitySixMonths.this, OrderConfirmation.class);
+            intent.putExtra("email", email);
+            intent.putExtra("date_start", date_tracked);
+            intent.putExtra("date_end", dateEnd);
+            startActivity(intent);
         } catch (Exception e) {
             Log.e(TAG, "Exception in onPaymentSuccess", e);
         }
