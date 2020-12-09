@@ -18,8 +18,6 @@ import com.example.gymtracker.db_classes.DBHelper;
 public class Contact extends AppCompatActivity {
     EditText contactphone, emailsettings;
     String phno;
-
-
     private Button button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +27,6 @@ public class Contact extends AppCompatActivity {
         emailsettings= (EditText)findViewById(R.id.settingsemail);
         final String email= NavigationMainActivity.login_email;
         emailsettings.setText(email);
-
         button = (Button) findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,7 +44,6 @@ public class Contact extends AppCompatActivity {
                 Toast.makeText(Contact.this, "Phone number updated", Toast.LENGTH_SHORT).show();
             }
         });
-
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item){

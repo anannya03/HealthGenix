@@ -25,8 +25,6 @@ public class ActivityFragment extends Fragment {
         super.onCreate(savedInstanceState);
         setRetainInstance(true);
     }
-
-
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {

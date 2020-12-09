@@ -79,21 +79,6 @@
         app:layout_constraintHorizontal_bias="0.216"
         app:layout_constraintStart_toStartOf="parent" />
 
-
-        <TextView
-            android:id="@+id/forgotPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="213dp"
-            android:layout_marginLeft="213dp"
-            android:layout_marginTop="36dp"
-            android:text="Forgotten your password?"
-            android:textSize="40px"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/editTextPassword" />
-
         <Button
         android:id="@+id/logIn"
         android:layout_width="360dp"
@@ -106,7 +91,6 @@
         android:text="Log In"
         android:textColor="#ffffff"
         android:textSize="20dp"
-
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
 
@@ -121,7 +105,7 @@
             android:textSize="16dp"
             android:textStyle="italic"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/forgotPassword"
+            app:layout_constraintTop_toBottomOf="@id/editTextPassword"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView

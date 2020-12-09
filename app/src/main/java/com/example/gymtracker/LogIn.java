@@ -18,7 +18,7 @@ public class LogIn extends AppCompatActivity {
     TextView joinUs;
     EditText email, pass;
     String email_text, pass_text;
-    TextView forgotPassword;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,22 +77,14 @@ public class LogIn extends AppCompatActivity {
                 openJoinUs();
             }
         });
-        forgotPassword = (TextView) findViewById(R.id.forgotPassword);
-        forgotPassword.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openForgotPassword();
-            }
-        });
+
+
     }
     boolean isEmpty(EditText text) {
         CharSequence str = text.getText().toString();
         return TextUtils.isEmpty(str);
     }
-    private void openForgotPassword() {
-        Intent intent = new Intent(this, ForgottenPassword.class);
-        startActivity(intent);
-    }
+
     private void openJoinUs() {
         Intent intent = new Intent(this, JoinUs.class);
         startActivity(intent);

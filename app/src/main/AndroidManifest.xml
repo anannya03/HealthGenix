@@ -31,7 +31,6 @@
         <activity android:name=".GetStartedLog" />
         <activity android:name=".GetStartedJoin" />
         <activity android:name=".Gender" />
-        <activity android:name=".ForgottenPassword" />
         <activity
             android:name=".ui.settings.TermsOfUse"
             android:label="TERMS OF USE"
