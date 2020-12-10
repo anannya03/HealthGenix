@@ -119,9 +119,6 @@ public class PaymentActivityOneMonth extends Activity implements PaymentResultLi
             intent.putExtra("date_end", dateEnd);
             startActivity(intent);
 
-            Intent intent = new Intent(PaymentActivityOneMonth.this, OrderConfirmation.class);
-            startActivity(intent);
-
            } catch (Exception e) {
             Log.e(TAG, "Exception in onPaymentSuccess", e);
         }

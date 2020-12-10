@@ -33,7 +33,7 @@ public class SettingsFragment extends Fragment
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_settings, container, false);
-        final String[] settings = {"Contact", "Support Us", "About This Version", "Terms Of Use", "Log Out" };
+        final String[] settings = {"Reset Password", "Contact", "Support Us", "About This Version", "Terms Of Use", "Log Out" };
         listView = (ListView) view.findViewById(R.id.lv);
         final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(getActivity().getApplicationContext(),
                 android.R.layout.simple_list_item_1, settings);
@@ -41,23 +41,27 @@ public class SettingsFragment extends Fragment
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                if(position==0){
-                    Intent intent = new Intent(getActivity(), Contact.class);
+                if(position == 0){
+                    Intent intent = new Intent(getActivity(), ResetPassword.class);
                     startActivity(intent);
                 }
                 if(position==1){
-                    Intent intent = new Intent(getActivity(), ContactUsInstagram.class);
+                    Intent intent = new Intent(getActivity(), Contact.class);
                     startActivity(intent);
                 }
                 if(position==2){
-                    Intent intent = new Intent(getActivity(), AboutThisVersion.class);
+                    Intent intent = new Intent(getActivity(), ContactUsInstagram.class);
                     startActivity(intent);
                 }
                 if(position==3){
-                    Intent intent = new Intent(getActivity(), TermsOfUse.class);
+                    Intent intent = new Intent(getActivity(), AboutThisVersion.class);
                     startActivity(intent);
                 }
                 if(position==4){
+                    Intent intent = new Intent(getActivity(), TermsOfUse.class);
+                    startActivity(intent);
+                }
+                if(position==5){
                     showPopup();
                 }
             }

@@ -395,6 +395,21 @@ public class  DBHelper extends SQLiteOpenHelper {
         return(logs);
     }
 
+    public void updatePassword(String email, String password){
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("Update Users set pwd  = ? where email=?",
+                new String[]{password, email});
+    }
+
+    public String getPassword(String email){
+        String oldPassword;
+        SQLiteDatabase db=this.getReadableDatabase();
+        Cursor res = db.rawQuery("Select pwd from Users where email=?", new String[]{email});
+        res.moveToFirst();
+        oldPassword = res.getString(0);
+        res.close();
+        return(oldPassword);
+    }
 
 
 }
