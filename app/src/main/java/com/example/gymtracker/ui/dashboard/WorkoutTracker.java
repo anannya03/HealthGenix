@@ -35,7 +35,6 @@ public class WorkoutTracker extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_workout_tracker);
-
         entertime=(TextView)findViewById(R.id.entertime);
         enterweight=(TextView)findViewById(R.id.enterweight);
         timeentry=(EditText)findViewById(R.id.timeentry);

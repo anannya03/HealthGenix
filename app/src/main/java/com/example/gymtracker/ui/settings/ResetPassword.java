@@ -25,7 +25,7 @@ public class ResetPassword extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reset_password);
         email = NavigationMainActivity.login_email;
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         submit = (Button) findViewById(R.id.button);
         oldPwd = (EditText) findViewById(R.id.oldPassword);
         DBHelper db;

@@ -42,26 +42,26 @@
         <activity android:name=".Gender" />
         <activity
             android:name=".ui.settings.TermsOfUse"
-            android:parentActivityName=".NavigationMainActivity" />
+             />
         <activity
             android:name=".ui.settings.ResetPassword"
             android:label="RESET PASSWORD"
-            android:parentActivityName=".NavigationMainActivity" />
+             />
         <activity
             android:name=".ui.settings.LogOut"
             android:label="Log Out" />
         <activity
             android:name=".ui.settings.ContactUsInstagram"
             android:label="Support Us"
-            android:parentActivityName=".NavigationMainActivity" />
+             />
         <activity
             android:name=".ui.settings.Contact"
             android:label="Change Details"
-            android:parentActivityName=".NavigationMainActivity" />
+             />
         <activity
             android:name=".ui.settings.AboutThisVersion"
             android:label="Settings"
-            android:parentActivityName=".NavigationMainActivity" />
+             />
         <activity
             android:name=".ui.dashboard.HomeWorkout"
             android:label="Home Workout" />

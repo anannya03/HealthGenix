@@ -17,7 +17,7 @@ public class ContactUsInstagram extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact_us_instagram);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
     }
     public void browser(View view) {
         Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.instagram.com/healthgenix.fit/"));

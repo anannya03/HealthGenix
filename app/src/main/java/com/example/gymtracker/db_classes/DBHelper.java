@@ -221,11 +221,13 @@ public class  DBHelper extends SQLiteOpenHelper {
         int total_glasses, existing_glasses = 0;
         SQLiteDatabase db = this.getWritableDatabase();
         if (entryExist(emailid, track_date)) {
-            Cursor res = db.rawQuery("Select water_tracked from UserLog where email_id=? and date_tracked=?", new String[]{emailid, track_date});
+            Cursor res = db.rawQuery("Select water_tracked from UserLog where email_id=? and date_tracked=?",
+                    new String[]{emailid, track_date});
             res.moveToFirst();
             existing_glasses = res.getInt(0);
             total_glasses = existing_glasses + glasses;
-            db.execSQL("Update UserLog set water_tracked=? where email_id=? and date_tracked=?", new String[]{String.valueOf(total_glasses), emailid, track_date});
+            db.execSQL("Update UserLog set water_tracked=? where email_id=? and date_tracked=?",
+                    new String[]{String.valueOf(total_glasses), emailid, track_date});
             return (total_glasses);
         } else {
             ContentValues contentValues = new ContentValues();
@@ -276,7 +278,9 @@ public class  DBHelper extends SQLiteOpenHelper {
     {
         List<Workouts> works= new ArrayList<Workouts>();
         SQLiteDatabase db= this.getReadableDatabase();
-        Cursor res= db.rawQuery("select   workout.workout_id, workout.work_name, workout.work_date, workout.work_time, Gym_details.branch_name,workout.booked, workout.capacity from Gym_details, workout where Gym_details.gym_id= workout.gym_id and  Gym_details.branch_name=?", new String[]{branch});
+        Cursor res= db.rawQuery("select   workout.workout_id, workout.work_name, workout.work_date, workout.work_time," +
+                " Gym_details.branch_name,workout.booked, workout.capacity from Gym_details, workout where Gym_details.gym_id= workout.gym_id " +
+                "and  Gym_details.branch_name=?", new String[]{branch});
         res.moveToFirst();
         while(!res.isAfterLast())
         {
