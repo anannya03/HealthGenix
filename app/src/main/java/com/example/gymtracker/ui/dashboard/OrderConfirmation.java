@@ -34,20 +34,8 @@ public class OrderConfirmation extends AppCompatActivity {
         catch (Exception e) {
             e.printStackTrace();
         }
-
-//        Bundle bundle= getIntent().getExtras();
-//        String branch= bundle.getString("Branch");
-        //endDate = db.getEndDate(branch);
-   //     if(endDate.equals("null")){
-   //         end.setText("Not there");
-   //     }
-   //     else{
-    //        end.setText(endDate);
-    //    }
-
         db.updateUsersSetMemDate(startDate, endDate, email);
         end.setText("Your membership ends on "+ endDate);
-
         button = (Button) findViewById(R.id.goBack);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,7 +44,6 @@ public class OrderConfirmation extends AppCompatActivity {
             }
         });
     }
-
     private void ProcessingPage() {
         Intent intent = new Intent(OrderConfirmation.this, NavigationMainActivity.class);
         intent.putExtra("email", email);

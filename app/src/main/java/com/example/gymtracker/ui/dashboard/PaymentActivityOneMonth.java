@@ -118,7 +118,6 @@ public class PaymentActivityOneMonth extends Activity implements PaymentResultLi
             intent.putExtra("date_start", date_tracked);
             intent.putExtra("date_end", dateEnd);
             startActivity(intent);
-
            } catch (Exception e) {
             Log.e(TAG, "Exception in onPaymentSuccess", e);
         }

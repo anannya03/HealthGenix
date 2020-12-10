@@ -3,6 +3,7 @@ package com.example.gymtracker;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.Menu;
+import android.widget.TextView;
 
 import com.example.gymtracker.R;
 import com.google.android.material.navigation.NavigationView;
@@ -20,6 +21,7 @@ public class NavigationMainActivity extends AppCompatActivity implements Navigat
 
     private AppBarConfiguration mAppBarConfiguration;
     public static String login_email;
+    TextView tv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +29,8 @@ public class NavigationMainActivity extends AppCompatActivity implements Navigat
         setContentView(R.layout.activity_navigation);
         Bundle bundle= getIntent().getExtras();
         login_email= bundle.getString("email");
+        
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

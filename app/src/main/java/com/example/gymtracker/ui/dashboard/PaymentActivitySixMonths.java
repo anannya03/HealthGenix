@@ -131,7 +131,6 @@ public class PaymentActivitySixMonths extends Activity implements PaymentResultL
             Log.e(TAG, "Exception in onPaymentSuccess", e);
         }
     }
-
     /**
      * The name of the function has to be
      * onPaymentError

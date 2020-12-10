@@ -109,7 +109,7 @@ public class tabfrag4 extends Fragment {
                         e.printStackTrace();
                     }
                     if (db1.membershipExists(email)) {
-                        Toast.makeText(getContext(), "You already have a membership at HealthGenix! You will be able to buy another one only after your current membership expires.", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getContext(), "You already have a membership at HealthGenix!" +" You will be able to buy another one only after your current membership expires.", Toast.LENGTH_LONG).show();
                     } else {
                         PaymentPageOneYear();
                     }
