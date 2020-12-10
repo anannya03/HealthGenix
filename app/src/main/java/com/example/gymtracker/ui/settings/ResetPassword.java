@@ -19,6 +19,7 @@ public class ResetPassword extends AppCompatActivity {
     public Button submit;
     EditText pwd, confirmPwd, oldPwd;
     String email;
+    String oldPassword;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,35 +37,38 @@ public class ResetPassword extends AppCompatActivity {
         catch (Exception e) {
             e.printStackTrace();
         }
-        String oldPassword = db.getPassword(email );
-        if(oldPassword != oldPwd.getText().toString()){
-            Toast.makeText(ResetPassword.this, "Enter correct password", Toast.LENGTH_LONG).show();
-            return;
-        }
+         oldPassword = db.getPassword(email );
+        db.close();
 
         confirmPwd = (EditText) findViewById(R.id.confirmPassword);
         pwd = (EditText) findViewById(R.id.newPassword);
-        if(pwd != confirmPwd){
-            Toast.makeText(ResetPassword.this, "Confirmed Password is not same as new password", Toast.LENGTH_LONG).show();
-            return;
-        }
+
 
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String password = confirmPwd.getText().toString();
-                Toast.makeText(ResetPassword.this, "Submitted", Toast.LENGTH_SHORT).show();
-                DBHelper db;
-                db = new DBHelper(getApplicationContext());
-                try {
-                    db.createDatabase();
-                    db.openDataBase();
+
+                if (!(pwd.getText().toString().equals(confirmPwd.getText().toString()))) {
+                    Toast.makeText(ResetPassword.this, "Confirmed Password is not same as new password", Toast.LENGTH_LONG).show();
+                    return;
                 }
-                catch (Exception e) {
-                    e.printStackTrace();
+                if (!(oldPassword.equals(oldPwd.getText().toString()))) {
+                    Toast.makeText(ResetPassword.this, "Enter correct password", Toast.LENGTH_LONG).show();
+                    return;
+                } else {
+                    Toast.makeText(ResetPassword.this, "Submitted", Toast.LENGTH_SHORT).show();
+                    DBHelper db;
+                    db = new DBHelper(getApplicationContext());
+                    try {
+                        db.createDatabase();
+                        db.openDataBase();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    db.updatePassword(email, password);
+                    db.close();
                 }
-                db.updatePassword(email,password );
-                db.close();
             }
         });
     }
