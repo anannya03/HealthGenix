@@ -78,7 +78,7 @@ public class PaymentActivitySixMonths extends Activity implements PaymentResultL
             //You can omit the image option to fetch the image from dashboard
             options.put("image", "https://s3.amazonaws.com/rzp-mobile/images/rzp.png");
             options.put("currency", "INR");
-            options.put("amount", "300000");
+            options.put("amount", "1800000");
 
             JSONObject preFill = new JSONObject();
             preFill.put("email", "healthgenix@gmail.com");
@@ -111,16 +111,6 @@ public class PaymentActivitySixMonths extends Activity implements PaymentResultL
             date_tracked= sdf.format(c.getTime());
             c.add(Calendar.DATE, 180);
             dateEnd= sdf.format(c.getTime());
-            DBHelper db;
-            db = new DBHelper(getApplicationContext());
-            try {
-                db.createDatabase();
-                db.openDataBase();
-            }
-            catch (Exception e) {
-                e.printStackTrace();
-            }
-            db.updateUsersSetMemDate(date_tracked, dateEnd, email);
             Intent intent= new Intent(PaymentActivitySixMonths.this, OrderConfirmation.class);
             intent.putExtra("email", email);
             intent.putExtra("date_start", date_tracked);
