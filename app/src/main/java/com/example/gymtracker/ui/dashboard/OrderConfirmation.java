@@ -14,13 +14,14 @@ import com.example.gymtracker.db_classes.DBHelper;
 
 public class OrderConfirmation extends AppCompatActivity {
     String endDate, startDate;
+    TextView end;
     String email;
     Button button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_confirmation);
-        TextView end = (TextView) findViewById(R.id.end);
+        end = (TextView) findViewById(R.id.end);
         Bundle bundle= getIntent().getExtras();
         email= bundle.getString("email");
         startDate= bundle.getString("date_start");

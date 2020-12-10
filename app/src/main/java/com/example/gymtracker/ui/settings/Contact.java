@@ -1,4 +1,4 @@
-package com.example.gymtracker.ui.settings;
+    package com.example.gymtracker.ui.settings;
 
 import androidx.appcompat.app.AppCompatActivity;
 

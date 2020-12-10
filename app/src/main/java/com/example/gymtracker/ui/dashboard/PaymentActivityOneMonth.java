@@ -62,15 +62,8 @@ public class PaymentActivityOneMonth extends Activity implements PaymentResultLi
     }
 
     public void startPayment() {
-        //checkout.setKeyID("<YOUR_KEY_ID>");
-        /*
-
-          You need to pass current activity in order to let Razorpay create CheckoutActivity
-         */
         final Activity activity = this;
-
         final Checkout co = new Checkout();
-
         try {
             JSONObject options = new JSONObject();
             options.put("name", "HealthGenix");
@@ -79,13 +72,10 @@ public class PaymentActivityOneMonth extends Activity implements PaymentResultLi
             options.put("image", "https://s3.amazonaws.com/rzp-mobile/images/rzp.png");
             options.put("currency", "INR");
             options.put("amount", "300000");
-
             JSONObject preFill = new JSONObject();
             preFill.put("email", "healthgenix@gmail.com");
             preFill.put("contact", "9009931900");
-
             options.put("prefill", preFill);
-
             co.open(activity, options);
         } catch (Exception e) {
             Toast.makeText(activity, "Error in payment: " + e.getMessage(), Toast.LENGTH_SHORT)
