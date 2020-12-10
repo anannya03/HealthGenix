@@ -16,11 +16,12 @@ public class OrderConfirmation extends AppCompatActivity {
     String endDate, startDate;
     String email;
     Button button;
+    TextView end;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_order_confirmation);
-        TextView end = (TextView) findViewById(R.id.end);
+         end = (TextView) findViewById(R.id.end);
         Bundle bundle= getIntent().getExtras();
         email= bundle.getString("email");
         startDate= bundle.getString("date_start");
