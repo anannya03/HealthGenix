@@ -1,5 +1,6 @@
 
 package com.example.gymtracker.ui.dashboard;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -83,7 +84,13 @@ public class CustomAdapter extends BaseAdapter {
                 }
                 try {
                     if (!db1.membershipExists(email)) {
-                        Toast.makeText(context, "Please buy a membership at HealthGenix before booking a workout!", Toast.LENGTH_LONG).show();
+                        AlertDialog.Builder alert = new AlertDialog.Builder(context);
+                        alert.setMessage("Please buy a membership at HealthGenix before booking a workout!")
+                                .setNeutralButton("OK", null);
+                        AlertDialog alert1 = alert.create();
+                        alert1.show();
+
+                        Toast.makeText(context, "", Toast.LENGTH_LONG).show();
                     } else {
 
                         DBHelper db;
@@ -95,10 +102,21 @@ public class CustomAdapter extends BaseAdapter {
                             e.printStackTrace();
                         }
                         if (db.workoutBooked(email, work_id)) {
-                            Toast.makeText(context, "You have already made a booking for this workout! ", Toast.LENGTH_LONG).show();
+                            AlertDialog.Builder alert = new AlertDialog.Builder(context);
+                            alert.setMessage("You have already made a booking for this workout!")
+                                    .setNeutralButton("OK", null);
+                            AlertDialog alert1 = alert.create();
+                            alert1.show();
+
+                            Toast.makeText(context, " ", Toast.LENGTH_LONG).show();
                         } else {
                             if (booked >= cap) {
-                                Toast.makeText(context, "Sorry, This workout just reached its limit. Try booking another one", Toast.LENGTH_LONG).show();
+                                AlertDialog.Builder alert = new AlertDialog.Builder(context);
+                                alert.setMessage("Sorry, This workout just reached its limit. Try booking another one")
+                                        .setNeutralButton("OK", null);
+                                AlertDialog alert1 = alert.create();
+                                alert1.show();
+
                             } else {
                                 booked = booked + 1;
                                 DBHelper db2;

@@ -85,7 +85,12 @@ public class tabfrag4 extends Fragment {
                         e.printStackTrace();
                     }
                     if (db2.membershipExists(email)) {
-                        Toast.makeText(getContext(), "You already have a membership at HealthGenix! You will be able to buy another one only after your current membership expires.", Toast.LENGTH_LONG).show();
+                        AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
+                        alert.setMessage("You already have a membership at HealthGenix! You will be able to buy another one only after your current membership expires.")
+                                .setNeutralButton("OK", null);
+                        AlertDialog alert1 = alert.create();
+                        alert1.show();
+
                     }
                     else
                     {
@@ -109,7 +114,12 @@ public class tabfrag4 extends Fragment {
                         e.printStackTrace();
                     }
                     if (db1.membershipExists(email)) {
-                        Toast.makeText(getContext(), "You already have a membership at HealthGenix!" +" You will be able to buy another one only after your current membership expires.", Toast.LENGTH_LONG).show();
+                        AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
+                        alert.setMessage("You already have a membership at HealthGenix! You will be able to buy another one only after your current membership expires.")
+                                .setNeutralButton("OK", null);
+                        AlertDialog alert1 = alert.create();
+                        alert1.show();
+
                     } else {
                         PaymentPageOneYear();
                     }
@@ -132,7 +142,13 @@ public class tabfrag4 extends Fragment {
                     }
                     if(db.membershipExists(email))
                     {
-                        Toast.makeText(getContext(), "You already have a membership at HealthGenix! You will be able to buy another one only after your current membership expires.", Toast.LENGTH_LONG).show();
+                        AlertDialog.Builder alert = new AlertDialog.Builder(getActivity());
+                        alert.setMessage("You already have a membership at HealthGenix! You will be able to buy another one only after your current membership expires.")
+                                .setNeutralButton("OK", null);
+                        AlertDialog alert1 = alert.create();
+                        alert1.show();
+
+
                     }
                     else {
                         PaymentPageSixMonths();

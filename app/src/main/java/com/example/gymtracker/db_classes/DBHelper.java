@@ -20,7 +20,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Random;
 public class  DBHelper extends SQLiteOpenHelper {
-    public static final String DATABASE_NAME="Health.db";
+    public static final String DATABASE_NAME="Health_final.db";
     public static final int DATABASE_VERSION=1;
     public static String DB_PATH="";
     public long user_id;
