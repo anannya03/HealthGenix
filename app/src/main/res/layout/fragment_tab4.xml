@@ -259,10 +259,23 @@
             app:layout_constraintTop_toBottomOf="@id/textView12" />
 
         <Button
+            android:id="@+id/Pune"
+            android:layout_width="137dp"
+            android:layout_height="56dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="52dp"
+            android:background="@drawable/rounded_edge"
+            android:backgroundTint="#d0e8f2"
+            android:text="Pune"
+            android:textColor="#000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+        <Button
             android:id="@+id/Basavangudi"
             android:layout_width="137dp"
             android:layout_height="56dp"
-            android:layout_marginStart="40dp"
+            android:layout_marginStart="48dp"
             android:layout_marginTop="16dp"
             android:background="@drawable/rounded_edge"
             android:backgroundTint="#d0e8f2"
@@ -275,7 +288,7 @@
             android:id="@+id/Jayanagar"
             android:layout_width="137dp"
             android:layout_height="56dp"
-            android:layout_marginStart="40dp"
+            android:layout_marginStart="48dp"
             android:layout_marginTop="16dp"
             android:background="@drawable/rounded_edge"
             android:backgroundTint="#d0e8f2"
@@ -285,24 +298,11 @@
             app:layout_constraintTop_toBottomOf="@+id/Basavangudi" />
 
         <Button
-            android:id="@+id/Pune"
-            android:layout_width="137dp"
-            android:layout_height="56dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="64dp"
-            android:background="@drawable/rounded_edge"
-            android:backgroundTint="#d0e8f2"
-            android:text="Pune"
-            android:textColor="#000"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView13" />
-
-        <Button
             android:id="@+id/Raipur"
             android:layout_width="137dp"
             android:layout_height="56dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="64dp"
+            android:layout_marginEnd="52dp"
             android:background="@drawable/rounded_edge"
             android:backgroundTint="#d0e8f2"
             android:text="Raipur"

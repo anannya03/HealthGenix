@@ -33,7 +33,7 @@ public class PaymentActivityOneYear extends Activity implements PaymentResultLis
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_payment_one_month);
+        setContentView(R.layout.activity_payment_six_months);
         //setContentView();
         Bundle bundle= getIntent().getExtras();
         branch= bundle.getString("Branch");
@@ -107,14 +107,14 @@ public class PaymentActivityOneYear extends Activity implements PaymentResultLis
     public void onPaymentSuccess(String razorpayPaymentID) {
         try {
             Toast.makeText(this, "Payment Successful: " + razorpayPaymentID, Toast.LENGTH_SHORT).show();
-            date_tracked= "2020-12-11";
+            date_tracked= "2024-06-29";
             /*SimpleDateFormat sdf= new SimpleDateFormat("yyyy-MM-dd");
             Calendar c= Calendar.getInstance();
             c.setTime(Objects.requireNonNull(sdf.parse(date_tracked)));
             date_tracked= sdf.format(c.getTime());
             c.add(Calendar.DATE, 365); */
 
-            dateEnd= "2021-12-10";
+            dateEnd= "2025-06-28";
             Intent intent= new Intent(PaymentActivityOneYear.this, OrderConfirmation.class);
             intent.putExtra("email", email);
             intent.putExtra("date_start", date_tracked);

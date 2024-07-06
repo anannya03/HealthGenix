@@ -96,7 +96,7 @@ public class PaymentActivityOneMonth extends Activity implements PaymentResultLi
             int curr_date = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
             int curr_year = Calendar.getInstance().get(Calendar.YEAR);
             int curr_month = Calendar.getInstance().get(Calendar.MONTH);
-            date_tracked= "2020-12-11";
+            date_tracked= "2024-06-29";
             SimpleDateFormat sdf= new SimpleDateFormat("yyyy-MM-dd");
             Calendar c= Calendar.getInstance();
             c.setTime(sdf.parse(date_tracked));

@@ -74,6 +74,7 @@ import com.example.gymtracker.R;
 import com.example.gymtracker.db_classes.DBHelper;
 import com.example.gymtracker.db_classes.User_log;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -106,7 +107,12 @@ public class GenerateReport extends AppCompatActivity{
             glass = ob.getWater_tracked();
             burntcal=ob.getBurnt_cal();
             date_tracked= ob.getDate();
-            tracklogs=tracklogs+" \n\nYou have tracked "+glass+" glasses of water on "+date_tracked+"\n\nYou burnt "+burntcal+" calories "+" on "+date_tracked;
+//            String[] dateArray = date_tracked.split("/");
+//            String newDatee = dateArray[1];
+//            int newdate = Integer.parseInt(newDatee) + 1;
+//            date_tracked = dateArray[0] + "/" + String.valueOf(newdate) + "/" + dateArray[2];
+
+            tracklogs=tracklogs+" \n\nYou have tracked "+glass+" glasses of water on "+ date_tracked+"\n\nYou burnt "+burntcal+" calories "+" on "+date_tracked;
         }
         trackCalories.setText(tracklogs);
     }

@@ -8,12 +8,14 @@ repositories {
 }
 
 android {
-    compileSdkVersion 29
+    namespace 'com.example.gymtracker'
+
+    compileSdkVersion 31
 
     defaultConfig {
         applicationId "com.example.gymtracker"
         minSdkVersion 19
-        targetSdkVersion 29
+        targetSdkVersion 31
         versionCode 1
         versionName "1.0"
 

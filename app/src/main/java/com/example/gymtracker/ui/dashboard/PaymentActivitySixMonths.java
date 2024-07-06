@@ -30,7 +30,7 @@ public class PaymentActivitySixMonths extends Activity implements PaymentResultL
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_payment_six_months);
+        setContentView(R.layout.activity_payment_three_month);
         //setContentView();
         Bundle bundle= getIntent().getExtras();
         branch= bundle.getString("Branch");
@@ -104,7 +104,7 @@ public class PaymentActivitySixMonths extends Activity implements PaymentResultL
     public void onPaymentSuccess(String razorpayPaymentID) {
         try {
             Toast.makeText(this, "Payment Successful: " + razorpayPaymentID, Toast.LENGTH_SHORT).show();
-            date_tracked= "2020-12-12";
+            date_tracked= "2024-06-29";
             SimpleDateFormat sdf= new SimpleDateFormat("yyyy-MM-dd");
             Calendar c= Calendar.getInstance();
             c.setTime(sdf.parse(date_tracked));

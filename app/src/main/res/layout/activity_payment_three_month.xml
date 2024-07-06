@@ -65,9 +65,8 @@
                 android:layout_gravity="center_horizontal"
                 android:paddingTop="0dp"
                 android:paddingBottom="5dp"
-                android:textSize="20sp"
-                android:text="One Month HealthGenix Membership"
-                />
+                android:text="One Year HealthGenix Membership"
+                android:textSize="20sp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -75,9 +74,8 @@
                 android:layout_gravity="center_horizontal"
                 android:paddingTop="0dp"
                 android:paddingBottom="0dp"
-                android:textSize="12sp"
-                android:text="INR 3000.00"
-                />
+                android:text="INR 34000.00"
+                android:textSize="12sp" />
 
             <TextView
                 android:layout_width="wrap_content"

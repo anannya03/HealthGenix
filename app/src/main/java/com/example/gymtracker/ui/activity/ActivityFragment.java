@@ -51,7 +51,7 @@ public class ActivityFragment extends Fragment {
         }
         memstartstring=db.getMemStart(email);
         memendstring=db.getMemEnd(email);
-        memstart.setText("You took your HealthGenix membership on  "+memstartstring);
+        memstart.setText("You took your HealthGenix membership on  "+ memstartstring);
         memend.setText("Your membership will end on "+memendstring);
 
         Button button = (Button) view.findViewById(R.id.generateReport);

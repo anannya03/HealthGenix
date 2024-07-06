@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.gymtracker">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -12,25 +13,30 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ui.activity.GenerateReport"
-            android:label="Tracker Report" />
+            android:label="Tracker Report" android:exported="true" />
 
-        <activity android:name=".ui.dashboard.BookWorkoutBranch" />
+        <activity android:name=".ui.dashboard.BookWorkoutBranch" android:exported="true" />
         <activity
             android:name=".ui.dashboard.HiitWorkout"
-            android:label="HIIT Workout" />
+            android:label="HIIT Workout"
+            android:exported="true" />
         <activity
             android:name=".ui.dashboard.coupleworkouts"
-            android:label="Couple Workout" />
+            android:label="Couple Workout"
+            android:exported="true" />
         <activity
             android:name=".ui.dashboard.ArmsAbsWorkout"
-            android:label="Arms And Core Workout" />
+            android:label="Arms And Core Workout"
+            android:exported="true" />
         <activity
             android:name=".ui.dashboard.OrderConfirmation"
-            android:label="MEMBERSHIP CONFIRMED" />
+            android:label="MEMBERSHIP CONFIRMED"
+            android:exported="true" />
 
         <activity
             android:name=".ui.dashboard.Fullbodyworkout"
-            android:label="Full Body Workouts" />
+            android:label="Full Body Workouts"
+            android:exported="true" />
         <activity android:name=".Welcome" />
         <activity android:name=".Processing" />
         <activity android:name=".LogIn" />
@@ -41,56 +47,72 @@
         <activity android:name=".GetStartedJoin" />
         <activity android:name=".Gender" />
         <activity
-            android:name=".ui.settings.TermsOfUse"
+            android:name=".ui.settings.TermsOfUse" android:exported="true"
              />
         <activity
             android:name=".ui.settings.ResetPassword"
             android:label="RESET PASSWORD"
+            android:exported="true"
              />
         <activity
             android:name=".ui.settings.LogOut"
-            android:label="Log Out" />
+            android:label="Log Out"
+            android:exported="true" />
         <activity
             android:name=".ui.settings.ContactUsInstagram"
             android:label="Support Us"
+            android:exported="true"
              />
         <activity
             android:name=".ui.settings.Contact"
             android:label="Change Details"
+            android:exported="true"
              />
         <activity
             android:name=".ui.settings.AboutThisVersion"
             android:label="Settings"
+            android:exported="true"
              />
         <activity
             android:name=".ui.dashboard.HomeWorkout"
-            android:label="Home Workout" />
+            android:label="Home Workout"
+            android:exported="true"
+            />
         <activity
             android:name=".ui.dashboard.BookWorkout"
-            android:label="Book Workout" />
+            android:label="Book Workout"
+            android:exported="true"
+            />
         <activity
             android:name=".ui.dashboard.Thankyou"
-            android:label="Thank You" />
+            android:label="Thank You"
+            android:exported="true"
+            />
         <activity
             android:name=".ui.dashboard.FoodTracker"
-            android:label="Food Tracker" />
+            android:label="Food Tracker" android:exported="true"
+            />
         <activity
             android:name=".ui.dashboard.WorkoutTracker"
-            android:label="Workout Tracker" />
+            android:label="Workout Tracker"
+            android:exported="true" />
         <activity
             android:name=".ui.dashboard.TrackWater"
-            android:label="Water Tracker" />
+            android:label="Water Tracker"
+            android:exported="true" />
         <activity
             android:name=".ui.settings.LogOutAlert"
-            android:label="Log Out" />
-        <activity android:name=".ui.dashboard.PaymentActivitySixMonths" />
-        <activity android:name=".ui.dashboard.PaymentActivityOneYear" />
+            android:label="Log Out"
+            android:exported="true" />
+        <activity android:name=".ui.dashboard.PaymentActivitySixMonths" android:exported="true" />
+        <activity android:name=".ui.dashboard.PaymentActivityOneYear" android:exported="true" />
         <activity
             android:name=".NavigationMainActivity"
             android:label="Dashboard"
             android:parentActivityName=".LogIn"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Main_Activity">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:exported="true" />
+        <activity android:name=".Main_Activity" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -99,11 +121,20 @@
         </activity>
         <activity
             android:name=".ui.dashboard.PaymentActivityOneMonth"
-            android:label="Purchase" />
+            android:label="Purchase" android:exported="true" />
+
+        <activity android:name="com.razorpay.CheckoutActivity"
+            android:exported="true"> <!-- Set this according to your usage -->
+        </activity>
+
+        <!-- Explicit declaration for Razorpay Token Receiver -->
+        <receiver android:name="com.razorpay.RzpTokenReceiver"
+            android:exported="true"> <!-- Set this according to your usage -->
+        </receiver>
 
         <meta-data
             android:name="com.razorpay.ApiKey"
-            android:value="rzp_test_rnw2nOaPgjE7S3" />
+            android:value="rzp_test_rnw2nOaPgjE7S3" android:exported="true" />
     </application>
 
 </manifest>
